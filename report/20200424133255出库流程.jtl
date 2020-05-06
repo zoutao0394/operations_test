@@ -1,0 +1,33 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1587706378531,327,获取账号,200,OK,出库流程 1-1,text,true,,14,0,1,1,null,324,0,320
+1587706378862,13,锁定账号,200,OK,出库流程 1-1,text,true,,9,0,1,1,null,12,0,0
+1587706378875,2,获取仓库及会员信息,200,OK,出库流程 1-1,text,true,,131,0,1,1,null,1,0,0
+1587706378879,3,获取oms配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,3,0,0
+1587706378883,1,获取wi配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378884,1,获取basic配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378886,1,获取os配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378887,1,获取opw配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378888,1,获取op配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378889,1,获取opr配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706378890,1,获取master配置信息,200,OK,出库流程 1-1,text,true,,27,0,1,1,null,1,0,0
+1587706379994,124,登陆,200,OK,出库流程 1-1,text,true,,13940,2539,1,1,http://172.16.20.6:8090/Login?appKey=670b14728ad9902aecba32e22fa4dd34,78,0,27
+1587706379994,78,登陆-0,302,Found,出库流程 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,78,0,27
+1587706380079,30,登陆-1,302,Found,出库流程 1-1,text,true,,516,873,1,1,http://172.16.20.6:8090/Home/Index,30,0,0
+1587706380109,9,登陆-2,200,OK,出库流程 1-1,text,true,,12355,908,1,1,http://172.16.20.6:8090/Login?appKey=670b14728ad9902aecba32e22fa4dd34,9,0,0
+1587706381125,11,获取出库单号,200,OK,出库流程 1-1,text,true,,510,934,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAccept/getWareHouseOutCode,11,0,2
+1587706381143,12,获取商品信息,200,OK,出库流程 1-1,text,true,,510,1300,1,1,http://172.16.20.6:8015/DataCenter/WarehouseStorageSearch/QueryStorage?sortName=FactAmount&sortOrder=desc&pageSize=10&pageNumber=1&MemberNo=0010000114&MemberID=26520&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&BarCode=&Stand=&FactAmountMin=&FactAmountMax=&OperateAmountMin=&OperateAmountMax=&HoldAmountMin=&HoldAmountMax=&LockAmountMin=&LockAmountMax=&CommodityName=&CommodityCode=&Code=&PageSize=20&PageCurrent=1,12,0,0
+1587706382265,14,新增出库单,200,OK,出库流程 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""保存成功！""],/",510,1453,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAccept/saveWareHouseOut,14,0,0
+1587706383296,13,查询出库单信息,200,OK,出库流程 1-1,text,true,,510,1254,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-04-24+00%3A00%3A00+&EndTime=+2020-04-24+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,13,0,2
+1587706384312,13,自动审核,200,OK,出库流程 1-1,text,true,,510,967,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/AutoCheck,13,0,0
+1587706454328,14,进入下架页面,200,OK,出库流程 1-1,text,true,,510,977,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,14,0,2
+1587706455344,13,创建下架3,200,OK,出库流程 1-1,text,true,,510,966,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,13,0,0
+1587706456359,12,创建下架保存,200,OK,出库流程 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""保存成功！""],/",510,1030,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/SubmitDownShelf,12,0,2
+1587706457359,0,查看出库单内下架信息,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in query at index 78: http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=${OutID}&wareHouseId=26519&sort=&order=asc,出库流程 1-1,text,false,,1271,0,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=${OutID}&wareHouseId=26519&sort=&order=asc,0,0,0
+1587706458375,10,获取系统推荐批次,200,OK,出库流程 1-1,text,true,,510,1060,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,10,0,2
+1587706459375,10,下架完成,200,OK,出库流程 1-1,text,false,"Test failed: text expected to contain /""Success"":true,/",510,1029,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/DownShelves,10,0,0
+1587706460391,21,获取封箱信息,200,OK,出库流程 1-1,text,true,,510,954,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/getPackingTestInfo,21,0,1
+1587706460418,21,确认封箱,200,OK,出库流程 1-1,text,true,,510,918,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/saveOutBox,20,0,0
+1587706461437,37,完成质检,200,OK,出库流程 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""完成质检成功！""],/",510,954,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/completeOutBox,37,0,0
+1587706462469,11,确认出库,200,OK,出库流程 1-1,text,true,,510,1004,1,1,http://172.16.20.6:8015/LogisticsCode/LogisticsCode/LogisticsCodeJudge,11,0,2
+1587706463484,10,出库完成,200,OK,出库流程 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""确认成功！""],""/",510,991,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,10,0,0
+1587706463494,4,释放登陆账号,200,OK,出库流程 1-1,text,true,,9,0,1,1,null,4,0,1
