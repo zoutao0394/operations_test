@@ -5,25 +5,9 @@ import time
 import datetime
 import config
 import requests
-import pymysql
 
-con = pymysql.connect(
-    host='172.16.20.5',
-    port=33306,
-    user='testuser',
-    password='123456',
-    database='autotest'
 
-)
 
-conn = pymysql.connect(
-    host='172.16.20.27',
-    port=3316,
-    user='WMS_Write',
-    password='UnipsWW@5771.com',
-    database='imlrequest'
-
-)
 # cursor = con.cursor()
 #
 # sql = "select operations from auto_testcase"

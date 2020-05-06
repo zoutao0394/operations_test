@@ -1,12 +1,26 @@
 # encoding:utf-8
-setting = ['wi','wa','op','opr','opw','master','basic','wp']
+import pymysql
 
-wi = ['入库流程','出库流程','库内操作']
-wa =  ['订单处理流程','订单生产流程','入库流程','出库流程','库内操作','反馈测试结果']
-op = ['订单处理流程','订单生产流程','反馈测试结果']
-opr = ['订单处理流程','订单生产流程','反馈测试结果']
-opw = ['订单处理流程','订单生产流程','反馈测试结果']
-master = ['订单处理流程','订单生产流程','入库流程','出库流程','库内操作','页面控件及查询','反馈测试结果']
-basic =  ['订单处理流程','订单生产流程','入库流程','出库流程','库内操作','页面控件及查询','反馈测试结果']
-wp = ['入库流程','出库流程','库内操作','反馈测试结果']
+con = pymysql.connect(
+    host='172.16.20.5',
+    port=33306,
+    user='testuser',
+    password='123456',
+    database='autotest'
+
+)
+
+
+conn = pymysql.connect(
+    host='172.16.20.27',
+    port=3316,
+    user='WMS_Write',
+    password='UnipsWW@5771.com',
+    database='imlrequest'
+
+)
+
+
+setting = ['WMS','ERP','TMS','WES','MES']
+
 

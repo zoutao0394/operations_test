@@ -13,18 +13,7 @@ app = Flask(__name__)
 @app.route('/<site_name>')
 def star_test(site_name):
 
-    if site_name in config.setting:
-        rpl=control.run(site_name)
-        # time.sleep(150)
-        # for rp in rpl:
-        #     rst= control.ana_report(rp)
-        #     result=result+rst
-
-        return "测试已启动"
-
-    else:
-        return '站点不存在'
-
+    pass
 
 @app.route('/select_environment/<select_environment>')
 def change_environment(select_environment):
