@@ -5,6 +5,7 @@ import time
 import datetime
 import config
 import requests
+from config import *
 
 
 
