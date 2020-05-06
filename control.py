@@ -159,6 +159,7 @@ def createconfig(user,info):
     # print(infolist)
     # print(infolist[0],infolist[1],infolist[2],infolist[3],infolist[4],infolist[5])
 
+
     sql1 = " insert into auto_warehouemember values (%s,'%s',%s,'%s','%s',(select environmentid from auto_environment where environmentname = '%s' ),0)"%(infolist[0],infolist[1],infolist[2],infolist[3],infolist[4],infolist[5])
 
     cursor = con.cursor()
@@ -185,7 +186,7 @@ def createconfig(user,info):
 if __name__ == '__main__':
     # changeconfig('zoutao','新百伦测试仓1004')
 
-    createconfig('25297,测试仓库1003,25307,测试会员1003,0010000217,测试环境')
+    createconfig('zoutao','25301,测试仓库1007,25311,测试会员1007,0010000221,测试环境')
     # cursor = con.cursor()
     # for i in a:
     #     for o in b:

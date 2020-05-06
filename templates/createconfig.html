@@ -2,16 +2,22 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>创建测试仓库会员</title>
+    <title>创建测试仓库</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
 <from>
-    仓库ID：<input type="text">
-    仓库名：<input type="text">
-    会员ID：<input type="text">
-    会员名：<input type="text">
-    所属用户：<input type="text">
-    <subumit>提交</subumit>
+    仓库ID：<input type="text" name="warehouseID"><br>
+    仓库名：<input type="text" name="warehousename"><br>
+    会员ID：<input type="text" name="memberID"><br>
+    会员名：<input type="text" name="membername"><br>
+    会员号：<input type="text" name="memberno"><br>
+    <input type="radio" name="sex" value="test" checked>测试环境
+    <input type="radio" name="sex" value="uat" checked>uat环境
+    <input type="radio" name="sex" value="prd">正式环境
+    <br>
+    <br>
+   <input name="submit" type="submit" value="提交"/>
 
 </from>
 

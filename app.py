@@ -1,6 +1,8 @@
 # encoding:utf-8
-from flask import Flask
+from flask import Flask,request,render_template
 import control,config
+
+
 import time
 
 
@@ -42,15 +44,23 @@ def change_config(username,warehousename):
 
 
 
-@app.route('/create/<username>/<info>')
-def create_config(username,info):
-    try:
-        control.createconfig(username,info)
-        return '新增成功'
+@app.route('/createconfig',methods=['GET','POST'])
+def create_config():
+    if request.method == 'GET':
 
-    except BaseException:
+        return render_template('createconfig.html')
 
-        return '新增失败'
+    else:
+        username = "a"
+        info = "b"
+        try:
+            control.createconfig(username, info)
+            return '新增成功'
+
+        except BaseException:
+
+            return '新增失败'
+
 
 
 
