@@ -171,7 +171,7 @@ def createconfig(user,info):
 if __name__ == '__main__':
     # changeconfig('zoutao','新百伦测试仓1004')
 
-    createconfig('zoutao','25301,测试仓库1007,25311,测试会员1007,0010000221,测试环境')
+    createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
     # cursor = con.cursor()
     # for i in a:
     #     for o in b:

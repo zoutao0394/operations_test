@@ -1073,7 +1073,7 @@ vars.put(&quot;commondity&quot;,keywordStr);</stringProp>
         </hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建订单" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">100</stringProp>
+          <stringProp name="LoopController.loops">1</stringProp>
         </LoopController>
         <hashTree>
           <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="oms默认配置" enabled="true">
@@ -1204,7 +1204,7 @@ vars.put(&quot;commondity&quot;,keywordStr);</stringProp>
                 <elementProp name="pageNumber" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">pageNumber</stringProp>
-                  <stringProp name="Argument.value">5</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -1337,7 +1337,7 @@ vars.put(&quot;commondity&quot;,keywordStr);</stringProp>
                 <elementProp name="PageCurrent" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">PageCurrent</stringProp>
-                  <stringProp name="Argument.value">5</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>

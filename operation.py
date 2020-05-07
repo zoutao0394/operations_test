@@ -1,6 +1,9 @@
 # encoding:utf-8
 from page_operation.basic import Login
 
+
+
+
 print('请输入登录用户名')
 user = input()
 print('请输入登录密码')
@@ -16,6 +19,7 @@ print('开始测试')
 test = Login(user, password, url)
 
 test.login()
+
 test.system(systemname)
 test.index(modulename)
 # test.indexdetail(test.index())
