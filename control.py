@@ -171,21 +171,7 @@ def createconfig(user,info):
 if __name__ == '__main__':
     # changeconfig('zoutao','新百伦测试仓1004')
 
-    createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
-    # cursor = con.cursor()
-    # for i in a:
-    #     for o in b:
-    #         for p in c:
-    #             sql = create_operation(i, o, p)
-    #             cursor.execute(sql)
-    # con.commit()
-    # cursor.close()
-    # con.close()
+    # createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
 
 
-
-    # run('wi')
-#     # # ana_report()
-#
-#     payload = {'websiteName': 'wi', 'acrionType': '0'}
-#     requests.get('http://211.95.87.221:1500/RelaseCommand', params=payload)
+    print()

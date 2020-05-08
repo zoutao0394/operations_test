@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3f45e60-e983-4987-a8cd-0b115b30c19f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JmeterScript/订单处理流程.jmx" beforeDir="false" afterPath="$PROJECT_DIR$/JmeterScript/订单处理流程.jmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic.py" beforeDir="false" />
+    <list default="true" id="e3f45e60-e983-4987-a8cd-0b115b30c19f" name="Default Changelist" comment="优化页面检测脚本">
       <change beforePath="$PROJECT_DIR$/control.py" beforeDir="false" afterPath="$PROJECT_DIR$/control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/operation.py" beforeDir="false" afterPath="$PROJECT_DIR$/operation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_operation/basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_operation/basic.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,10 +64,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="177" column="25" lean-forward="true" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
+            <state relative-caret-position="1069">
+              <caret line="176" column="11" lean-forward="true" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
               <folding>
                 <element signature="e#17#26#0" expanded="true" />
+                <element signature="e#1740#2957#0" />
+                <element signature="e#3237#3635#0" />
               </folding>
             </state>
           </provider>
@@ -124,14 +120,14 @@
         <option value="$PROJECT_DIR$/log/loging.txt" />
         <option value="$PROJECT_DIR$/log/2020-05-06.txt" />
         <option value="$PROJECT_DIR$/log/2020-05-07.log" />
-        <option value="$PROJECT_DIR$/control.py" />
         <option value="$PROJECT_DIR$/page_operation/basic.py" />
+        <option value="$PROJECT_DIR$/control.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="325" />
-    <option name="y" value="140" />
+    <option name="x" value="171" />
+    <option name="y" value="144" />
     <option name="width" value="1328" />
     <option name="height" value="947" />
   </component>
@@ -154,11 +150,6 @@
               <item name="operations_test" type="b2602c69:ProjectViewProjectNode" />
               <item name="operations_test" type="462c0819:PsiDirectoryNode" />
               <item name="JmeterScript" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="operations_test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="operations_test" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,7 +190,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.basic">
+  <component name="RunManager" selected="Python.control">
     <configuration name="basic" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="operations_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -307,8 +298,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.basic" />
         <item itemvalue="Python.control" />
+        <item itemvalue="Python.basic" />
         <item itemvalue="Python.operation" />
         <item itemvalue="Python.testcasemanage" />
         <item itemvalue="Python.task" />
@@ -340,11 +331,18 @@
       <option name="project" value="LOCAL" />
       <updated>1588740753425</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="优化页面检测脚本">
+      <created>1588840494883</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588840494883</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="325" y="140" width="1328" height="947" extended-state="0" />
+    <frame x="171" y="144" width="1328" height="947" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496124" />
@@ -369,7 +367,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pycharm提交" />
     <MESSAGE value="合并UI和API脚本" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并UI和API脚本" />
+    <MESSAGE value="优化页面检测脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化页面检测脚本" />
   </component>
   <component name="WindowStateProjectService">
     <state x="237" y="86" key="FileChooserDialogImpl" timestamp="1587692537667">
@@ -488,10 +487,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/control.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="177" column="25" lean-forward="true" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
+        <state relative-caret-position="1069">
+          <caret line="176" column="11" lean-forward="true" selection-start-line="176" selection-start-column="11" selection-end-line="176" selection-end-column="11" />
           <folding>
             <element signature="e#17#26#0" expanded="true" />
+            <element signature="e#1740#2957#0" />
+            <element signature="e#3237#3635#0" />
           </folding>
         </state>
       </provider>
