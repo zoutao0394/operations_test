@@ -23,32 +23,19 @@ from config import *
 #         print(u)
 # print(result)
 
-def ana_report(filename):
-    report = open('./static/%s.jtl'%filename,'r' ,encoding='UTF-8')
 
-    n = 0
-    for rpt in report:
-        if 'false'  in rpt:
-            n += 1
-    if n > 0 :
-        # payload = {'websiteName': 'wi', 'acrionType': '0'}
-        # requests.post('http://211.95.87.221:1500/RelaseCommand',params = payload)
-        return '{%s:测试失败}'%filename
-
-    else:
-        # requests.post('http://211.95.87.221:1500/RelaseCommand', data={'key': 'value'})
-        return '{%s:测试成功}'%filename
-
-def run(environment):
+def run(path):
     reportlist = []
-    for i in eval('config.%s'%environment):
+    tasklist = os.listdir('./JmeterScript/%s'%path)
+    for i in tasklist:
         t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
         filename = t + i
-        sub = subprocess.Popen(
-            'jmeter -Jpara1=1 -Jpara2=1 -n -t ./JmeterScript/%s.jmx -l ./report/%s.jtl -e -o ./report/%s' % (i, filename,filename),
-            shell=True)
+        # subprocess.Popen(
+        #     'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (i, filename,filename),
+        #     shell=True)
+        os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (i, filename,filename))
         reportlist.append(filename)
-    return print(reportlist)
+    return reportlist
 
 def select_environment(environment):
     if environment == 'test':
@@ -169,23 +156,8 @@ def createconfig(user,info):
 
 
 if __name__ == '__main__':
-    # changeconfig('zoutao','新百伦测试仓1004')
+    # changeconfig('zoutao','自动化测试专用仓')
 
-    createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
-    # cursor = con.cursor()
-    # for i in a:
-    #     for o in b:
-    #         for p in c:
-    #             sql = create_operation(i, o, p)
-    #             cursor.execute(sql)
-    # con.commit()
-    # cursor.close()
-    # con.close()
+    # createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
 
-
-
-    # run('wi')
-#     # # ana_report()
-#
-#     payload = {'websiteName': 'wi', 'acrionType': '0'}
-#     requests.get('http://211.95.87.221:1500/RelaseCommand', params=payload)
+    run('WMS')

@@ -21,7 +21,7 @@ def log(func):
         result = func(*args,**kw)
         time2 = time()
         time3 = time2-time1
-        with open('../log/%s.log'%now_day, 'a', encoding='utf-8') as loging:
+        with open('./log/%s.log'%now_day, 'a', encoding='utf-8') as loging:
             day = datetime.datetime.now()
             new_time = str(day)[:19]
             loging.write('%s 开始执行%s:总用时%d 秒。\n运行结果：\n%s \n' % (new_time, func.__name__,time3,result))
@@ -29,10 +29,7 @@ def log(func):
     return wrapper
 
 
-@log
-def testlog():
-    sleep(2)
-    return '测试通过'
+
 
 
 
@@ -72,7 +69,7 @@ class Login():
             return "登录失败"
 
 
-    # def index(self,module,modulelist = [],error = []):
+    # def index(self,module,modulelist = [],error = []):   #不切换页面进行页面检查
     #
     #     n = 0
     #     control = True
@@ -159,17 +156,10 @@ class Login():
         return elelist
 
 
-    # def c_module(self,element,elelist=[]):
-    #     xpaths = element.find_elements_by_css_selector()
-    #
-    #     for xpath in xpaths:
-    #         elelist.append(xpath)
-    #         # elename.append(xpath.text)
-    #
-    #     return elelist
 
 
-    def index(self,clickmodule=[], error=[]):
+
+    def index(self,clickmodule=[]):
         a = self.a_module()
 
         for eles in a:
@@ -193,18 +183,22 @@ class Login():
         print(addlist)
         if len(addlist)>0:
             for element in addlist:
-                ActionChains(self.driver).move_to_element(element[0]).perform()
+                try:
+                    ActionChains(self.driver).move_to_element(element[0]).perform()
 
-                title = element[1].text
-                element[1].find_element_by_css_selector('[class="glyphicon glyphicon-edit"]').click()
-                # sleep(3)
-                handles = self.driver.window_handles
-                self.driver.switch_to.window(handles[-1])
-                sleep(2)
-                if title != self.driver.title:
-                    error += '%s-打开失败'%element[1].text
-                self.driver.close()
-                self.driver.switch_to.window(handles[0])
+                    title = element[1].text
+                    element[1].find_element_by_css_selector('[class="glyphicon glyphicon-edit"]').click()
+                    sleep(1)
+                    handles = self.driver.window_handles
+                    self.driver.switch_to.window(handles[-1])
+                    sleep(1)
+                    # if title != self.driver.title:
+                    #     error += '%s-打开失败\n' % element[1].text
+                    self.driver.close()
+                    self.driver.switch_to.window(handles[0])
+                except BaseException:
+                    error += '%s 页面导致元素丢失'% element[1].text
+                    return error
 
         if len(error)>1:
             return error
