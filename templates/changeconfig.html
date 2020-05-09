@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>配置变更</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+<!--.dad{width:600px;height:200px;border:#30F solid 2px;}-->
+
+.dad{
+    display: flex;
+<!--    justify-content: center;-->
+    flex-wrap: wrap;
+<!--    flex-wrap: nowrap-->
+}
+</style>
+</head>
+<body>
+<h1>选择环境</h1>
+<br>
+<br>
+
+    <form action="/change_config" method="post">
+<div class="dad">
+{% for v in a %}
+<div class="dad">
+   <ul> {{v[1]}}<input type="radio" name="warehousename" value={{v[1]}}>
+   {% for w in v[:-2] %}
+
+       <li>{{ w }}</li>
+
+    {% endfor %}
+
+   </ul>
+
+
+</div>
+
+{% endfor %}
+    </div>
+     <input type="submit" value="确认">
+
+</form>
+
+
+</body>
+</html>
