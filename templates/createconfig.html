@@ -6,21 +6,34 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-<from>
+
+
+<form action="/createconfig" method="post" >
     仓库ID：<input type="text" name="warehouseID"><br>
     仓库名：<input type="text" name="warehousename"><br>
     会员ID：<input type="text" name="memberID"><br>
     会员名：<input type="text" name="membername"><br>
     会员号：<input type="text" name="memberno"><br>
+    用户名：<input type="text" name="user"><br>
     <input type="radio" name="sex" value="test" checked>测试环境
     <input type="radio" name="sex" value="uat" checked>uat环境
     <input type="radio" name="sex" value="prd">正式环境
     <br>
     <br>
-   <input name="submit" type="submit" value="提交"/>
-
-</from>
-
+   <input type="submit" value="提交" />
+</form>
+<!--<script type="text/javascript">-->
+<!--    function beforeSubmit() {-->
+<!--        var username = document.getElementById('username').value;-->
+<!--        var password = document.getElementById('password').value;-->
+<!--        if (username.length < 6 || password.length < 6) {-->
+<!--            alert('格式不正确！');-->
+<!--            return false;-->
+<!--        } else {-->
+<!--            return true;-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 
 </body>
 </html>
