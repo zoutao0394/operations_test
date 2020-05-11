@@ -111,9 +111,9 @@ def create_testcase():
 def create_task():
     pass
 
-def changeconfig(username,warehousename):
-    sql1 = 'update auto_control set status=1 where userid = (select userid from auto_user where user = "%s" )'%username
-    sql2 = 'update auto_control set status=0 where warehousememberid = (select id from auto_warehouemember where warehousename = "%s" )'%warehousename
+def changeconfig(username,warehouseID,memberID):
+    sql1 = 'update auto_control set status=1 where userid = (select userid from auto_user where user = "%s")'%username
+    sql2 = 'update auto_control set status=0 where warehousememberid = (select id from auto_warehouemember where warehouseID = %s and memberID=%s  limit 1)'%(warehouseID,memberID)
 
     cursor = con.cursor()
     cursor.execute(sql1)
@@ -168,7 +168,13 @@ def showwarehouse():
     data = cursor.fetchall()
 
     for i in data:
-        value.append(i)
+        sql1 = 'select environmentname from auto_environment where environmentid = %d'%i[5]
+        cursor.execute(sql1)
+        environmentname = cursor.fetchall()
+        # print(environmentname[0][0])
+        i = list(i)
+        i[5] = environmentname[0][0]
+        value.append(i[:-1])
 
     return value
 

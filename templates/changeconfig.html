@@ -2,45 +2,90 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>配置变更</title>
+    <title>云平台测试控制台</title>
     <meta charset="UTF-8">
-    <style type="text/css">
-<!--.dad{width:600px;height:200px;border:#30F solid 2px;}-->
-
-.dad{
-    display: flex;
-<!--    justify-content: center;-->
-    flex-wrap: wrap;
-<!--    flex-wrap: nowrap-->
-}
-</style>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>选择环境</h1>
-<br>
-<br>
-
-    <form action="/change_config" method="post">
-<div class="dad">
-{% for v in a %}
-<div class="dad">
-   <ul> {{v[1]}}<input type="radio" name="warehousename" value={{v[1]}}>
-   {% for w in v[:-2] %}
-
-       <li>{{ w }}</li>
-
-    {% endfor %}
-
-   </ul>
-
-
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1>云平台测试控制台</h1>
 </div>
 
-{% endfor %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">云平台测试控制台</a>
     </div>
-     <input type="submit" value="确认">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">仓库会员配置</a></li>
+        <li><a href="#">测试用例</a></li>
+        <li><a href="#">测试报告</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>测试仓库会员的增删改查</h2>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">新增测试仓库</a></li>
+        <li><a href="#">修改测试仓库</a></li>
+        <li><a href="#">删除测试仓库</a></li>
+      </ul>
+      <hr class="hidden-sm hidden-md hidden-lg">
+    </div>
+
+    <div class="col-sm-8">
+      <h2>仓库会员信息</h2>
+      <h5>脚本自动匹配选择的仓库会员</h5>
+        <form action="/change_config" method="post">
+            <button type="submit" class="btn btn-default">切换</button>
+        <table class="table table-hover">
+        <caption>现有测试仓库</caption>
+        <thead>
+            <tr>
+                <th>请选择</th>
+                <th>仓库ID</th>
+                <th>仓库名</th>
+                <th>会员ID</th>
+                <th>会员名</th>
+                <th>会员号</th>
+                <th>环境</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for valu in values %}
+            <tr>
+                <td><input type="radio" name="detail " value={{valu[0]}};{{valu[2]}}></td>
+                {% for v in valu %}
+
+                    <td>{{v}}</td>
+                {%endfor%}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        </form>
+    </div>
+  </div>
+</div>
+ <iframe src="/createconfig.html" frameborder="0"></iframe>
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>底部内容</p>
+</div>
+
 
 
 </body>

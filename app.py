@@ -37,14 +37,15 @@ def change_environment():
 @app.route('/change_config',methods=['GET','POST'])
 def change_config():
     if request.method == 'GET':
-        a = control.showwarehouse()
+        values = control.showwarehouse()
         # value = str(a)
-        return render_template('changeconfig.html',a = a)
+        return render_template('changeconfig.html',values = values)
 
     else:
-        warehousename = request.form.to_dict()['warehousename']
-        control.changeconfig('zoutao',warehousename)
-        return '变更成功'
+        detail = request.form.to_dict()['detail ']
+        detail = detail.split(';')
+        control.changeconfig('zoutao',detail[0],detail[1])
+        return '切换成功'
 
 
 
