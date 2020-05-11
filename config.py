@@ -1,5 +1,8 @@
 # encoding:utf-8
 import pymysql
+import os
+
+
 
 con = pymysql.connect(
     host='172.16.20.5',

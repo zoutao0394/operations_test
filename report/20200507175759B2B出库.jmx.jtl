@@ -1,0 +1,33 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1588845482950,701,获取账号,200,OK,B2B出库 1-1,text,true,,18,0,1,1,null,699,0,695
+1588845483668,14,锁定账号,200,OK,B2B出库 1-1,text,true,,9,0,1,1,null,13,0,0
+1588845483682,2,获取仓库及会员信息,200,OK,B2B出库 1-1,text,true,,131,0,1,1,null,1,0,0
+1588845483686,2,获取oms配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,2,0,0
+1588845483688,2,获取wi配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845483690,1,获取basic配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845483691,1,获取os配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845483692,1,获取opw配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845483694,1,获取op配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,0,0,0
+1588845483695,1,获取opr配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845483696,1,获取master配置信息,200,OK,B2B出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1588845484781,106,登陆,200,OK,B2B出库 1-1,text,true,,104775,1631,1,1,http://172.16.20.6:8090/Home/Index,69,0,27
+1588845484781,69,登陆-0,302,Found,B2B出库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,69,0,27
+1588845484855,32,登陆-1,200,OK,B2B出库 1-1,text,true,,103706,873,1,1,http://172.16.20.6:8090/Home/Index,31,0,0
+1588845485888,24,获取出库单号,200,OK,B2B出库 1-1,text,true,,505,959,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAccept/getWareHouseOutCode,24,0,2
+1588845485919,241,获取商品信息,200,OK,B2B出库 1-1,text,true,,7143,1323,1,1,http://172.16.20.6:8015/DataCenter/WarehouseStorageSearch/QueryStorage?sortName=FactAmount&sortOrder=desc&pageSize=5&pageNumber=1&MemberNo=0010000114&MemberID=26520&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&BarCode=&Stand=&FactAmountMin=&FactAmountMax=&OperateAmountMin=&OperateAmountMax=&HoldAmountMin=&HoldAmountMax=&LockAmountMin=&LockAmountMax=&CommodityName=&CommodityCode=&Code=&PageSize=5&PageCurrent=1,241,0,0
+1588845487278,43,新增出库单,200,OK,B2B出库 1-1,text,true,,676,3719,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAccept/saveWareHouseOut,43,0,0
+1588845488324,250,查询出库单信息,200,OK,B2B出库 1-1,text,true,,1603,1279,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-07+00%3A00%3A00+&EndTime=+2020-05-07+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,250,0,1
+1588845489574,28,自动审核,200,OK,B2B出库 1-1,text,true,,675,984,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/AutoCheck,28,0,0
+1588845559606,93,进入下架页面,200,OK,B2B出库 1-1,text,true,,1731,994,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,93,0,2
+1588845560715,179,创建下架3,200,OK,B2B出库 1-1,text,true,,630,983,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,179,0,0
+1588845561887,159,创建下架保存,200,OK,B2B出库 1-1,text,true,,675,2890,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/SubmitDownShelf,159,0,2
+1588845563059,130,查看出库单内下架信息,200,OK,B2B出库 1-1,text,true,,835,954,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=529701&wareHouseId=26519&sort=&order=asc,130,0,0
+1588845564199,38,获取系统推荐批次,200,OK,B2B出库 1-1,text,true,,2141,1065,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,38,0,2
+1588845565230,305,下架完成,200,OK,B2B出库 1-1,text,true,,630,3519,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/DownShelves,305,0,0
+1588845566543,149,获取封箱信息,200,OK,B2B出库 1-1,text,true,,4585,971,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/getPackingTestInfo,149,0,1
+1588845566712,137,确认封箱,200,OK,B2B出库 1-1,text,true,,647,6035,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/saveOutBox,137,0,0
+1588845567855,81,完成质检,200,OK,B2B出库 1-1,text,true,,654,971,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/completeOutBox,81,0,0
+1588845568950,10,确认出库,200,OK,B2B出库 1-1,text,true,,633,1021,1,1,http://172.16.20.6:8015/LogisticsCode/LogisticsCode/LogisticsCodeJudge,10,0,1
+1588845569950,199,出库完成,200,OK,B2B出库 1-1,text,true,,661,1008,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,199,0,0
+1588845570157,3,Debug Sampler,200,OK,B2B出库 1-1,text,true,,18460,0,1,1,null,0,0,0
+1588845570160,52,释放登陆账号,200,OK,B2B出库 1-1,text,true,,9,0,1,1,null,52,0,0

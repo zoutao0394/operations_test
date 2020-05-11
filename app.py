@@ -1,6 +1,7 @@
 # encoding:utf-8
 from flask import Flask,request,render_template
 import control,config
+from page_operation.basic import *
 
 
 import time
@@ -12,8 +13,21 @@ app = Flask(__name__)
 
 @app.route('/<site_name>')
 def star_test(site_name):
+    control.run(site_name)
+    return '测试开始'
 
-    pass
+
+@app.route('/ui_test/<sys_name>')
+def ui_test(sys_name):
+    test = Login('Test5001','a123456','http://cloud.basic.fineex.net/Login')
+
+    test.login()
+    test.system(sys_name)
+    a = test.index()
+    b = test.clickmodule(a)
+    test.close()
+    return b
+
 
 @app.route('/select_environment/<select_environment>')
 def change_environment(select_environment):
