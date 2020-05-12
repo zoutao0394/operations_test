@@ -8,101 +8,25 @@ import requests
 from config import *
 
 
-
-# cursor = con.cursor()
-#
-# sql = "select operations from auto_testcase"
-# cursor.execute(sql)
-#
-# result = cursor.fetchall()
-# for i in result:
-#     print(i[0])
-#     j=i[0].split(',')
-#     print(j)
-#     for u in j:
-#         print(u)
-# print(result)
+def scriptlist(path="WMS"):
+    scriptlist = os.listdir('./JmeterScript/%s'%path)
+    return scriptlist
 
 
-def run(path):
-    reportlist = []
-    tasklist = os.listdir('./JmeterScript/%s'%path)
-    for i in tasklist:
-        t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-        filename = t + i
-        # subprocess.Popen(
-        #     'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (i, filename,filename),
-        #     shell=True)
-        os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (i, filename,filename))
-        reportlist.append(filename)
-    return reportlist
-
-def select_environment(environment):
-    if environment == 'test':
-        sqlscript('test')
-        return '环境切换成功'
-    elif environment == 'uat':
-        sqlscript('uat')
-        return '环境切换成功'
-    elif environment == 'prd':
-        sqlscript('prd')
-        return '环境切换成功'
-    else:
-        return '可选环境（test，uat，prd）'
 
 
-date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+def run(script):
 
-def sqlscript(env):
+    t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+    filename = t + script
+    subprocess.Popen(
+        'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o ./report/%s' % (script, filename,filename),
+        shell=True)
+    # os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (script, filename,filename))
+    return "执行成功"
 
-    cursor = conn.cursor()
-    sql1 = """
-    update test_commodity set status=0 where environment="%s";
-    """%env
-    sql2 = """
-       update test_pageurl set status=0 where environment="%s";
-       """ % env
-    sql3 = """
-       update test_url set status=0 where environment="%s";
-       """ % env
-    sql4 = """
-       update test_config set status=0 where environment="%s";
-       """ % env
-    sql5 = """
-       update test_commodity set status=1 where environment<>"%s";
-       """ % env
-    sql6 = """
-       update test_pageurl set status=1 where environment<>"%s";
-       """ % env
-    sql7 = """
-       update test_url set status=1 where environment<>"%s";
-       """ % env
-    sql8 = """
-       update test_config set status=1 where environment<>"%s";
-       """ % env
-    try:
-        cursor.execute(sql1)
-        cursor.execute(sql2)
-        cursor.execute(sql3)
-        cursor.execute(sql4)
-        cursor.execute(sql5)
-        cursor.execute(sql6)
-        cursor.execute(sql7)
-        cursor.execute(sql8)
-    except Exception as e:
-        conn.rollback()  # 事务回滚
-        print('%s环境切换失败'%env)
-    else:
-        conn.commit()  # 事务提交
-        print('%s环境切换成功'%env)
 
-    cursor.close()
-    conn.close()
 
-def create_operation(system,site,operation):
-
-    sql = "insert into auto_operation values(0,\"%s\",\"%s\",\"%s\",\"%s\");"%(system,site,operation,date)
-    return sql
 
 
 def create_testcase():
@@ -180,6 +104,8 @@ def showwarehouse():
 
 
 
+def reportdetail():
+    print(os.listdir("./report"))
 
 
 
@@ -187,22 +113,5 @@ def showwarehouse():
 
 
 if __name__ == '__main__':
+    reportdetail()
 
-    # changeconfig('zoutao','新百伦测试仓1004')
-
-    # createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
-
-    # changeconfig('zoutao','自动化测试专用仓')
-
-
-    # createconfig('zoutao','25277,测试仓库0001,25278,测试会员0001,0010000211,测试环境')
-
-<<<<<<< HEAD
-
-
-    run('WMS')
-
-=======
-    # run('WMS')
-    showwarehouse()
->>>>>>> 9c5762859901d1287fdebc30a98e5c310ff0ff8c

@@ -4,9 +4,14 @@
 <head>
     <title>云平台测试控制台</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+ <!-- 新 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="jumbotron text-center" style="margin-bottom:0">
@@ -21,38 +26,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">云平台测试控制台</a>
+      <a class="navbar-brand" href="./home">云平台测试控制台</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">仓库会员配置</a></li>
-        <li><a href="#">测试用例</a></li>
-        <li><a href="#">测试报告</a></li>
+        <li class="active"><a href="./configmanage">仓库会员配置</a></li>
+        <li><a href="./casemanage">测试用例</a></li>
+        <li><a href="./reportmanage">测试报告</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
       <h2>配置管理</h2>
 
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="/createconfig">新增配置</a></li>
-        <li><a href="#">修改配置</a></li>
-        <li><a href="#">删除配置</a></li>
+        <li class="active"><a href="#">附加测试权限</a></li>
+        <!--<li class="active"><a href="#">附加测试权限</a></li>-->
+
       </ul>
       <hr class="hidden-sm hidden-md hidden-lg">
     </div>
 
     <div class="col-sm-8">
-      <h2>仓库会员信息</h2>
+      <h2>配置信息</h2>
       <h5>脚本自动匹配选择的仓库会员</h5>
-        <form action="/change_config" method="post">
-            <button type="submit" class="btn btn-default">切换</button>
-            <button type="button" class="btn btn-default"><a href="/star_test/WMS" target="view_window">启动测试</a></button>
-            <button type="button" class="btn btn-default"><a href="http://172.16.20.5:8886/html/" target="view_window">查看报告</a></button>
+        <form action="/changeconfig" method="post">
+            <button type="submit" class="btn btn-primary">切换配置</button>
+            <button type="button" class="btn btn-primary">新增配置</button>
+            <button type="button" class="btn btn-danger">删除配置</button>
         <table class="table table-hover">
         <caption>现有测试仓库</caption>
         <thead>
