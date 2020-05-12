@@ -39,7 +39,7 @@ def change_config():
     if request.method == 'GET':
         values = control.showwarehouse()
         # value = str(a)
-        return render_template('changeconfig.html',values = values)
+        return render_template('configmanage.html',values = values)
 
     else:
         detail = request.form.to_dict()['detail ']
