@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/star_test/<site_name>')
 def star_test(site_name):
     control.run(site_name)
-    return '测试开始'
+    return '测试完成'
 
 
 @app.route('/ui_test/<sys_name>')

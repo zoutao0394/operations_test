@@ -1,0 +1,33 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589195827095,494,获取账号,200,OK,入库流程 1-1,text,true,,18,0,1,1,null,491,0,486
+1589195827594,38,锁定账号,200,OK,入库流程 1-1,text,true,,9,0,1,1,null,37,0,0
+1589195827632,3,获取仓库及会员信息,200,OK,入库流程 1-1,text,true,,124,0,1,1,null,2,0,0
+1589195827637,2,获取oms配置信息,200,OK,入库流程 1-1,text,true,,34,0,1,1,null,2,0,0
+1589195827640,1,获取wi配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195827642,1,获取basic配置信息,200,OK,入库流程 1-1,text,true,,36,0,1,1,null,1,0,0
+1589195827643,2,获取os配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,2,0,0
+1589195827645,1,获取opw配置信息,200,OK,入库流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589195827646,1,获取op配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195827648,1,获取opr配置信息,200,OK,入库流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589195827649,1,获取master配置信息,200,OK,入库流程 1-1,text,true,,41,0,1,1,null,1,0,0
+1589195828720,252,登陆,200,OK,入库流程 1-1,text,true,,90376,1642,1,1,http://cloud.basic.fineex.net/Home/Index,126,0,67
+1589195828720,127,登陆-0,302,Found,入库流程 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,126,0,67
+1589195828853,119,登陆-1,200,OK,入库流程 1-1,text,true,,89189,878,1,1,http://cloud.basic.fineex.net/Home/Index,75,0,0
+1589195829987,92,获取入库单号,200,OK,入库流程 1-1,text,true,,619,904,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditAccep/getWareHouseInCode,92,0,49
+1589195830086,213,获取待入库商品,200,OK,入库流程 1-1,text,true,,9332,1170,1,1,http://cloud.wms.master.fineex.net/BasicInfo/Commodity/CommodityQuery?sortName=MixTypeName&sortOrder=asc&pageSize=5&pageNumber=1&MemberName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BC%9A%E5%91%981001&MemberID=28150&BarCode=&CommodityCode=&CommodityName=&CatalogName=&CatalogID=&UnitFlag=&isPackageBox=%E5%85%A8%E9%83%A8&ISBanAviation=%E5%85%A8%E9%83%A8&LogCodeFlag=%E5%85%A8%E9%83%A8,213,0,51
+1589195831408,34,生成入库单,200,OK,入库流程 1-1,text,false,"Test failed: text expected to contain /{""result"":true,""message"":""保存成功！""}/",643,3447,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditAccep/saveWareHouseIn,34,0,0
+1589195832439,37,到货登记,200,OK,入库流程 1-1,text,false,"Test failed: text expected to contain /{""isSuccess"":true,""Message"":""保存成功！""}/",616,1682,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Arrival/Add,37,0,16
+1589195833486,19,获取InID,200,OK,入库流程 1-1,text,true,,585,1003,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Pcgoods/checkInCode,19,0,0
+1589195834533,39,完成收货,200,OK,入库流程 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""保存成功！""],/",709,948,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Pcgoods/saveReceipt,39,0,18
+1589195834574,311,查询仓库库位信息,200,OK,入库流程 1-1,text,true,,9926,1351,1,1,http://cloud.wms.master.fineex.net/BasicInfo/StorageLocationManage/QueryPosData,311,0,16
+1589195835877,21,获取ProductBatchID,200,OK,入库流程 1-1,,true,,475,1015,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/AddShelf/GetShelfInfoByInId,21,0,0
+1589195836892,31,创建上架,200,OK,入库流程 1-1,,true,,475,969,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/AddShelf/UpShelf,31,0,14
+1589195837923,0,获取上架ID,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in query at index 83: http://cloud.wms.wi.b1.fineex.net/WareHouseIN/ShelfManage/GetShelfInfoByInId?inId=${inid}&WarehouseID=28149&sort=&order=asc,入库流程 1-1,text,false,"Test failed: text expected to contain /""UpShelvesStatusName"":""已提交""/",1275,0,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/ShelfManage/GetShelfInfoByInId?inId=${inid}&WarehouseID=28149&sort=&order=asc,0,0,0
+1589195838939,33,进入上架单,200,OK,入库流程 1-1,,true,,475,1037,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditShelf/GetShelfDetailInfoById,33,0,15
+1589195839986,18,上架确认,200,OK,入库流程 1-1,,false,Response was null,475,1055,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditShelf/AddShelfFact,18,0,0
+1589195841017,34,核对入库单,200,OK,入库流程 1-1,,true,,475,1021,1,1,http://cloud.wms.wi.b1.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,34,0,15
+1589195841053,0,登记入库信息,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in query at index 104: http://cloud.wms.wi.b1.fineex.net/DataCenter/InOutOperateLog/GetOperationRecord?WarehouseID=28149&ioId=${inid}&ioType=1,入库流程 1-1,text,false,,1272,0,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/InOutOperateLog/GetOperationRecord?WarehouseID=28149&ioId=${inid}&ioType=1,0,0,0
+1589195841054,30,入库记录,200,OK,入库流程 1-1,text,true,,714,3203,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/InOutOperateLog/Add,30,0,0
+1589195842095,19,检查入库商品,200,OK,入库流程 1-1,,true,,475,1027,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/WareConfirm/ConfirmValidate,19,0,0
+1589195843127,32,入库确认,200,OK,入库流程 1-1,,false,Response was null,475,1019,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/WareConfirm/Confirm,32,0,15
+1589195843160,30,释放登陆账号,200,OK,入库流程 1-1,text,true,,9,0,1,1,null,30,0,0

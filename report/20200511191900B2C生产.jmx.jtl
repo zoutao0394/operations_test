@@ -1,0 +1,18 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589195943698,798,获取账号,200,OK,订单流程 1-1,text,true,,18,0,1,1,null,796,0,792
+1589195944511,21,锁定账号,200,OK,订单流程 1-1,text,true,,9,0,1,1,null,21,0,0
+1589195944534,2,获取仓库及会员信息,200,OK,订单流程 1-1,text,true,,124,0,1,1,null,2,0,0
+1589195944537,1,获取oms配置信息,200,OK,订单流程 1-1,text,true,,34,0,1,1,null,1,0,0
+1589195944538,1,获取wi配置信息,200,OK,订单流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195944539,1,获取basic配置信息,200,OK,订单流程 1-1,text,true,,36,0,1,1,null,1,0,0
+1589195944541,1,获取os配置信息,200,OK,订单流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195944542,1,获取opw配置信息,200,OK,订单流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589195944543,1,获取op配置信息,200,OK,订单流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195944545,1,获取opr配置信息,200,OK,订单流程 1-1,text,true,,38,0,1,1,null,0,0,0
+1589195944546,1,获取master配置信息,200,OK,订单流程 1-1,text,true,,41,0,1,1,null,1,0,0
+1589195944547,1,获取so配置信息,200,OK,订单流程 1-1,text,true,,37,0,1,1,null,1,0,0
+1589195945625,247,登陆,200,OK,订单流程 1-1,text,true,,90376,1642,1,1,http://cloud.basic.fineex.net/Home/Index,128,0,76
+1589195945625,129,登陆-0,302,Found,订单流程 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,128,0,76
+1589195945760,112,登陆-1,200,OK,订单流程 1-1,text,true,,89189,878,1,1,http://cloud.basic.fineex.net/Home/Index,68,0,0
+1589195945877,87,查询已审核的波次,200,OK,订单流程 1-1,text,true,,578,1291,1,1,http://cloud.wms.os.b1.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=10&pageNumber=1&CreateTime=2019-12-22+00%3A00%3A00+%7E+2020-05-11+23%3A59%3A59&WareHouseName%5B%5D=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001%7E%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BC%9A%E5%91%981001&WareHouseName%5B%5D=28149&MemberNo=0010000436&MemberID=28150&WarehouseID=28149&OrderStatus=2&OrderType=&DeliveryPlanTime=&OrderBatchID=&PickType=0&BatchAttribute=0&PageSize=10&PageCurrent=1,87,0,46
+1589195945970,6,释放登陆账号,200,OK,订单流程 1-1,text,true,,9,0,1,1,null,6,0,0

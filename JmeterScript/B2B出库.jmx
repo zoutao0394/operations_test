@@ -49,7 +49,7 @@
             </elementProp>
             <elementProp name="num" elementType="Argument">
               <stringProp name="Argument.name">num</stringProp>
-              <stringProp name="Argument.value">5</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -1283,7 +1283,7 @@ vars.put(&quot;outcodedetail&quot;,keywordStr);</stringProp>
               </HeaderManager>
               <hashTree/>
               <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                <stringProp name="ConstantTimer.delay">70000</stringProp>
+                <stringProp name="ConstantTimer.delay">300000</stringProp>
               </ConstantTimer>
               <hashTree/>
               <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">

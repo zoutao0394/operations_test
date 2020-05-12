@@ -187,14 +187,21 @@ class Login():
                 ActionChains(self.driver).move_to_element(element[0]).perform()
 
                 a1 = element[1].text
+<<<<<<< HEAD
                 print(a1)
+=======
+>>>>>>> 611f6ca38a05ff08fa7da2a4960dfbbf731254eb
                 element[1].find_element_by_css_selector('[class="glyphicon glyphicon-edit"]').click()
                 sleep(1)
                 handles = self.driver.window_handles
                 self.driver.switch_to.window(handles[-1])
                 a2 = self.driver.title
                 if a2 != a1:
+<<<<<<< HEAD
                     error = error+'%s 打开错误'%a1
+=======
+                    error = error + '%s 打开错误 \n' % a1
+>>>>>>> 611f6ca38a05ff08fa7da2a4960dfbbf731254eb
 
                 sleep(1)
                 # if title != self.driver.title:

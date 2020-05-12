@@ -1,0 +1,33 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589199754027,433,获取账号,200,OK,入库流程 1-1,text,true,,18,0,1,1,null,432,0,428
+1589199754469,19,锁定账号,200,OK,入库流程 1-1,text,true,,9,0,1,1,null,19,0,0
+1589199754488,2,获取仓库及会员信息,200,OK,入库流程 1-1,text,true,,121,0,1,1,null,1,0,0
+1589199754492,1,获取oms配置信息,200,OK,入库流程 1-1,text,true,,34,0,1,1,null,1,0,0
+1589199754493,1,获取wi配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589199754494,1,获取basic配置信息,200,OK,入库流程 1-1,text,true,,36,0,1,1,null,1,0,0
+1589199754496,1,获取os配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589199754497,1,获取opw配置信息,200,OK,入库流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589199754499,0,获取op配置信息,200,OK,入库流程 1-1,text,true,,40,0,1,1,null,0,0,0
+1589199754500,0,获取opr配置信息,200,OK,入库流程 1-1,text,true,,38,0,1,1,null,0,0,0
+1589199754501,1,获取master配置信息,200,OK,入库流程 1-1,text,true,,41,0,1,1,null,1,0,0
+1589199755587,219,登陆,200,OK,入库流程 1-1,text,true,,90376,1642,1,1,http://cloud.basic.fineex.net/Home/Index,103,0,43
+1589199755587,103,登陆-0,302,Found,入库流程 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,103,0,43
+1589199755696,110,登陆-1,200,OK,入库流程 1-1,text,true,,89189,878,1,1,http://cloud.basic.fineex.net/Home/Index,65,0,0
+1589199756823,57,获取入库单号,200,OK,入库流程 1-1,text,true,,619,904,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditAccep/getWareHouseInCode,57,0,16
+1589199756887,64,获取待入库商品,200,OK,入库流程 1-1,text,true,,2888,1170,1,1,http://cloud.wms.master.fineex.net/BasicInfo/Commodity/CommodityQuery?sortName=MixTypeName&sortOrder=asc&pageSize=1&pageNumber=1&MemberName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BC%9A%E5%91%981001&MemberID=28150&BarCode=&CommodityCode=&CommodityName=&CatalogName=&CatalogID=&UnitFlag=&isPackageBox=%E5%85%A8%E9%83%A8&ISBanAviation=%E5%85%A8%E9%83%A8&LogCodeFlag=%E5%85%A8%E9%83%A8,64,0,17
+1589199758072,25,生成入库单,200,OK,入库流程 1-1,text,true,,566,1757,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditAccep/saveWareHouseIn,25,0,0
+1589199759103,39,到货登记,200,OK,入库流程 1-1,text,true,,569,1682,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Arrival/Add,39,0,15
+1589199760134,165,获取InID,200,OK,入库流程 1-1,text,true,,2580,1003,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Pcgoods/checkInCode,165,0,0
+1589199761306,946,完成收货,200,OK,入库流程 1-1,text,true,,683,2119,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Pcgoods/saveReceipt,946,0,15
+1589199762254,583,查询仓库库位信息,200,OK,入库流程 1-1,text,true,,689,1345,1,1,http://cloud.wms.master.fineex.net/BasicInfo/StorageLocationManage/QueryPosData,583,0,16
+1589199763853,160,获取ProductBatchID,200,OK,入库流程 1-1,text,true,,963,1010,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/AddShelf/GetShelfInfoByInId,160,0,16
+1589199765025,253,创建上架,200,OK,入库流程 1-1,text,true,,705,1737,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/AddShelf/UpShelf,253,0,0
+1589199766275,44,获取上架ID,200,OK,入库流程 1-1,text,true,,878,954,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/ShelfManage/GetShelfInfoByInId?inId=17491506&WarehouseID=28153&sort=&order=asc,44,0,18
+1589199767306,222,进入上架单,200,OK,入库流程 1-1,text,true,,1004,1020,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditShelf/GetShelfDetailInfoById,222,0,0
+1589199768572,427,上架确认,200,OK,入库流程 1-1,text,false,"Test failed: text expected to contain /""Success"":true/",807,1609,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/EditShelf/AddShelfFact,427,0,15
+1589199769994,18,核对入库单,200,OK,入库流程 1-1,text,true,,673,1016,1,1,http://cloud.wms.wi.b1.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,17,0,0
+1589199770013,21,登记入库信息,200,OK,入库流程 1-1,text,true,,1476,926,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/InOutOperateLog/GetOperationRecord?WarehouseID=28153&ioId=17491506&ioType=1,21,0,0
+1589199770037,27,入库记录,200,OK,入库流程 1-1,text,true,,714,3158,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/InOutOperateLog/Add,27,0,0
+1589199771072,1155,检查入库商品,200,OK,入库流程 1-1,text,true,,1679,1022,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/WareConfirm/ConfirmValidate,1155,0,19
+1589199773244,1615,入库确认,200,OK,入库流程 1-1,text,true,,688,1014,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/WareConfirm/Confirm,1615,0,15
+1589199774861,46,释放登陆账号,200,OK,入库流程 1-1,text,true,,9,0,1,1,null,46,0,0
