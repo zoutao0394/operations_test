@@ -1,0 +1,33 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589195847781,708,获取账号,200,OK,B2B出库 1-1,text,true,,18,0,1,1,null,705,0,701
+1589195848495,8,锁定账号,200,OK,B2B出库 1-1,text,true,,9,0,1,1,null,8,0,0
+1589195848504,2,获取仓库及会员信息,200,OK,B2B出库 1-1,text,true,,124,0,1,1,null,2,0,0
+1589195848508,1,获取oms配置信息,200,OK,B2B出库 1-1,text,true,,34,0,1,1,null,1,0,0
+1589195848510,1,获取wi配置信息,200,OK,B2B出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195848511,1,获取basic配置信息,200,OK,B2B出库 1-1,text,true,,36,0,1,1,null,1,0,0
+1589195848513,1,获取os配置信息,200,OK,B2B出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195848514,1,获取opw配置信息,200,OK,B2B出库 1-1,text,true,,38,0,1,1,null,1,0,0
+1589195848515,1,获取op配置信息,200,OK,B2B出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1589195848517,1,获取opr配置信息,200,OK,B2B出库 1-1,text,true,,38,0,1,1,null,0,0,0
+1589195848518,1,获取master配置信息,200,OK,B2B出库 1-1,text,true,,41,0,1,1,null,1,0,0
+1589195849611,252,登陆,200,OK,B2B出库 1-1,text,true,,90376,1642,1,1,http://cloud.basic.fineex.net/Home/Index,112,0,45
+1589195849611,113,登陆-0,302,Found,B2B出库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,112,0,45
+1589195849731,132,登陆-1,200,OK,B2B出库 1-1,text,true,,89189,878,1,1,http://cloud.basic.fineex.net/Home/Index,78,0,0
+1589195850874,63,获取出库单号,200,OK,B2B出库 1-1,text,true,,619,923,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAccept/getWareHouseOutCode,63,0,15
+1589195850944,5103,获取商品信息,200,OK,B2B出库 1-1,text,true,,544,1317,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/WarehouseStorageSearch/QueryStorage?sortName=FactAmount&sortOrder=desc&pageSize=5&pageNumber=1&MemberNo=0010000436&MemberID=28150&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&BarCode=&Stand=&FactAmountMin=&FactAmountMax=&OperateAmountMin=&OperateAmountMax=&HoldAmountMin=&HoldAmountMax=&LockAmountMin=&LockAmountMax=&CommodityName=&CommodityCode=&Code=&PageSize=5&PageCurrent=1,5103,0,0
+1589195857167,41,新增出库单,200,OK,B2B出库 1-1,,false,Response was null,475,1500,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAccept/saveWareHouseOut,41,0,18
+1589195858214,34,查询出库单信息,200,OK,B2B出库 1-1,text,true,,544,1273,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-11+00%3A00%3A00+&EndTime=+2020-05-11+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,34,0,0
+1589195859260,33,自动审核,200,OK,B2B出库 1-1,,true,,475,1000,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,33,0,16
+1589195929307,70,进入下架页面,200,OK,B2B出库 1-1,,true,,475,1010,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,70,0,51
+1589195930370,19,创建下架3,200,OK,B2B出库 1-1,,true,,475,999,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,19,0,0
+1589195931385,32,创建下架保存,200,OK,B2B出库 1-1,,false,Response was null,475,1063,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,32,0,15
+1589195932416,0,查看出库单内下架信息,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in query at index 88: http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=${OutID}&wareHouseId=28149&sort=&order=asc,B2B出库 1-1,text,false,,1281,0,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=${OutID}&wareHouseId=28149&sort=&order=asc,0,0,0
+1589195933417,32,获取系统推荐批次,200,OK,B2B出库 1-1,,true,,475,1093,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,32,0,15
+1589195934464,19,下架完成,200,OK,B2B出库 1-1,,false,Response was null,475,1062,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/DownShelves,19,0,0
+1589195935495,34,获取封箱信息,200,OK,B2B出库 1-1,,true,,475,987,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,34,0,15
+1589195935546,17,确认封箱,200,OK,B2B出库 1-1,,true,,475,951,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/saveOutBox,17,0,0
+1589195936573,17,完成质检,200,OK,B2B出库 1-1,,false,Response was null,475,987,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/completeOutBox,17,0,0
+1589195937588,32,确认出库,200,OK,B2B出库 1-1,,true,,475,1037,1,1,http://cloud.wms.wi.b1.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,32,0,15
+1589195938620,18,出库完成,200,OK,B2B出库 1-1,,false,Response was null,475,1024,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,18,0,0
+1589195938645,2,Debug Sampler,200,OK,B2B出库 1-1,text,true,,2050,0,1,1,null,0,0,0
+1589195938647,49,释放登陆账号,200,OK,B2B出库 1-1,text,true,,9,0,1,1,null,49,0,0

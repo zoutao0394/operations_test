@@ -8,6 +8,7 @@ from selenium.common import exceptions as ex
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.chrome.options import Options
 import datetime
+import os
 
 
 
@@ -21,7 +22,7 @@ def log(func):
         result = func(*args,**kw)
         time2 = time()
         time3 = time2-time1
-        with open('./log/%s.log'%now_day, 'a', encoding='utf-8') as loging:
+        with open('../log/%s.log'%now_day, 'a', encoding='utf-8') as loging:
             day = datetime.datetime.now()
             new_time = str(day)[:19]
             loging.write('%s 开始执行%s:总用时%d 秒。\n运行结果：\n%s \n' % (new_time, func.__name__,time3,result))
@@ -183,22 +184,27 @@ class Login():
         print(addlist)
         if len(addlist)>0:
             for element in addlist:
-                try:
-                    ActionChains(self.driver).move_to_element(element[0]).perform()
+                ActionChains(self.driver).move_to_element(element[0]).perform()
 
-                    title = element[1].text
-                    element[1].find_element_by_css_selector('[class="glyphicon glyphicon-edit"]').click()
-                    sleep(1)
-                    handles = self.driver.window_handles
-                    self.driver.switch_to.window(handles[-1])
-                    sleep(1)
-                    # if title != self.driver.title:
-                    #     error += '%s-打开失败\n' % element[1].text
-                    self.driver.close()
-                    self.driver.switch_to.window(handles[0])
-                except BaseException:
-                    error += '%s 页面导致元素丢失'% element[1].text
-                    return error
+                a1 = element[1].text
+                element[1].find_element_by_css_selector('[class="glyphicon glyphicon-edit"]').click()
+                sleep(1)
+                handles = self.driver.window_handles
+                self.driver.switch_to.window(handles[-1])
+                a2 = self.driver.title
+                if a2 != a1:
+                    error = error + '%s 打开错误 \n' % a1
+
+                sleep(1)
+                # if title != self.driver.title:
+                #     error += '%s-打开失败\n' % element[1].text
+                self.driver.close()
+                self.driver.switch_to.window(handles[0])
+                # try:
+                #
+                # # except BaseException:
+                # #     error += '%s 页面导致元素丢失'% element[1].text
+                # #     return error
 
         if len(error)>1:
             return error
@@ -325,7 +331,7 @@ class Login():
 
 
 if __name__ == '__main__':
-    test = Login('Test5001','a123456','http://cloud.basic.fineex.net/Login')
+    test = Login('aaqw0001','a123456','http://basic.uat.fineex.net:8090/Home/Index')
 
     test.login()
     test.system('仓储服务')
@@ -341,5 +347,6 @@ if __name__ == '__main__':
 
     test.close()
     # testlog()
+
 
 

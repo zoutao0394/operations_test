@@ -1,0 +1,34 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589196891489,554,获取账号,200,OK,库内操作流程 1-1,text,true,,18,0,1,1,null,551,0,547
+1589196892044,23,锁定账号,200,OK,库内操作流程 1-1,text,true,,9,0,1,1,null,22,0,1
+1589196892067,2,获取仓库及会员信息,200,OK,库内操作流程 1-1,text,true,,124,0,1,1,null,2,0,0
+1589196892072,2,获取oms配置信息,200,OK,库内操作流程 1-1,text,true,,34,0,1,1,null,2,0,0
+1589196892075,1,获取wi配置信息,200,OK,库内操作流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589196892076,1,获取basic配置信息,200,OK,库内操作流程 1-1,text,true,,36,0,1,1,null,1,0,0
+1589196892078,1,获取os配置信息,200,OK,库内操作流程 1-1,text,true,,40,0,1,1,null,1,0,0
+1589196892079,1,获取opw配置信息,200,OK,库内操作流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589196892081,1,获取op配置信息,200,OK,库内操作流程 1-1,text,true,,40,0,1,1,null,0,0,0
+1589196892082,1,获取opr配置信息,200,OK,库内操作流程 1-1,text,true,,38,0,1,1,null,1,0,0
+1589196892083,1,获取master配置信息,200,OK,库内操作流程 1-1,text,true,,41,0,1,1,null,1,0,0
+1589196893169,261,登陆,200,OK,库内操作流程 1-1,text,true,,90376,1642,1,1,http://cloud.basic.fineex.net/Home/Index,142,0,76
+1589196893169,142,登陆-0,302,Found,库内操作流程 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,142,0,76
+1589196893318,112,登陆-1,200,OK,库内操作流程 1-1,text,true,,89189,878,1,1,http://cloud.basic.fineex.net/Home/Index,68,0,0
+1589196893435,54,缺货补货查询,200,OK,库内操作流程 1-1,text,true,,598,1100,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/ReplenishAccept/GetOOS?WareHouseID=28149&MemberID=28150&model.BarCode=&model.Area=&model.Tunnel=&model.MemberNo=0010000436&model.MemberID=28150&model.WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&model.WarehouseID=28149&model.BeginTime=2020-05-11+00%3A00%3A00&model.EndTime=+2020-05-11+23%3A59%3A59&model.OrderType=&model.Type=&sortName=CommodityID&sortOrder=desc&pageSize=20&pageNumber=1,54,0,15
+1589196893706,44,生成主动补货单,200,OK,库内操作流程 1-1,text,true,,3228,1249,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/PosStorageSearch/QueryStorage?sortName=Amount&sortOrder=desc&pageSize=2&pageNumber=1&MemberNo=0010000436&MemberID=28150&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&Codes=&PosCode=&PosType=&CommodityName=&CommodityCode=&Code=&BarCode=&PageSize=2&PageCurrent=1,44,0,0
+1589196894770,155,生成补货单,200,OK,库内操作流程 1-1,text,true,,719,1234,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/ReplenishAccept/PCSubmitCommodityList,155,0,0
+1589196895926,43,查询补货单信息,200,OK,库内操作流程 1-1,text,true,,1252,1227,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishQuery?sortName=CreateDate&sortOrder=desc&pageSize=20&pageNumber=1&MemberNo=0010000436&MemberID=28150&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&ReplenishCode=&Status=1&BarCode=&WareHouseID=28149&StartTime=2020-05-11+00%3A00%3A00+&EndTime=+2020-05-11+23%3A59%3A59&PageSize=20&PageCurrent=1,43,0,16
+1589196896973,1067,打印,200,OK,库内操作流程 1-1,text,true,,1431,975,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/GetPrintData,1067,0,0
+1589196899052,37,上锁,200,OK,库内操作流程 1-1,text,true,,670,976,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishLock,37,0,17
+1589196900082,54,获取可下架信息,200,OK,库内操作流程 1-1,text,true,,1056,1004,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishShelfQuery,53,0,0
+1589196901145,284,下架,200,OK,库内操作流程 1-1,text,true,,696,1413,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishDownShelf,284,0,15
+1589196901431,225,查询仓库库位信息,200,OK,库内操作流程 1-1,text,true,,10000,1307,1,1,http://cloud.wms.master.fineex.net/BasicInfo/StorageLocationManage/QueryPosData,225,0,45
+1589196902661,92,上架信息,200,OK,库内操作流程 1-1,text,true,,1040,1008,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishComfirmQuery,92,0,0
+1589196903786,547,确认补货,200,OK,库内操作流程 1-1,text,true,,696,1423,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishUpShelf,547,0,19
+1589196905349,22,解锁,200,OK,库内操作流程 1-1,text,true,,688,977,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishUnlock,21,0,0
+1589196905378,1,Debug Sampler,200,OK,库内操作流程 1-1,text,true,,2847,0,1,1,null,0,0,0
+1589196905380,108,查询库位信息,200,OK,库内操作流程 1-1,text,true,,19401,1253,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/PosStorageSearch/QueryStorage?sortName=Amount&sortOrder=desc&pageSize=300&pageNumber=1&MemberNo=0010000436&MemberID=28150&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&Codes=&PosCode=&PosType=&CommodityName=&CommodityCode=&Code=&BarCode=&PageSize=300&PageCurrent=1,91,0,0
+1589196906505,60,获取移库单号,200,OK,库内操作流程 1-1,text,true,,544,916,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/WarehouseWork/GetMoveCode,60,0,19
+1589196907582,145,来源库位,200,OK,库内操作流程 1-1,text,true,,809,1020,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/WarehouseWork/QueryPos?sortName=PosCode&sortOrder=asc&pageSize=20&pageNumber=1&PosCode=1A01-01&CommodityCode=&BarCode=&PosType=0&PosPropertyType=0&StockType=0&WarehouseId=28149&MemberId=28150,145,0,0
+1589196908738,160,目标库位,200,OK,库内操作流程 1-1,text,true,,544,1000,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/WarehouseWork/QueryPos?sortName=PosCode&sortOrder=asc&pageSize=20&pageNumber=1&PosCode=ZC-RK-LP-0436&CommodityCode=&BarCode=&PosType=0&PosPropertyType=0&StockType=0&WarehouseId=28149&MemberId=28150,160,0,16
+1589196909910,49,获取库位商品信息,200,OK,库内操作流程 1-1,text,true,,6506,1094,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/WarehouseWork/QueryCommodity?sortName=ID&sortOrder=asc&MemberNo=0010000436&MemberID=28150&WareHouseName=%E4%B8%B4%E6%97%B6%E6%B5%8B%E8%AF%95%E4%BB%93%E5%BA%931001&WarehouseID=28149&OriginPos=1A01-01&OriginPosID=12830111&DestinyPos=ZC-RK-LP-0436&DestinyPosID=&WarehouseId=28149&MemberId=28150,49,0,0
+1589196910016,41,释放登陆账号,200,OK,库内操作流程 1-1,text,true,,9,0,1,1,null,41,0,0
