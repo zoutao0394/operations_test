@@ -1,21 +1,19 @@
-{% extends 'home.html' %}
-{% block MainContainer %}
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>配置管理</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>配置信息</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">仓库会员信息</a></li>
-        <li><a href="#">商品库位信息</a></li>
-        <li><a href="#">策略信息</a></li>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
-      </ul>
-      <hr class="hidden-sm hidden-md hidden-lg">
-    </div>
-
-    <div class="col-sm-8">
-      <h2>配置信息</h2>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="col-sm-8">
+<h2>配置信息</h2>
       <h5>脚本自动匹配选择的仓库会员</h5>
         <form action="/changeconfig" method="post">
             <button type="submit" class="btn btn-primary">切换仓库</button>
@@ -52,7 +50,6 @@
     </table>
 
         </form>
-    </div>
-  </div>
-</div>
-{% endblock %}
+         </div>
+</body>
+</html>

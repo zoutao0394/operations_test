@@ -4375,12 +4375,12 @@ vars.put(&quot;orderids&quot;,keywordStr);
                   </hashTree>
                 </hashTree>
               </hashTree>
-              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="散单分拣" enabled="true">
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="散单分拣" enabled="false">
                 <stringProp name="IfController.condition">&quot;${BatchTypeName}&quot; == &quot;散单分拣&quot;;</stringProp>
                 <boolProp name="IfController.evaluateAll">false</boolProp>
               </IfController>
               <hashTree>
-                <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="接单" enabled="true">
+                <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="接单" enabled="false">
                   <boolProp name="LoopController.continue_forever">true</boolProp>
                   <stringProp name="LoopController.loops">1</stringProp>
                 </LoopController>
@@ -4418,8 +4418,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/OrderReceiving</stringProp>
@@ -4482,8 +4482,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Basedata/GetBasedata</stringProp>
@@ -4561,8 +4561,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Basedata/GetBaseData</stringProp>
@@ -4622,8 +4622,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/OrderProcessing</stringProp>
@@ -4686,8 +4686,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/VerificationUserCode</stringProp>
@@ -4762,8 +4762,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/SaveVerificationUserCode</stringProp>
@@ -4862,8 +4862,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/Processing</stringProp>
@@ -4941,8 +4941,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/OrderEnd</stringProp>
@@ -5019,8 +5019,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </elementProp>
                       </collectionProp>
                     </elementProp>
-                    <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol">http</stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderReceiving/End</stringProp>
@@ -5133,7 +5133,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                       </collectionProp>
                     </elementProp>
                     <stringProp name="HTTPSampler.domain"></stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol"></stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderCheck/OrderCheck</stringProp>
@@ -5199,7 +5199,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                       </collectionProp>
                     </elementProp>
                     <stringProp name="HTTPSampler.domain"></stringProp>
-                    <stringProp name="HTTPSampler.port">8097</stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
                     <stringProp name="HTTPSampler.protocol"></stringProp>
                     <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                     <stringProp name="HTTPSampler.path">/Order/OrderCheck/GetOpenFlowLine</stringProp>
@@ -5273,7 +5273,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </collectionProp>
                       </elementProp>
                       <stringProp name="HTTPSampler.domain"></stringProp>
-                      <stringProp name="HTTPSampler.port">8097</stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
                       <stringProp name="HTTPSampler.protocol"></stringProp>
                       <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                       <stringProp name="HTTPSampler.path">/Order/OrderCheck/GetIntegratedInfoByCode</stringProp>
@@ -5383,7 +5383,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </collectionProp>
                       </elementProp>
                       <stringProp name="HTTPSampler.domain"></stringProp>
-                      <stringProp name="HTTPSampler.port">8097</stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
                       <stringProp name="HTTPSampler.protocol"></stringProp>
                       <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                       <stringProp name="HTTPSampler.path">/Order/OrderCheck/GetOrderPackage</stringProp>
@@ -5466,7 +5466,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </collectionProp>
                       </elementProp>
                       <stringProp name="HTTPSampler.domain"></stringProp>
-                      <stringProp name="HTTPSampler.port">8097</stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
                       <stringProp name="HTTPSampler.protocol"></stringProp>
                       <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                       <stringProp name="HTTPSampler.path">/Order/Print/GetCommodityIdentifierPrintData</stringProp>
@@ -5626,7 +5626,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </collectionProp>
                       </elementProp>
                       <stringProp name="HTTPSampler.domain"></stringProp>
-                      <stringProp name="HTTPSampler.port">8097</stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
                       <stringProp name="HTTPSampler.protocol"></stringProp>
                       <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                       <stringProp name="HTTPSampler.path">/Order/OrderCheck/IntegratedConfirm</stringProp>
@@ -5712,7 +5712,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </collectionProp>
                       </elementProp>
                       <stringProp name="HTTPSampler.domain"></stringProp>
-                      <stringProp name="HTTPSampler.port">8097</stringProp>
+                      <stringProp name="HTTPSampler.port"></stringProp>
                       <stringProp name="HTTPSampler.protocol"></stringProp>
                       <stringProp name="HTTPSampler.contentEncoding"></stringProp>
                       <stringProp name="HTTPSampler.path">/Order/Print/ExpressList</stringProp>

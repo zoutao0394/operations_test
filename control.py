@@ -13,8 +13,6 @@ def scriptlist(path="WMS"):
     return scriptlist
 
 
-
-
 def run(script):
 
     t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
@@ -24,9 +22,6 @@ def run(script):
         shell=True)
     # os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (script, filename,filename))
     return "执行成功"
-
-
-
 
 
 def create_testcase():
@@ -49,11 +44,7 @@ def changeconfig(username,warehouseID,memberID):
     cursor.close()
 
 
-
 def createconfig(data={}):
-    # infolist = info.split(',')
-    # print(infolist)
-    # print(infolist[0],infolist[1],infolist[2],infolist[3],infolist[4],infolist[5])
 
     if len(data)>5:
         warehouseID = data['warehouseID']
@@ -80,6 +71,8 @@ def createconfig(data={}):
         con.commit()
 
         return print('新增成功')
+    else:
+        return '数据不合法'
 
 
 def showwarehouse():
@@ -99,19 +92,91 @@ def showwarehouse():
         i = list(i)
         i[5] = environmentname[0][0]
         value.append(i[:-1])
-
+    cursor.close()
     return value
 
 
+def jtl():
+    t = open('D:\\operations_test\\report\\20200512112720B2B入库.jmx.jtl','r',encoding='UTF-8')
+    file = t.read()
+    print(type(file))
+    file = file.split('\n')
+    key = file[0].split(',')
+    del file[0]
+    del file[-1]
+    for i in range(len(file)):
+        print(i)
 
-def reportdetail():
-    print(os.listdir("./report"))
+    # a = []
+    # for f in file:
+    #     f = f.split(',')
+    #     a.append(f)
+    print(key,file)
 
 
+def oplist():
+    sql = "select * from auto_operation"
+    cursor = con.cursor()
+    cursor.execute(sql)
 
+    value = []
+    data = cursor.fetchall()
+    cursor.close()
+    return data
+
+def operationstar(script):
+    t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+    filename = t + script
+    subprocess.Popen(
+        'jmeter -n -t ./JmeterScript/operationstar/%s.jmx -l ./report/%s.jtl' % (script, filename),
+        shell=True)
+    # os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (script, filename,filename))
+    return "执行成功"
+
+def currentwarehouse():
+    sql = """
+    SELECT
+	t1.* 
+FROM
+	auto_warehouemember t1
+	JOIN auto_control t2 ON t1.id = t2.warehousememberid 
+WHERE
+	t2.`status` = 0 limit 1;
+    """
+    cursor = con.cursor()
+    cursor.execute(sql)
+
+    value = []
+    data = cursor.fetchall()
+    cursor.close()
+    return data[0][1]+"-"+data[0][3]
+
+
+def configlist():
+    sql = """
+        SELECT
+    	* 
+    FROM
+    	auto_warehouemember;
+        """
+    cursor = con.cursor()
+    cursor.execute(sql)
+
+    data = cursor.fetchall()
+    cursor.close()
+    value = ["warehouseID","warehousename","memberID","membername","memberno"]
+    va = []
+    for i in data:
+        v = zip(value,i[:4])
+        va.append(dict(v))
+
+    dic = {'data':va}
+    return dic
 
 
 
 if __name__ == '__main__':
-    reportdetail()
+    a = configlist()
+    print(a)
+
 

@@ -81,11 +81,48 @@ def reportmanage():
 # def reportdetail():
 #     return send_from_directory(root, "/20200512112720B2B入库.jmx")
 
+@app.route('/taskconfig',methods=['GET','POST'])
+def taskconfig():
+    return render_template('taskconfig.html')
 
 
-@app.route('/iframe',methods=['GET','POST'])
-def iframe():
-    return render_template('iframe.html')
+@app.route('/develop',methods=['GET','POST'])
+def develop():
+    data = control.oplist()
+    return render_template('develop.html',data=data)
+
+
+@app.route('/operationstar',methods=['POST'])
+def operationstar():
+    data = request.form.to_dict()['operation']
+    control.operationstar(data)
+
+    return "执行成功"
+
+
+
+@app.route('/configdetail',methods=['GET','POST'])
+def configdetail():
+    return render_template('configdetail.html')
+
+
+# dirpath = os.path.join(app.root_path,'report')
+#
+# @app.route('/report',methods=['GET','POST'])
+# def report():
+#     return send_from_directory(dirpath,"./20200512112720B2B入库.jmx",as_attachment=True)
+
+@app.route('/currentwarehouse',methods=['get'])
+def currentwarehouse():
+    a = control.currentwarehouse()
+    return "当前仓库："+a
+
+
+
+@app.route('/configlist',methods=['get'])
+def configlist():
+    a = control.configlist()
+    return jsonify(a)
 
 
 

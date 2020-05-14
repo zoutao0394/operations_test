@@ -1,0 +1,62 @@
+{% extends 'home.html' %}
+{% block MainContainer %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>辅助功能</h2>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">创建测试数据</a></li>
+          <li><a href="#">执行单据流程</a></li>
+          <li><a href="#">执行压力测试</a></li>
+
+        <!--<li class="active"><a href="#">附加测试权限</a></li>-->
+
+      </ul>
+      <hr class="hidden-sm hidden-md hidden-lg">
+    </div>
+
+    <div class="col-sm-8">
+      <h2>功能详情</h2>
+      <h5 id="warehouse"></h5>
+        <form action="/changeconfig" method="post">
+            <div class="form-group">
+    <label for="name">选择仓库会员</label>
+    <select class="form-control" id='warehousemember'>
+    </select>
+                <br>
+                <input type="submit" value="切换" class="btn btn-primary">
+  </div>
+        </form>
+
+        <table class="table table-hover">
+        <caption>功能项</caption>
+        <thead>
+            <tr>
+                <th>执行</th>
+                <th>操作</th>
+                <th>系统</th>.
+                <th>所属流程</th>
+                <th>状态</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for operation in data %}
+            <form action="/operationstar" method="post">
+            <tr>
+                <td><button type="submit" name="operation" value={{operation[1]}}>启动</button></td>
+                <td >{{operation[1]}}</td>
+                <td>{{operation[2]}}</td>
+                <td>{{operation[4]}}</td>
+                <td id=status{{operation[0]}}>等待执行</td>
+            </tr>
+            </form>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
