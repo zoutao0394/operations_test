@@ -119,7 +119,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;单包裹出库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;一票一件&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -478,7 +478,7 @@ WHERE
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="手工调度" enabled="false">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="手工调度" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -815,7 +815,7 @@ WHERE
               </hashTree>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建波次" enabled="false">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建波次" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -5134,7 +5134,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务成功" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=2 where operation=&quot;单包裹出库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=2 where operation=&quot;一票一件&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -5171,7 +5171,7 @@ result=CASE
 		&quot;上次执行：失败&quot;
 END
 
-where operation=&apos;单包裹出库&apos;
+where operation=&apos;一票一件&apos;
 ;
 </stringProp>
             <stringProp name="queryArguments"></stringProp>
