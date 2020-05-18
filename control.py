@@ -55,7 +55,7 @@ def changeconfig(username,warehouseID,memberID):
 
     con.commit()
     cursor.close()
-    con.close()
+
 
 
 def createconfig(data={}):
@@ -83,7 +83,7 @@ def createconfig(data={}):
 
         cursor.execute(sql2)
         con.commit()
-        con.close()
+
         return print('新增成功')
     else:
         return '数据不合法'
@@ -107,7 +107,7 @@ def showwarehouse():
         i[5] = environmentname[0][0]
         value.append(i[:-1])
     cursor.close()
-    con.close()
+
     return value
 
 
@@ -137,7 +137,7 @@ def oplist():
     value = []
     data = cursor.fetchall()
     cursor.close()
-    con.close()
+
     return data
 
 def operationstar(script):
@@ -165,7 +165,7 @@ WHERE
     value = []
     data = cursor.fetchall()
     cursor.close()
-    con.close()
+
     return data[0][1]+"-"+data[0][3]
 
 
@@ -188,7 +188,7 @@ def configlist():
         va.append(dict(v))
 
     dic = {'data':va}
-    con.close()
+
     return dic
 
 

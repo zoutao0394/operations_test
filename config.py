@@ -13,15 +13,15 @@ con = pymysql.connect(
 
 )
 
-
-conn = pymysql.connect(
-    host='172.16.20.27',
-    port=3316,
-    user='WMS_Write',
-    password='UnipsWW@5771.com',
-    database='imlrequest'
-
-)
+#
+# conn = pymysql.connect(
+#     host='172.16.20.27',
+#     port=3316,
+#     user='WMS_Write',
+#     password='UnipsWW@5771.com',
+#     database='imlrequest'
+#
+# )
 
 
 setting = ['WMS','ERP','TMS','WES','MES']
