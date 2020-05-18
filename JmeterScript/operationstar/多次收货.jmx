@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="全量入库" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="多次收货" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -89,7 +89,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;全量入库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;多次收货&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -1004,7 +1004,7 @@ for(int i=0;i&lt;len;i++){
 	tempb[i]= listArray.getJSONObject(i).getString(&quot;BarCode&quot;);
 	tempc[i]= listArray.getJSONObject(i).getString(&quot;CommodityCode&quot;);
 	tempd[i]= listArray.getJSONObject(i).getString(&quot;CommodityName&quot;);
-	tempe[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
+//	tempe[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
 
 	
 	
@@ -1019,7 +1019,7 @@ for(int i=0;i&lt;len;i++){
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bbatchlock%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BrowIndex%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BRelationID%5D=&quot;).append(RelationID);
-	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bamount%5D=&quot;).append(tempe[i]);
+	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bamount%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BOverplusAmount%5D=0&quot;);
 
 }
@@ -1107,8 +1107,164 @@ vars.put(&quot;receiptdetail&quot;,keywordStr);</stringProp>
                   </ResponseAssertion>
                   <hashTree/>
                 </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="完成收货" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${receiptdetail}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">http</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/WareHouseIN/Pcgoods/saveReceipt</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                    <collectionProp name="HeaderManager.headers">
+                      <elementProp name="Referer" elementType="Header">
+                        <stringProp name="Header.name">Referer</stringProp>
+                        <stringProp name="Header.value">http://58.240.229.37:8015/WareHouseIN/Pcgoods/Pcgoods?systemCode=wms&amp;moduleTitle=%E6%94%B6%E8%B4%A7%E7%AE%A1%E7%90%86</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept-Language" elementType="Header">
+                        <stringProp name="Header.name">Accept-Language</stringProp>
+                        <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                      </elementProp>
+                      <elementProp name="Origin" elementType="Header">
+                        <stringProp name="Header.name">Origin</stringProp>
+                        <stringProp name="Header.value">http://58.240.229.37:8015</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept" elementType="Header">
+                        <stringProp name="Header.name">Accept</stringProp>
+                        <stringProp name="Header.value">*/*</stringProp>
+                      </elementProp>
+                      <elementProp name="X-Requested-With" elementType="Header">
+                        <stringProp name="Header.name">X-Requested-With</stringProp>
+                        <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                      </elementProp>
+                      <elementProp name="Content-Type" elementType="Header">
+                        <stringProp name="Header.name">Content-Type</stringProp>
+                        <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept-Encoding" elementType="Header">
+                        <stringProp name="Header.name">Accept-Encoding</stringProp>
+                        <stringProp name="Header.value">gzip, deflate</stringProp>
+                      </elementProp>
+                      <elementProp name="User-Agent" elementType="Header">
+                        <stringProp name="Header.name">User-Agent</stringProp>
+                        <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36</stringProp>
+                      </elementProp>
+                      <elementProp name="the_request_service" elementType="Header">
+                        <stringProp name="Header.name">the_request_service</stringProp>
+                        <stringProp name="Header.value">wms</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="-563215660">&quot;errorMsg&quot;:[&quot;保存成功！&quot;],</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.custom_message"></stringProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">16</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="完成收货" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">${receiptdetail}</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain"></stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">http</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                  <stringProp name="HTTPSampler.path">/WareHouseIN/Pcgoods/saveReceipt</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                </HTTPSamplerProxy>
+                <hashTree>
+                  <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                    <collectionProp name="HeaderManager.headers">
+                      <elementProp name="Referer" elementType="Header">
+                        <stringProp name="Header.name">Referer</stringProp>
+                        <stringProp name="Header.value">http://58.240.229.37:8015/WareHouseIN/Pcgoods/Pcgoods?systemCode=wms&amp;moduleTitle=%E6%94%B6%E8%B4%A7%E7%AE%A1%E7%90%86</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept-Language" elementType="Header">
+                        <stringProp name="Header.name">Accept-Language</stringProp>
+                        <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                      </elementProp>
+                      <elementProp name="Origin" elementType="Header">
+                        <stringProp name="Header.name">Origin</stringProp>
+                        <stringProp name="Header.value">http://58.240.229.37:8015</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept" elementType="Header">
+                        <stringProp name="Header.name">Accept</stringProp>
+                        <stringProp name="Header.value">*/*</stringProp>
+                      </elementProp>
+                      <elementProp name="X-Requested-With" elementType="Header">
+                        <stringProp name="Header.name">X-Requested-With</stringProp>
+                        <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                      </elementProp>
+                      <elementProp name="Content-Type" elementType="Header">
+                        <stringProp name="Header.name">Content-Type</stringProp>
+                        <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                      </elementProp>
+                      <elementProp name="Accept-Encoding" elementType="Header">
+                        <stringProp name="Header.name">Accept-Encoding</stringProp>
+                        <stringProp name="Header.value">gzip, deflate</stringProp>
+                      </elementProp>
+                      <elementProp name="User-Agent" elementType="Header">
+                        <stringProp name="Header.name">User-Agent</stringProp>
+                        <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36</stringProp>
+                      </elementProp>
+                      <elementProp name="the_request_service" elementType="Header">
+                        <stringProp name="Header.name">the_request_service</stringProp>
+                        <stringProp name="Header.value">wms</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </HeaderManager>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="-563215660">&quot;errorMsg&quot;:[&quot;保存成功！&quot;],</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.custom_message"></stringProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">16</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
               </hashTree>
-              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="PC入库上架" enabled="true">
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="PC入库上架" enabled="false">
                 <boolProp name="LoopController.continue_forever">true</boolProp>
                 <stringProp name="LoopController.loops">1</stringProp>
               </LoopController>
@@ -1812,7 +1968,7 @@ vars.put(&quot;param&quot;,keywordStr);</stringProp>
                   <hashTree/>
                 </hashTree>
               </hashTree>
-              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="入库确认" enabled="true">
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="入库确认" enabled="false">
                 <boolProp name="LoopController.continue_forever">true</boolProp>
                 <stringProp name="LoopController.loops">1</stringProp>
               </LoopController>
@@ -2764,7 +2920,7 @@ vars.put(&quot;param&quot;,keywordStr);</stringProp>
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务成功" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=2 where operation=&quot;全量入库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=2 where operation=&quot;多次收货&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -2801,7 +2957,7 @@ result=CASE
 		&quot;上次执行：失败&quot;
 END
 
-where operation=&apos;全量入库&apos;
+where operation=&apos;多次收货&apos;
 ;
 </stringProp>
             <stringProp name="queryArguments"></stringProp>

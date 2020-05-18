@@ -1,0 +1,20 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589773565470,353,标记任务开始,200,OK,少量入库 1-1,text,true,,9,0,1,1,null,353,0,286
+1589773565827,4,获取账号,200,OK,少量入库 1-1,text,true,,18,0,1,1,null,3,0,0
+1589773565832,6,锁定账号,200,OK,少量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1589773565838,1,获取仓库及会员信息,200,OK,少量入库 1-1,text,true,,131,0,1,1,null,1,0,0
+1589773565840,1,获取oms配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565841,1,获取wi配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565843,1,获取basic配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565844,2,获取os配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,2,0,0
+1589773565846,1,获取opw配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565848,1,获取op配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565849,2,获取opr配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565851,1,获取master配置信息,200,OK,少量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589773565903,110,登陆,200,OK,少量入库 1-1,text,true,,105527,1631,1,1,http://172.16.20.6:8090/Home/Index,58,0,19
+1589773565903,58,登陆-0,302,Found,少量入库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,58,0,19
+1589773565964,49,登陆-1,200,OK,少量入库 1-1,text,true,,104458,873,1,1,http://172.16.20.6:8090/Home/Index,41,0,0
+1589773566022,30,到货通知查询,200,OK,少量入库 1-1,text,true,,504,1246,1,1,http://172.16.20.6:8015/WareHouseIN/Arrival/Query?searchText=&sortName=CreateDate&sortOrder=DESC&pageSize=20&pageNumber=1&PageSize=20&PageCurrent=1&StartTime=+2020-05-18+00%3A00%3A00+&EndTime=++2020-05-18+23%3A59%3A59&PageType=2&InStatus=&InCodes=&SyncIds=&MemberNo=0010000114&MemberID=26520&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&Memo=,30,0,4
+1589773566060,7,释放登陆账号,200,OK,少量入库 1-1,text,true,,9,0,1,1,null,7,0,0
+1589773566068,6,标记任务成功,200,OK,少量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1589773566101,6,标记任务最终结果,200,OK,少量入库 1-1,text,true,,9,0,1,1,null,6,0,0

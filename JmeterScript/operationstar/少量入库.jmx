@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="全量入库" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="少量入库" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -25,7 +25,7 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="控制器" enabled="true">
           <stringProp name="CounterConfig.start">0</stringProp>
           <stringProp name="CounterConfig.end"></stringProp>
           <stringProp name="CounterConfig.incr">1</stringProp>
@@ -89,7 +89,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;全量入库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;少量入库&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -1004,7 +1004,7 @@ for(int i=0;i&lt;len;i++){
 	tempb[i]= listArray.getJSONObject(i).getString(&quot;BarCode&quot;);
 	tempc[i]= listArray.getJSONObject(i).getString(&quot;CommodityCode&quot;);
 	tempd[i]= listArray.getJSONObject(i).getString(&quot;CommodityName&quot;);
-	tempe[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
+//	tempe[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
 
 	
 	
@@ -1019,7 +1019,7 @@ for(int i=0;i&lt;len;i++){
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bbatchlock%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BrowIndex%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BRelationID%5D=&quot;).append(RelationID);
-	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bamount%5D=&quot;).append(tempe[i]);
+	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5Bamount%5D=1&quot;);
 	sBuffer.append(&quot;&amp;receiptDetailList%5B&quot;).append(i).append(&quot;%5D%5BOverplusAmount%5D=0&quot;);
 
 }
@@ -2764,7 +2764,7 @@ vars.put(&quot;param&quot;,keywordStr);</stringProp>
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务成功" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=2 where operation=&quot;全量入库&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=2 where operation=&quot;少量入库&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -2801,7 +2801,7 @@ result=CASE
 		&quot;上次执行：失败&quot;
 END
 
-where operation=&apos;全量入库&apos;
+where operation=&apos;少量入库&apos;
 ;
 </stringProp>
             <stringProp name="queryArguments"></stringProp>

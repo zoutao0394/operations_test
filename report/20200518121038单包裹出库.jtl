@@ -1,0 +1,20 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589775041205,397,标记任务开始,200,OK,单包裹出库 1-1,text,true,,9,0,1,1,null,397,0,388
+1589775041603,5,获取账号,200,OK,单包裹出库 1-1,text,true,,18,0,1,1,null,3,0,0
+1589775041608,6,锁定账号,200,OK,单包裹出库 1-1,text,true,,9,0,1,1,null,6,0,0
+1589775041615,1,获取仓库及会员信息,200,OK,单包裹出库 1-1,text,true,,131,0,1,1,null,1,0,0
+1589775041616,1,获取oms配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041618,1,获取wi配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041619,1,获取basic配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041620,1,获取os配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041622,1,获取opw配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041623,1,获取op配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041625,1,获取opr配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041626,2,获取master配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,2,0,1
+1589775041628,1,获取os配置信息,200,OK,单包裹出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589775041681,120,登陆,200,OK,单包裹出库 1-1,text,true,,105527,1631,1,1,http://172.16.20.6:8090/Home/Index,54,0,20
+1589775041681,54,登陆-0,302,Found,单包裹出库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,54,0,20
+1589775041744,57,登陆-1,200,OK,单包裹出库 1-1,text,true,,104458,873,1,1,http://172.16.20.6:8090/Home/Index,49,0,0
+1589775041810,170,查询待调度的订单信息,200,OK,单包裹出库 1-1,text,true,,504,1127,1,1,http://172.16.20.6:8011/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=26519&MemberID=&BeginDate=2020-05-18+00%3A00%3A00+&EndDate=+2020-05-18+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,169,0,4
+1589775041997,158,创建笼车波次,200,OK,单包裹出库 1-1,text,false,Test failed: text expected to contain /true/,694,2096,1,1,http://172.16.20.6:8068/Order/CommonBuying/SaveBatchOrder,158,0,4
+1589775042192,6,标记任务最终结果,200,OK,单包裹出库 1-1,text,true,,9,0,1,1,null,6,0,0

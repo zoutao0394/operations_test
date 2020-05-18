@@ -17,8 +17,10 @@
     <div class="col-sm-8">
       <h2>配置信息</h2>
       <h5>脚本自动匹配选择的仓库会员</h5>
-        <form action="/changeconfig" method="post">
-            <button type="submit" class="btn btn-primary">切换仓库</button>
+        <h5 id="warehouse"></h5>
+
+        <!--<form action="/changeconfig" method="post">-->
+            <!--<button type="submit" class="btn btn-primary">切换仓库</button>-->
             <button type="button" class="btn btn-primary">新增仓库</button>
             <button type="button" class="btn btn-danger">删除配置</button>
             <button type="button" class="btn btn-primary">附加权限</button>
@@ -41,7 +43,7 @@
         <tbody>
         {% for valu in values %}
             <tr>
-                <td><input type="radio" name="detail " value={{valu[0]}};{{valu[2]}}></td>
+                <td><button name="selectwarehouse" value={{valu[0]}};{{valu[2]}} class="btn btn-primary">切换仓库</button></td>
                 {% for v in valu %}
 
                     <td>{{v}}</td>
@@ -51,7 +53,7 @@
         </tbody>
     </table>
 
-        </form>
+        <!--</form>-->
     </div>
   </div>
 </div>

@@ -1,42 +1,42 @@
-2020-05-13 16:37:07,945 INFO o.a.j.u.JMeterUtils: Setting Locale to zh_CN
-2020-05-13 16:37:07,959 INFO o.a.j.JMeter: Loading user properties from: D:\apache-jmeter-5.0\bin\user.properties
-2020-05-13 16:37:07,959 INFO o.a.j.JMeter: Loading system properties from: D:\apache-jmeter-5.0\bin\system.properties
-2020-05-13 16:37:07,963 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: Version 5.0 r1840935
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: java.version=1.8.0_191
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: os.name=Windows 10
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: os.arch=amd64
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: os.version=10.0
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: file.encoding=GBK
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: Max memory     =1073741824
-2020-05-13 16:37:07,964 INFO o.a.j.JMeter: Available Processors =4
-2020-05-13 16:37:07,967 INFO o.a.j.JMeter: Default Locale=English (EN)
-2020-05-13 16:37:07,967 INFO o.a.j.JMeter: JMeter  Locale=Chinese (China)
-2020-05-13 16:37:07,967 INFO o.a.j.JMeter: JMeterHome=D:\apache-jmeter-5.0
-2020-05-13 16:37:07,967 INFO o.a.j.JMeter: user.dir  =D:\operations_test
-2020-05-13 16:37:07,967 INFO o.a.j.JMeter: PWD       =D:\operations_test
-2020-05-13 16:37:07,969 INFO o.a.j.JMeter: IP: 192.168.3.87 Name: DESKTOP-LMVO1OP FullName: DESKTOP-LMVO1OP
-2020-05-13 16:37:07,971 INFO o.a.j.s.FileServer: Default base='D:\operations_test'
-2020-05-13 16:37:07,975 INFO o.a.j.s.FileServer: Set new base='D:\operations_test\.\JmeterScript\operationstar'
-2020-05-13 16:37:08,080 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
-2020-05-13 16:37:08,092 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
-2020-05-13 16:37:08,097 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
-2020-05-13 16:37:08,102 INFO o.a.j.s.SaveService: Loading file: .\JmeterScript\operationstar\全量入库.jmx
-2020-05-13 16:37:08,144 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
-2020-05-13 16:37:08,170 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
-2020-05-13 16:37:08,286 INFO o.a.j.JMeter: Creating summariser <summary>
-2020-05-13 16:37:08,293 INFO o.a.j.e.StandardJMeterEngine: Running the test!
-2020-05-13 16:37:08,293 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-05-13 16:37:08,294 INFO o.a.j.s.SampleEvent: List of sample_variables: []
-2020-05-13 16:37:08,298 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
-2020-05-13 16:37:08,298 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
-2020-05-13 16:37:09,529 ERROR o.a.j.f.TimeShift: Failed to parse the date 'yyyyMMddHHmmss' to shift with formatter 'null'
+2020-05-18 13:11:16,283 INFO o.a.j.u.JMeterUtils: Setting Locale to zh_CN
+2020-05-18 13:11:16,296 INFO o.a.j.JMeter: Loading user properties from: D:\apache-jmeter-5.0\bin\user.properties
+2020-05-18 13:11:16,296 INFO o.a.j.JMeter: Loading system properties from: D:\apache-jmeter-5.0\bin\system.properties
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: Version 5.0 r1840935
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: java.version=1.8.0_191
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: os.name=Windows 10
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: os.arch=amd64
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: os.version=10.0
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: file.encoding=GBK
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: Max memory     =1073741824
+2020-05-18 13:11:16,303 INFO o.a.j.JMeter: Available Processors =4
+2020-05-18 13:11:16,306 INFO o.a.j.JMeter: Default Locale=English (EN)
+2020-05-18 13:11:16,306 INFO o.a.j.JMeter: JMeter  Locale=Chinese (China)
+2020-05-18 13:11:16,306 INFO o.a.j.JMeter: JMeterHome=D:\apache-jmeter-5.0
+2020-05-18 13:11:16,307 INFO o.a.j.JMeter: user.dir  =D:\operations_test
+2020-05-18 13:11:16,307 INFO o.a.j.JMeter: PWD       =D:\operations_test
+2020-05-18 13:11:16,308 INFO o.a.j.JMeter: IP: 192.168.3.87 Name: DESKTOP-LMVO1OP FullName: DESKTOP-LMVO1OP
+2020-05-18 13:11:16,310 INFO o.a.j.s.FileServer: Default base='D:\operations_test'
+2020-05-18 13:11:16,314 INFO o.a.j.s.FileServer: Set new base='D:\operations_test\.\JmeterScript\operationstar'
+2020-05-18 13:11:16,425 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2020-05-18 13:11:16,436 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2020-05-18 13:11:16,440 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2020-05-18 13:11:16,445 INFO o.a.j.s.SaveService: Loading file: .\JmeterScript\operationstar\少量入库.jmx
+2020-05-18 13:11:16,486 INFO o.a.j.p.h.c.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_
+2020-05-18 13:11:16,701 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-18 13:11:16,701 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-18 13:11:16,702 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-18 13:11:16,702 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-18 13:11:16,702 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2020-05-18 13:11:16,702 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2020-05-18 13:11:16,834 INFO o.a.j.JMeter: Creating summariser <summary>
+2020-05-18 13:11:16,839 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2020-05-18 13:11:16,839 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-05-18 13:11:16,839 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-05-18 13:11:16,845 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2020-05-18 13:11:16,845 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2020-05-18 13:11:17,713 ERROR o.a.j.f.TimeShift: Failed to parse the date 'yyyyMMddHHmmss' to shift with formatter 'null'
 java.lang.NumberFormatException: For input string: "yyyyMMddHHmmss"
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_191]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_191]
@@ -55,44 +55,23 @@ java.lang.NumberFormatException: For input string: "yyyyMMddHHmmss"
 	at org.apache.jorphan.collections.HashTree.traverse(HashTree.java:977) [jorphan.jar:5.0 r1840935]
 	at org.apache.jmeter.engine.StandardJMeterEngine.run(StandardJMeterEngine.java:365) [ApacheJMeter_core.jar:5.0 r1840935]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_191]
-2020-05-13 16:37:09,633 INFO r.y.c.ClickHouseDriver: Driver registered
-2020-05-13 16:37:09,719 INFO o.a.j.JMeter: 正在运行的测试 (1589359029719)
-2020-05-13 16:37:09,766 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : 入库流程
-2020-05-13 16:37:09,766 INFO o.a.j.e.StandardJMeterEngine: Starting 5 threads for group 入库流程.
-2020-05-13 16:37:09,766 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
-2020-05-13 16:37:09,767 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=5 ramp-up=5 perThread=1000.0 delayedStart=false
-2020-05-13 16:37:09,783 INFO o.a.j.t.JMeterThread: Thread started: 入库流程 1-1
-2020-05-13 16:37:09,786 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.LoopController@5ec09723 and iteration 1
-2020-05-13 16:37:09,791 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
-2020-05-13 16:37:09,791 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
-2020-05-13 16:37:09,791 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
-2020-05-13 16:37:09,791 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
-2020-05-13 16:37:09,833 INFO o.a.j.t.ThreadGroup: Started thread group number 1
-2020-05-13 16:37:09,833 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
-2020-05-13 16:37:10,799 INFO o.a.j.t.JMeterThread: Thread started: 入库流程 1-2
-2020-05-13 16:37:10,799 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.LoopController@a98444f and iteration 1
-2020-05-13 16:37:11,470 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = DESKTOP-LMVO1OP
-2020-05-13 16:37:11,479 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
-2020-05-13 16:37:11,700 INFO o.a.j.c.LoopController: iterationStart called on 生成入库单 with source org.apache.jmeter.control.LoopController@788d1d5d and iteration 1
-2020-05-13 16:37:11,813 INFO o.a.j.t.JMeterThread: Thread started: 入库流程 1-3
-2020-05-13 16:37:11,813 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.LoopController@20e643fb and iteration 1
-2020-05-13 16:37:11,997 INFO o.a.j.c.LoopController: iterationStart called on 生成入库单 with source org.apache.jmeter.control.LoopController@7984064 and iteration 1
-2020-05-13 16:37:12,830 INFO o.a.j.t.JMeterThread: Thread started: 入库流程 1-4
-2020-05-13 16:37:12,830 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.LoopController@11862311 and iteration 1
-2020-05-13 16:37:13,003 INFO o.a.j.c.LoopController: iterationStart called on 生成入库单 with source org.apache.jmeter.control.LoopController@2493d14a and iteration 1
-2020-05-13 16:37:13,835 INFO o.a.j.t.JMeterThread: Thread started: 入库流程 1-5
-2020-05-13 16:37:13,835 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.LoopController@28b91384 and iteration 1
-2020-05-13 16:37:14,039 INFO o.a.j.c.LoopController: iterationStart called on 生成入库单 with source org.apache.jmeter.control.LoopController@7bc3635d and iteration 1
-2020-05-13 16:37:15,035 INFO o.a.j.c.LoopController: iterationStart called on 生成入库单 with source org.apache.jmeter.control.LoopController@7ac2646b and iteration 1
-2020-05-13 16:37:16,244 INFO o.a.j.t.JMeterThread: Thread is done: 入库流程 1-5
-2020-05-13 16:37:16,244 INFO o.a.j.t.JMeterThread: Thread finished: 入库流程 1-5
-2020-05-13 16:37:16,249 INFO o.a.j.t.JMeterThread: Thread is done: 入库流程 1-4
-2020-05-13 16:37:16,249 INFO o.a.j.t.JMeterThread: Thread finished: 入库流程 1-4
-2020-05-13 16:37:16,254 INFO o.a.j.t.JMeterThread: Thread is done: 入库流程 1-2
-2020-05-13 16:37:16,255 INFO o.a.j.t.JMeterThread: Thread finished: 入库流程 1-2
-2020-05-13 16:37:16,259 INFO o.a.j.t.JMeterThread: Thread is done: 入库流程 1-1
-2020-05-13 16:37:16,259 INFO o.a.j.t.JMeterThread: Thread finished: 入库流程 1-1
-2020-05-13 16:37:16,264 INFO o.a.j.t.JMeterThread: Thread is done: 入库流程 1-3
-2020-05-13 16:37:16,264 INFO o.a.j.t.JMeterThread: Thread finished: 入库流程 1-3
-2020-05-13 16:37:16,264 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
-2020-05-13 16:37:16,266 INFO o.a.j.r.Summariser: summary =     80 in 00:00:07 =   12.2/s Avg:    34 Min:     1 Max:   339 Err:     1 (1.25%)
+2020-05-18 13:11:17,790 INFO r.y.c.ClickHouseDriver: Driver registered
+2020-05-18 13:11:17,834 INFO o.a.j.JMeter: 正在运行的测试 (1589778677834)
+2020-05-18 13:11:17,885 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : 少量入库
+2020-05-18 13:11:17,885 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group 少量入库.
+2020-05-18 13:11:17,885 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2020-05-18 13:11:17,885 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 perThread=1000.0 delayedStart=false
+2020-05-18 13:11:17,912 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2020-05-18 13:11:17,912 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2020-05-18 13:11:17,916 INFO o.a.j.t.JMeterThread: Thread started: 少量入库 1-1
+2020-05-18 13:11:18,009 INFO o.a.j.c.LoopController: iterationStart called on 入库 with source org.apache.jmeter.control.IfController@11267561 and iteration 0
+2020-05-18 13:11:18,012 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2020-05-18 13:11:18,012 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2020-05-18 13:11:18,012 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2020-05-18 13:11:18,012 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2020-05-18 13:11:18,406 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = DESKTOP-LMVO1OP
+2020-05-18 13:11:18,411 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2020-05-18 13:11:18,687 INFO o.a.j.t.JMeterThread: Thread is done: 少量入库 1-1
+2020-05-18 13:11:18,687 INFO o.a.j.t.JMeterThread: Thread finished: 少量入库 1-1
+2020-05-18 13:11:18,688 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2020-05-18 13:11:18,691 INFO o.a.j.r.Summariser: summary =     17 in 00:00:01 =   19.9/s Avg:    34 Min:     1 Max:   355 Err:     0 (0.00%)

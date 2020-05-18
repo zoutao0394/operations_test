@@ -26,7 +26,7 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/configmanage',methods=['GET','POST'])
+@app.route('/configmanage',methods=['GET'])
 def configmanage():
     # if request.method == 'GET':
     values = control.showwarehouse()
@@ -34,10 +34,10 @@ def configmanage():
     return render_template('configmanage.html',values = values)
 
 
-@app.route('/changeconfig', methods=['GET', 'POST'])
+@app.route('/changeconfig', methods=['POST'])
 def changeconfig():
 
-    detail = request.form.to_dict()['detail ']
+    detail = request.form.get("value")
     detail = detail.split(';')
     control.changeconfig('zoutao',detail[0],detail[1])
     return '切换成功'
@@ -119,11 +119,18 @@ def currentwarehouse():
 
 
 
-@app.route('/configlist',methods=['get'])
-def configlist():
-    a = control.configlist()
-    return jsonify(a)
+# @app.route('/configlist',methods=['get'])
+# def configlist():
+#     a = control.configlist()
+#     return jsonify(a)
+#
 
+@app.route('/scriptrun',methods=['post'])
+def scriptrun():
+    data = request.form.get('name')
+    print(data)
+    control.scriptrun(data)
+    return "%s启动"%data
 
 
 

@@ -13,15 +13,28 @@ def scriptlist(path="WMS"):
     return scriptlist
 
 
-def run(script):
+def run(script,path="WMS"):
 
     t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
     filename = t + script
     subprocess.Popen(
-        'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o ./report/%s' % (script, filename,filename),
+        'jmeter -n -t ./JmeterScript/%s/%s.jmx -l ./report/%s.jtl' % (path,script, filename),
         shell=True)
-    # os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (script, filename,filename))
+    # subprocess.Popen(
+    #     'jmeter -n -t ./JmeterScript/%s/%s -l ./report/%s.jtl -e -o ./report/%s' % (path, script, filename, filename),
+    #     shell=True)
+    # os.system(r'jmeter -n -t ./JmeterScript/%s/%s.jmx -l ./report/%s.jtl'% (path,script, filename))
     return "执行成功"
+
+def scriptrun(script):
+    sl = scriptlist('operationstar')
+    for i in sl:
+        print(i)
+        print(script+".jmx")
+        if script+".jmx" == i:
+            run(script,'operationstar')
+            print(i)
+            return print('测试启动')
 
 
 def create_testcase():
@@ -174,9 +187,13 @@ def configlist():
     return dic
 
 
+def closecon():
+    con.close()
+
 
 if __name__ == '__main__':
-    a = configlist()
-    print(a)
-
+    # a = currentwarehouse()
+    # print(a)
+    # closecon()
+    scriptrun('少量入库')
 

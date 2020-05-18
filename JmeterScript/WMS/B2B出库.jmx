@@ -49,7 +49,7 @@
             </elementProp>
             <elementProp name="num" elementType="Argument">
               <stringProp name="Argument.name">num</stringProp>
-              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.value">5</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -425,7 +425,7 @@ WHERE
           <hashTree/>
           <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="新增出库单" enabled="true">
             <boolProp name="LoopController.continue_forever">true</boolProp>
-            <stringProp name="LoopController.loops">1</stringProp>
+            <stringProp name="LoopController.loops">5</stringProp>
           </LoopController>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取出库单号" enabled="true">
@@ -843,10 +843,6 @@ vars.put(&quot;outcodedetail&quot;,keywordStr);</stringProp>
             <hashTree>
               <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
                 <collectionProp name="HeaderManager.headers">
-                  <elementProp name="Referer" elementType="Header">
-                    <stringProp name="Header.name">Referer</stringProp>
-                    <stringProp name="Header.value">http://58.240.229.37:8015/OutWareHouse/OutWareHouseAccept/OutWareHouseAcceptDetial?isAdd=1&amp;systemCode=wms</stringProp>
-                  </elementProp>
                   <elementProp name="Accept-Language" elementType="Header">
                     <stringProp name="Header.name">Accept-Language</stringProp>
                     <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
@@ -898,7 +894,7 @@ vars.put(&quot;outcodedetail&quot;,keywordStr);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="B2B出库审核" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="B2B出库审核" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -1195,7 +1191,7 @@ vars.put(&quot;outcodedetail&quot;,keywordStr);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="出库下架" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="出库下架" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -1819,7 +1815,7 @@ vars.put(&quot;outcodedetail&quot;,keywordStr);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="封箱质检" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="封箱质检" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -2175,7 +2171,7 @@ vars.put(&quot;Packing&quot;,keywordStr);</stringProp>
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="确认出库" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="确认出库" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
