@@ -194,6 +194,6 @@ def closecon():
 if __name__ == '__main__':
     # a = currentwarehouse()
     # print(a)
-    # closecon()
-    scriptrun('少量入库')
+    closecon()
+    # scriptrun('少量入库')
 

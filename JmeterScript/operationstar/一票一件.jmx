@@ -478,7 +478,7 @@ WHERE
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="手工调度" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="手工调度" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -815,7 +815,7 @@ WHERE
               </hashTree>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建波次" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建波次" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
