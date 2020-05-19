@@ -18,11 +18,15 @@
       <h2>配置信息</h2>
       <h5>脚本自动匹配选择的仓库会员</h5>
         <h5 id="warehouse"></h5>
+        <h5 id="user"></h5>
 
         <!--<form action="/changeconfig" method="post">-->
             <!--<button type="submit" class="btn btn-primary">切换仓库</button>-->
-            <button type="button" class="btn btn-primary">新增仓库</button>
-            <button type="button" class="btn btn-danger">删除配置</button>
+            <button type="button" class="btn btn-primary" data-target="#createwarehouse" data-toggle="modal">新增仓库</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#selectuser">选择用户</button>
+            <!--<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>-->
+<!-- 模态框（Modal） -->
+
             <button type="button" class="btn btn-primary">附加权限</button>
             <button type="button" class="btn btn-danger">数据配置</button>
             <button type="button" class="btn btn-danger">策略配置</button>
@@ -38,8 +42,12 @@
                 <th>会员名</th>
                 <th>会员号</th>
                 <th>环境</th>
+                <th>当前用户</th>
+
             </tr>
         </thead>
+
+
         <tbody>
         {% for valu in values %}
             <tr>
@@ -51,10 +59,101 @@
             </tr>
         {% endfor %}
         </tbody>
+
     </table>
+         <!--<ul class="pagination">-->
+     <!--<li><a href="#">&laquo;</a></li>-->
+    <!--<li><a href="#">1</a></li>-->
+    <!--<li><a href="#">2</a></li>-->
+    <!--<li><a href="#">3</a></li>-->
+    <!--<li><a href="#">4</a></li>-->
+    <!--<li><a href="#">5</a></li>-->
+    <!--<li><a href="#">&raquo;</a></li>-->
+<!--</ul>-->
+        <!--分页组件-->
 
         <!--</form>-->
     </div>
   </div>
 </div>
+<div class="modal fade" id="selectuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >选择用户</h4>
+            </div>
+            <div class="modal-body">
+                <select name="user" id="userlist" class="selectpicker show-tick form-control">
+                    <option value="zoutao">zoutao</option>
+                    <option value="zoutao">lihaitao</option>
+                    <option value="zoutao">nilulu</option>
+                    <option value="zoutao">tanghong</option>
+                    <option value="zoutao">zongyuqi</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="createwarehouse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">新增仓库</h4>
+            </div>
+            <div class="modal-body">
+
+    <form class="bs-example bs-example-form" role="form" id="insertwarehouse">
+        <div class="input-group">
+            <span class="input-group-addon">仓库ID:</span>
+            <input type="text" class="form-control" id="warehouseID" placeholder="仓库ID" value="">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">仓库名:</span>
+            <input type="text" class="form-control" id="warehousename" placeholder="仓库名" value="">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">会员ID:</span>
+            <input type="text" class="form-control" id="memberID" placeholder="会员ID" value="">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">会员名:</span>
+            <input type="text" class="form-control" placeholder="会员名" value="" id="membername">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">会员号:</span>
+            <input type="text" class="form-control" placeholder="会员号" value="" id="memberno">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">环境名:</span>
+            <input type="text" class="form-control" placeholder="test;uat;prd" value="" id="environment">
+        </div>
+        <br>
+            <div class="input-group">
+            <span class="input-group-addon">用户名:</span>
+            <input type="text" class="form-control" placeholder="用户名" value="" id="username">
+        </div>
+        <br>
+
+    </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary"   name="insertwarehouse">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
 {% endblock %}

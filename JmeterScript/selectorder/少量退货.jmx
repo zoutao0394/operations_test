@@ -356,6 +356,18 @@ WHERE
               <stringProp name="variableNames">sohost,soport</stringProp>
             </JDBCSampler>
             <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取待执行单据" enabled="true">
+              <stringProp name="dataSource">test</stringProp>
+              <stringProp name="query">select ordercode from auto_ordermanage where `scriptname` = &apos;少量退货&apos; and status = 0 and warehousememberid = (select warehousememberid from auto_control where `status` = 0);</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">ordercode</stringProp>
+            </JDBCSampler>
+            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
@@ -1071,7 +1083,7 @@ WHERE
                   <elementProp name="ReturnCode" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">ReturnCode</stringProp>
-                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.value">${ordercode_1}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2604,6 +2616,19 @@ WHERE
               </hashTree>
             </hashTree>
           </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记订单" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="query">update auto_ordermanage set status=1 where ordercode=&apos;${ordercode_1}&apos;;
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Update Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+          </JDBCSampler>
+          <hashTree/>
           <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="释放账号和反馈结果" enabled="true"/>
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="释放登陆账号" enabled="true">

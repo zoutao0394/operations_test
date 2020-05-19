@@ -1,0 +1,36 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589868467203,433,标记任务开始,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,433,0,409
+1589868467639,4,获取账号,200,OK,少量出库 1-1,text,true,,18,0,1,1,null,2,0,0
+1589868467643,6,锁定账号,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,6,0,0
+1589868467649,2,获取仓库及会员信息,200,OK,少量出库 1-1,text,true,,131,0,1,1,null,2,0,0
+1589868467651,1,获取oms配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467653,1,获取wi配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467654,1,获取basic配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467655,2,获取os配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,1
+1589868467657,1,获取opw配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467658,1,获取op配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467659,1,获取opr配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467660,2,获取master配置信息,200,OK,少量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589868467662,1,获取待执行单据,200,OK,少量出库 1-1,text,true,,31,0,1,1,null,1,0,0
+1589868467722,207,登陆,200,OK,少量出库 1-1,text,true,,105527,1631,1,1,http://172.16.20.6:8090/Home/Index,155,0,23
+1589868467722,155,登陆-0,302,Found,少量出库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,155,0,23
+1589868467889,40,登陆-1,200,OK,少量出库 1-1,text,true,,104458,873,1,1,http://172.16.20.6:8090/Home/Index,38,0,0
+1589868467940,386,查询出库单信息,200,OK,少量出库 1-1,text,true,,1603,1299,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-19+00%3A00%3A00+&EndTime=+2020-05-19+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=CTG45701200519000007&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,386,0,4
+1589868468339,32,自动审核,200,OK,少量出库 1-1,text,true,,675,984,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/AutoCheck,31,0,0
+1589868768381,2,Debug Sampler,200,OK,少量出库 1-1,text,true,,1357,0,1,1,null,0,0,0
+1589868768385,92,进入下架页面,200,OK,少量出库 1-1,text,true,,1417,994,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,92,0,3
+1589868768567,1,Debug Sampler,200,OK,少量出库 1-1,text,true,,2507,0,1,1,null,0,0,0
+1589868768569,198,创建下架,200,OK,少量出库 1-1,text,true,,630,983,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,198,0,0
+1589868768768,159,创建下架保存,200,OK,少量出库 1-1,text,true,,675,2517,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/SubmitDownShelf,159,0,0
+1589868768928,86,查看出库单内下架信息,200,OK,少量出库 1-1,text,true,,835,954,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=533701&wareHouseId=26519&sort=&order=asc,86,0,0
+1589868769016,48,获取系统推荐批次,200,OK,少量出库 1-1,text,true,,1728,1065,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,48,0,0
+1589868769067,292,下架完成,200,OK,少量出库 1-1,text,true,,630,2892,1,1,http://172.16.20.6:8015/OutWareHouse/SoldOutManage/DownShelves,292,0,0
+1589868769360,203,获取封箱信息,200,OK,少量出库 1-1,text,true,,3673,971,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/getPackingTestInfo,203,0,0
+1589868769589,128,确认封箱,200,OK,少量出库 1-1,text,true,,647,4820,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/saveOutBox,128,0,0
+1589868769717,84,完成质检,200,OK,少量出库 1-1,text,true,,654,971,1,1,http://172.16.20.6:8015/OutWareHouse/PackingTest/completeOutBox,84,0,0
+1589868769803,8,确认出库,200,OK,少量出库 1-1,text,true,,633,1021,1,1,http://172.16.20.6:8015/LogisticsCode/LogisticsCode/LogisticsCodeJudge,8,0,0
+1589868769813,235,出库完成,200,OK,少量出库 1-1,text,true,,661,1008,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,235,0,0
+1589868770049,49,标记订单,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,49,0,19
+1589868770098,8,释放登陆账号,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,8,0,0
+1589868770106,6,标记任务成功,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,6,0,0
+1589868770126,7,标记任务最终结果,200,OK,少量出库 1-1,text,true,,9,0,1,1,null,7,0,0

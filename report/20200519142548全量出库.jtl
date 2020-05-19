@@ -1,0 +1,22 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589869551039,485,标记任务开始,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,485,0,460
+1589869551524,5,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,4,0,0
+1589869551529,9,锁定账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,9,0,0
+1589869551538,2,获取仓库及会员信息,200,OK,全量出库 1-1,text,true,,131,0,1,1,null,2,0,0
+1589869551540,1,获取oms配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551541,2,获取wi配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,2,0,0
+1589869551543,1,获取basic配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551544,2,获取os配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551546,1,获取opw配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551547,2,获取op配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,2,0,0
+1589869551549,1,获取opr配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551551,1,获取master配置信息,200,OK,全量出库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589869551552,1,获取待执行单据,200,OK,全量出库 1-1,text,true,,31,0,1,1,null,1,0,0
+1589869551609,177,登陆,200,OK,全量出库 1-1,text,true,,105527,1631,1,1,http://172.16.20.6:8090/Home/Index,139,0,22
+1589869551609,139,登陆-0,302,Found,全量出库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,139,0,22
+1589869551752,34,登陆-1,200,OK,全量出库 1-1,text,true,,104458,873,1,1,http://172.16.20.6:8090/Home/Index,31,0,0
+1589869551789,0,查询出库单信息,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in query at index 261: http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-19+00%3A00%3A00+&EndTime=+2020-05-19+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=${ordercode}&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,全量出库 1-1,text,false,,1535,0,1,1,http://172.16.20.6:8015/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-19+00%3A00%3A00+&EndTime=+2020-05-19+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=${ordercode}&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%B8%93%E7%94%A8%E4%BB%93&WarehouseID=26519&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,0,0,0
+1589869851811,3,Debug Sampler,200,OK,全量出库 1-1,text,true,,1273,0,1,1,null,0,0,0
+1589869851815,40,释放登陆账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,40,0,19
+1589869851855,5,标记任务成功,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,5,0,0
+1589869851876,6,标记任务最终结果,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,6,0,0

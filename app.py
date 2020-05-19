@@ -44,21 +44,12 @@ def changeconfig():
 
 
 
-@app.route('/createconfig',methods=['GET','POST'])
-def createconfig():
-    if request.method == 'GET':
+@app.route('/createwarehouse',methods=['POST'])
+def createwarehouse():
+    # data = request.form.to_dict()
+    # result = control.createwarehouse(data)
 
-
-        return render_template('createconfig.html')
-
-    else:
-        # data = request.json  # 获取 JSON 数据
-
-        data = request.form.to_dict()
-        # data = pd.DataFrame(data["obj"])
-        control.createconfig(data)
-        return '新增成功'
-
+    return "新增成功"
 
 
 @app.route('/casemanage',methods=['GET','POST'])
@@ -77,9 +68,6 @@ def reportmanage():
 
 
 
-# @app.route('/reportdetail',methods=['GET','POST'])
-# def reportdetail():
-#     return send_from_directory(root, "/20200512112720B2B入库.jmx")
 
 @app.route('/taskconfig',methods=['GET','POST'])
 def taskconfig():
@@ -117,6 +105,12 @@ def currentwarehouse():
     a = control.currentwarehouse()
     return "当前仓库："+a
 
+@app.route('/currentuser',methods=['get'])
+def currentuser():
+    # a = control.currentwarehouse()
+    return "当前用户：zoutao"
+
+
 
 
 # @app.route('/configlist',methods=['get'])
@@ -132,6 +126,21 @@ def scriptrun():
     control.scriptrun(data)
     return "%s启动"%data
 
+@app.route('/saveorder',methods=['post'])
+def saveorder():
+    order = request.form.get('orders')
+    scriptname = request.form.get('scriptname')
+    # print(data)
+    control.order(scriptname,order)
+    return "保存成功"
+
+
+@app.route('/selectrun',methods=['post'])
+def selectrun():
+    data = request.form.get('script')
+    # print(data)
+    control.selectrun(data)
+    return "%s启动"%data
 
 
 

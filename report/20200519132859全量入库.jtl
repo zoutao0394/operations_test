@@ -1,0 +1,19 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1589866142266,352,标记任务开始,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,352,0,334
+1589866142621,5,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,3,0,0
+1589866142626,8,锁定账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,8,0,0
+1589866142634,2,获取仓库及会员信息,200,OK,全量入库 1-1,text,true,,131,0,1,1,null,2,0,0
+1589866142636,2,获取oms配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142638,1,获取wi配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142639,1,获取basic配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142641,1,获取os配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142642,1,获取opw配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142643,2,获取op配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,2,0,1
+1589866142645,2,获取opr配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142647,1,获取master配置信息,200,OK,全量入库 1-1,text,true,,27,0,1,1,null,1,0,0
+1589866142648,1,获取待执行单据,200,OK,全量入库 1-1,text,true,,31,0,1,1,null,1,0,0
+1589866142706,107,登陆,200,OK,全量入库 1-1,text,true,,105527,1631,1,1,http://172.16.20.6:8090/Home/Index,65,0,21
+1589866142706,65,登陆-0,302,Found,全量入库 1-1,text,true,,1069,758,1,1,http://172.16.20.6:8090/Login,65,0,21
+1589866142776,37,登陆-1,200,OK,全量入库 1-1,text,true,,104458,873,1,1,http://172.16.20.6:8090/Home/Index,34,0,0
+1589866142816,15,到货登记,200,OK,全量入库 1-1,text,false,"Test failed: text expected to contain /{""isSuccess"":true,""Message"":""保存成功！""}/",614,1674,1,1,http://172.16.20.6:8015/WareHouseIN/Arrival/Add,14,0,1
+1589866142845,6,标记任务最终结果,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0

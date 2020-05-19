@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="全量退货" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -103,7 +103,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;少量退货&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;全量退货&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -354,6 +354,18 @@ WHERE
               <stringProp name="resultSetHandler">Store as String</stringProp>
               <stringProp name="resultVariable"></stringProp>
               <stringProp name="variableNames">sohost,soport</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取待执行单据" enabled="true">
+              <stringProp name="dataSource">test</stringProp>
+              <stringProp name="query">select ordercode from auto_ordermanage where `scriptname` = &apos;全量退货&apos; and status = 0 and warehousememberid = (select warehousememberid from auto_control where `status` = 0);</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">ordercode</stringProp>
             </JDBCSampler>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="true">
@@ -620,7 +632,7 @@ WHERE
                   <elementProp name="pageNumber" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">pageNumber</stringProp>
-                    <stringProp name="Argument.value">1</stringProp>
+                    <stringProp name="Argument.value">10</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -938,7 +950,7 @@ WHERE
                     <elementProp name="model[BackOrderDetailList][0][BackAmount]" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">model[BackOrderDetailList][0][BackAmount]</stringProp>
-                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.value">${Amount}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -1022,7 +1034,7 @@ WHERE
                   <elementProp name="pageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">pageSize</stringProp>
-                    <stringProp name="Argument.value">20</stringProp>
+                    <stringProp name="Argument.value">100</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1113,7 +1125,7 @@ WHERE
                   <elementProp name="PageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">PageSize</stringProp>
-                    <stringProp name="Argument.value">20</stringProp>
+                    <stringProp name="Argument.value">100</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1243,16 +1255,6 @@ WHERE
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
-                <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="3569038">true</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
             </hashTree>
@@ -1467,7 +1469,7 @@ WHERE
               </JSONPostProcessor>
               <hashTree/>
             </hashTree>
-            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
+            <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="生成入库单" enabled="true">
               <stringProp name="ForeachController.inputVal">ReturnID</stringProp>
               <stringProp name="ForeachController.returnVal">ReturnID</stringProp>
               <boolProp name="ForeachController.useSeparator">true</boolProp>
@@ -1588,93 +1590,146 @@ WHERE
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
+                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray; 
+import com.alibaba.fastjson.JSONObject;
+
+String response = prev.getResponseDataAsString();  // 获取Response
+
+JSONObject responseObj = JSON.parseObject(response);  // 整个Response作为JSON对象
+
+JSONObject rows = responseObj.getJSON(&quot;rows&quot;);  // 获取列表。即，json串中[]的内容
+
+String a = rows.toString();
+vars.put(&quot;a&quot;);
+
+//String memberID = vars.get(&quot;memberID_1&quot;);
+//String warehouseID = vars.get(&quot;warehouseID_1&quot;);
+//String membername = vars.get(&quot;membername_1&quot;);
+//String warehousename = vars.get(&quot;warehousename_1&quot;);
+//String memberno = vars.get(&quot;memberno_1&quot;);</stringProp>
+                </BeanShellPostProcessor>
+                <hashTree/>
+                <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="need" enabled="true">
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="script">import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray; 
+import com.alibaba.fastjson.JSONObject;
+
+String response = prev.getResponseDataAsString();  // 获取Response
+
+JSONObject responseObj = JSON.parseObject(response);  // 整个Response作为JSON对象
+
+JSONObject rows = responseObj.getJSONObject(&quot;rows&quot;);  
+JSONArray listArray = rows.getJSONArray(&quot;BackOrderDetailList&quot;);// 获取列表。即，json串中[]的内容
+
+String memberID = vars.get(&quot;memberID_1&quot;);
+String warehouseID = vars.get(&quot;warehouseID_1&quot;);
+String ReturnID = vars.get(&quot;ReturnID&quot;);
+String ReturnCode = vars.get(&quot;ReturnCode&quot;);
+String DeliverCarryCode = vars.get(&quot;DeliverCarryCode&quot;);
+
+int len = listArray.size();
+//
+String[] tempa = new String[len];
+String[] tempb = new String[len];
+String[] tempc = new String[len];
+String[] tempd = new String[len];
+String[] tempe = new String[len];
+String[] tempf = new String[len];
+String[] tempg = new String[len];
+
+String[] sa1 = new String[len];
+String[] sa2 = new String[len];
+String[] sa3 = new String[len];
+String[] sa4 = new String[len];
+String[] sa5 = new String[len];
+String[] sa6 = new String[len];
+String[] sa7 = new String[len];
+
+
+StringBuffer sBuffer = new StringBuffer(&quot;&quot;);
+
+StringBuffer save = new StringBuffer(&quot;&quot;);
+
+
+sBuffer.append(&quot;WarehouseID=&quot;).append(warehouseID).append(&quot;&amp;MemberID=&quot;).append(memberID).append(&quot;&amp;BillID=&quot;).append(ReturnID).append(&quot;&amp;BillType=4&quot;);
+
+save.append(&quot;model%5BWarehouseID%5D=&quot;).append(warehouseID).append(&quot;&amp;model%5BMemberID%5D=&quot;).append(memberID).append(&quot;&amp;model%5BBillID%5D=&quot;).append(ReturnID).append(&quot;&amp;model%5BBillCode%5D=&quot;).append(ReturnCode).append(&quot;&amp;model%5BOuterPacking%5D=&amp;model%5BWeight%5D=&amp;model%5BStorageLocation%5D=&amp;model%5BReturnID%5D=&quot;).append(ReturnID).append(&quot;&amp;model%5BDeliverCarryCode%5D=&quot;).append(DeliverCarryCode).append(&quot;&amp;model%5BCarryCode%5D=&quot;);
+
+for(int i=0;i&lt;len;i++){
+
+	
+	tempa[i]= listArray.getJSONObject(i).getString(&quot;CommodityID&quot;);
+	tempb[i]= listArray.getJSONObject(i).getString(&quot;CommodityName&quot;);
+	tempc[i]= listArray.getJSONObject(i).getString(&quot;CommodityCode&quot;);
+	tempd[i]= listArray.getJSONObject(i).getString(&quot;BarCode&quot;);
+	tempe[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
+	tempf[i]= listArray.getJSONObject(i).getString(&quot;ProductBatchID&quot;);
+	tempg[i]= listArray.getJSONObject(i).getString(&quot;ProductBatchCode&quot;);
+
+	
+	
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BCommodityID%5D=&quot;).append(tempa[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BCommodityName%5D=&quot;).append(tempb[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BCommodityCode%5D=&quot;).append(tempc[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BBarCode%5D=&quot;).append(tempd[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BStockType%5D=1&quot;);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BProductBatchID%5D=&quot;).append(tempf[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BAmount%5D=&quot;).append(tempe[i]);
+	sBuffer.append(&quot;&amp;model%5B&quot;).append(i).append(&quot;%5D%5BProductBatchCode%5D=&quot;).append(tempg[i]);
+
+	sa1[i]= listArray.getJSONObject(i).getString(&quot;ReturnDetailID&quot;);
+	sa2[i]= listArray.getJSONObject(i).getString(&quot;Amount&quot;);
+	sa3[i]= listArray.getJSONObject(i).getString(&quot;CommodityID&quot;);
+	sa4[i]= listArray.getJSONObject(i).getString(&quot;ReturnDetailID&quot;);
+
+
+	
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BReturnDetailID%5D=&quot;).append(sa1[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BAmount%5D=&quot;).append(sa2[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BBackAmount%5D=&quot;).append(sa2[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BCommodityID%5D=&quot;).append(sa3[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BFactAmount%5D=&quot;).append(sa2[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BGood_Amount%5D=&quot;).append(sa2[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BReject_Amount%5D=0&quot;);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BFP_Amount%5D=0&quot;);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5BProductBatchID%5D=&quot;).append(sa4[i]);
+	save.append(&quot;&amp;model%5BBackOrderDetailList%5D%5B&quot;).append(i).append(&quot;%5D%5Breasonid%5D=0&quot;);
+	
+	}
+
+
+
+String need = sBuffer.toString();
+String back = save.toString();
+
+vars.put(&quot;need&quot;,need);
+vars.put(&quot;back&quot;,back);
+
+
+
+
+
+
+</stringProp>
+                </BeanShellPostProcessor>
+                <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交退货商品" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
-                    <elementProp name="WarehouseID" elementType="HTTPArgument">
+                    <elementProp name="" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                      <stringProp name="Argument.value">${need}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                      <stringProp name="Argument.name">WarehouseID</stringProp>
-                    </elementProp>
-                    <elementProp name="MemberID" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.value">${memberID_1}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                      <stringProp name="Argument.name">MemberID</stringProp>
-                    </elementProp>
-                    <elementProp name="BillID" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.name">BillID</stringProp>
-                      <stringProp name="Argument.value">${ReturnID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="BillType" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.name">BillType</stringProp>
-                      <stringProp name="Argument.value">4</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][CommodityID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][CommodityID]</stringProp>
-                      <stringProp name="Argument.value">${CommodityID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][CommodityName]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][CommodityName]</stringProp>
-                      <stringProp name="Argument.value">${Commodity_g1}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][CommodityCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][CommodityCode]</stringProp>
-                      <stringProp name="Argument.value">${Commodity_g2}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][BarCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][BarCode]</stringProp>
-                      <stringProp name="Argument.value">${Commodity_g3}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][StockType]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][StockType]</stringProp>
-                      <stringProp name="Argument.value">1</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][ProductBatchID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][ProductBatchID]</stringProp>
-                      <stringProp name="Argument.value">${ProductBatch_g1}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][Amount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][Amount]</stringProp>
-                      <stringProp name="Argument.value">${Amount}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[0][ProductBatchCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[0][ProductBatchCode]</stringProp>
-                      <stringProp name="Argument.value">${ProductBatch_g2}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -1905,147 +1960,13 @@ WHERE
                 <hashTree/>
               </hashTree>
               <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="退货处理" enabled="true">
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
                   <collectionProp name="Arguments.arguments">
-                    <elementProp name="model[WarehouseID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[WarehouseID]</stringProp>
-                      <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">${back}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[MemberID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[MemberID]</stringProp>
-                      <stringProp name="Argument.value">${memberID_1}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BillID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BillID]</stringProp>
-                      <stringProp name="Argument.value">${ReturnID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BillCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BillCode]</stringProp>
-                      <stringProp name="Argument.value">${ReturnCode}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[OuterPacking]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[OuterPacking]</stringProp>
-                      <stringProp name="Argument.value"></stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[Weight]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[Weight]</stringProp>
-                      <stringProp name="Argument.value"></stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[StorageLocation]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[StorageLocation]</stringProp>
-                      <stringProp name="Argument.value"></stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[ReturnID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[ReturnID]</stringProp>
-                      <stringProp name="Argument.value">${ReturnID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[DeliverCarryCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[DeliverCarryCode]</stringProp>
-                      <stringProp name="Argument.value">${DeliverCarryCode}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[CarryCode]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[CarryCode]</stringProp>
-                      <stringProp name="Argument.value"></stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][ReturnDetailID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][ReturnDetailID]</stringProp>
-                      <stringProp name="Argument.value">${ReturnDetailID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][Amount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][Amount]</stringProp>
-                      <stringProp name="Argument.value">${Amount}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][BackAmount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][BackAmount]</stringProp>
-                      <stringProp name="Argument.value">1</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][CommodityID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][CommodityID]</stringProp>
-                      <stringProp name="Argument.value">${CommodityID}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][FactAmount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][FactAmount]</stringProp>
-                      <stringProp name="Argument.value">1</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][Good_Amount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][Good_Amount]</stringProp>
-                      <stringProp name="Argument.value">1</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][Reject_Amount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][Reject_Amount]</stringProp>
-                      <stringProp name="Argument.value">0</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][FP_Amount]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][FP_Amount]</stringProp>
-                      <stringProp name="Argument.value">0</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][ProductBatchID]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][ProductBatchID]</stringProp>
-                      <stringProp name="Argument.value">${ProductBatch_g1}</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="model[BackOrderDetailList][0][reasonid]" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                      <stringProp name="Argument.name">model[BackOrderDetailList][0][reasonid]</stringProp>
-                      <stringProp name="Argument.value">0</stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -2168,16 +2089,6 @@ WHERE
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                  <collectionProp name="Asserion.test_strings">
-                    <stringProp name="3569038">true</stringProp>
-                  </collectionProp>
-                  <stringProp name="Assertion.custom_message"></stringProp>
-                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                  <boolProp name="Assertion.assume_success">false</boolProp>
-                  <intProp name="Assertion.test_type">16</intProp>
-                </ResponseAssertion>
-                <hashTree/>
               </hashTree>
             </hashTree>
           </hashTree>
@@ -2227,7 +2138,7 @@ WHERE
                   <elementProp name="pageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">pageSize</stringProp>
-                    <stringProp name="Argument.value">20</stringProp>
+                    <stringProp name="Argument.value">100</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2241,7 +2152,7 @@ WHERE
                   <elementProp name="PageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">PageSize</stringProp>
-                    <stringProp name="Argument.value">20</stringProp>
+                    <stringProp name="Argument.value">100</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -2495,7 +2406,7 @@ WHERE
                 <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
                   <stringProp name="RegexExtractor.useHeaders">false</stringProp>
                   <stringProp name="RegexExtractor.refname">In</stringProp>
-                  <stringProp name="RegexExtractor.regex">\[\{(.+?)\}\]</stringProp>
+                  <stringProp name="RegexExtractor.regex">\[(.+?)\]</stringProp>
                   <stringProp name="RegexExtractor.template">$1$</stringProp>
                   <stringProp name="RegexExtractor.default">0</stringProp>
                   <stringProp name="RegexExtractor.match_number">1</stringProp>
@@ -2508,7 +2419,7 @@ WHERE
                     <elementProp name="param" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">param</stringProp>
-                      <stringProp name="Argument.value">[{${In}}]</stringProp>
+                      <stringProp name="Argument.value">[${In}]</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -2603,7 +2514,26 @@ WHERE
                 <hashTree/>
               </hashTree>
             </hashTree>
+            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+              <boolProp name="displayJMeterProperties">false</boolProp>
+              <boolProp name="displayJMeterVariables">true</boolProp>
+              <boolProp name="displaySystemProperties">false</boolProp>
+            </DebugSampler>
+            <hashTree/>
           </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记订单" enabled="true">
+            <stringProp name="dataSource">test</stringProp>
+            <stringProp name="query">update auto_ordermanage set status=1 where ordercode=&apos;${ordercode_1}&apos;;
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="queryType">Update Statement</stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+          </JDBCSampler>
+          <hashTree/>
           <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="释放账号和反馈结果" enabled="true"/>
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="释放登陆账号" enabled="true">
@@ -2620,7 +2550,7 @@ WHERE
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务成功" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=2 where operation=&quot;少量退货&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=2 where operation=&quot;全量退货&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -2657,7 +2587,7 @@ result=CASE
 		&quot;上次执行：失败&quot;
 END
 
-where operation=&apos;少量退货&apos;
+where operation=&apos;全量退货&apos;
 ;
 </stringProp>
             <stringProp name="queryArguments"></stringProp>

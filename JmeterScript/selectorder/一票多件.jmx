@@ -67,7 +67,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="一票一件" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="一票多件" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -119,7 +119,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;一票一件&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;一票多件&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -4766,6 +4766,402 @@ vars.put(&quot;orderids&quot;,keywordStr);
                         </HeaderManager>
                         <hashTree/>
                       </hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加子包裹" enabled="true">
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="OrderID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">OrderID</stringProp>
+                              <stringProp name="Argument.value">${OrderID}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WarehouseID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WarehouseID</stringProp>
+                              <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="IsDetail" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">IsDetail</stringProp>
+                              <stringProp name="Argument.value">false</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="NetPointID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">NetPointID</stringProp>
+                              <stringProp name="Argument.value">25108</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="Weight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">Weight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxID</stringProp>
+                              <stringProp name="Argument.value">8201</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="MemberID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">MemberID</stringProp>
+                              <stringProp name="Argument.value">${memberID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxWeight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WeightLimitation" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WeightLimitation</stringProp>
+                              <stringProp name="Argument.value">5</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="TheoryWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">TheoryWeight</stringProp>
+                              <stringProp name="Argument.value">${point_g3}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                        <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
+                        <stringProp name="HTTPSampler.port">8097</stringProp>
+                        <stringProp name="HTTPSampler.protocol">http</stringProp>
+                        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                        <stringProp name="HTTPSampler.path">/Order/OrderDispose/AddPackage</stringProp>
+                        <stringProp name="HTTPSampler.method">POST</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                          <collectionProp name="HeaderManager.headers">
+                            <elementProp name="Referer" elementType="Header">
+                              <stringProp name="Header.name">Referer</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097/Order/OrderDispose/ParcelWeigh?systemCode=wms&amp;moduleTitle=%E5%8C%85%E8%A3%85%E7%A7%B0%E9%87%8D&amp;WarehouseID=26519</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Language" elementType="Header">
+                              <stringProp name="Header.name">Accept-Language</stringProp>
+                              <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                            </elementProp>
+                            <elementProp name="Origin" elementType="Header">
+                              <stringProp name="Header.name">Origin</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept" elementType="Header">
+                              <stringProp name="Header.name">Accept</stringProp>
+                              <stringProp name="Header.value">*/*</stringProp>
+                            </elementProp>
+                            <elementProp name="X-Requested-With" elementType="Header">
+                              <stringProp name="Header.name">X-Requested-With</stringProp>
+                              <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                            </elementProp>
+                            <elementProp name="Content-Type" elementType="Header">
+                              <stringProp name="Header.name">Content-Type</stringProp>
+                              <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Encoding" elementType="Header">
+                              <stringProp name="Header.name">Accept-Encoding</stringProp>
+                              <stringProp name="Header.value">gzip, deflate</stringProp>
+                            </elementProp>
+                            <elementProp name="User-Agent" elementType="Header">
+                              <stringProp name="Header.name">User-Agent</stringProp>
+                              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36</stringProp>
+                            </elementProp>
+                            <elementProp name="the_request_service" elementType="Header">
+                              <stringProp name="Header.name">the_request_service</stringProp>
+                              <stringProp name="Header.value">wms</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </HeaderManager>
+                        <hashTree/>
+                      </hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加子包裹" enabled="true">
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="OrderID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">OrderID</stringProp>
+                              <stringProp name="Argument.value">${OrderID}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WarehouseID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WarehouseID</stringProp>
+                              <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="IsDetail" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">IsDetail</stringProp>
+                              <stringProp name="Argument.value">false</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="NetPointID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">NetPointID</stringProp>
+                              <stringProp name="Argument.value">25108</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="Weight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">Weight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxID</stringProp>
+                              <stringProp name="Argument.value">8201</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="MemberID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">MemberID</stringProp>
+                              <stringProp name="Argument.value">${memberID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxWeight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WeightLimitation" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WeightLimitation</stringProp>
+                              <stringProp name="Argument.value">5</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="TheoryWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">TheoryWeight</stringProp>
+                              <stringProp name="Argument.value">${point_g3}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                        <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
+                        <stringProp name="HTTPSampler.port">8097</stringProp>
+                        <stringProp name="HTTPSampler.protocol">http</stringProp>
+                        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                        <stringProp name="HTTPSampler.path">/Order/OrderDispose/AddPackage</stringProp>
+                        <stringProp name="HTTPSampler.method">POST</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                          <collectionProp name="HeaderManager.headers">
+                            <elementProp name="Referer" elementType="Header">
+                              <stringProp name="Header.name">Referer</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097/Order/OrderDispose/ParcelWeigh?systemCode=wms&amp;moduleTitle=%E5%8C%85%E8%A3%85%E7%A7%B0%E9%87%8D&amp;WarehouseID=26519</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Language" elementType="Header">
+                              <stringProp name="Header.name">Accept-Language</stringProp>
+                              <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                            </elementProp>
+                            <elementProp name="Origin" elementType="Header">
+                              <stringProp name="Header.name">Origin</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept" elementType="Header">
+                              <stringProp name="Header.name">Accept</stringProp>
+                              <stringProp name="Header.value">*/*</stringProp>
+                            </elementProp>
+                            <elementProp name="X-Requested-With" elementType="Header">
+                              <stringProp name="Header.name">X-Requested-With</stringProp>
+                              <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                            </elementProp>
+                            <elementProp name="Content-Type" elementType="Header">
+                              <stringProp name="Header.name">Content-Type</stringProp>
+                              <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Encoding" elementType="Header">
+                              <stringProp name="Header.name">Accept-Encoding</stringProp>
+                              <stringProp name="Header.value">gzip, deflate</stringProp>
+                            </elementProp>
+                            <elementProp name="User-Agent" elementType="Header">
+                              <stringProp name="Header.name">User-Agent</stringProp>
+                              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36</stringProp>
+                            </elementProp>
+                            <elementProp name="the_request_service" elementType="Header">
+                              <stringProp name="Header.name">the_request_service</stringProp>
+                              <stringProp name="Header.value">wms</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </HeaderManager>
+                        <hashTree/>
+                      </hashTree>
+                      <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加子包裹" enabled="true">
+                        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                          <collectionProp name="Arguments.arguments">
+                            <elementProp name="OrderID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">OrderID</stringProp>
+                              <stringProp name="Argument.value">${OrderID}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WarehouseID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WarehouseID</stringProp>
+                              <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="IsDetail" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">IsDetail</stringProp>
+                              <stringProp name="Argument.value">false</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="NetPointID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">NetPointID</stringProp>
+                              <stringProp name="Argument.value">25108</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="Weight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">Weight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxID</stringProp>
+                              <stringProp name="Argument.value">8201</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="MemberID" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">MemberID</stringProp>
+                              <stringProp name="Argument.value">${memberID_1}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="BoxWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">BoxWeight</stringProp>
+                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="WeightLimitation" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">WeightLimitation</stringProp>
+                              <stringProp name="Argument.value">5</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                            <elementProp name="TheoryWeight" elementType="HTTPArgument">
+                              <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                              <stringProp name="Argument.name">TheoryWeight</stringProp>
+                              <stringProp name="Argument.value">${point_g3}</stringProp>
+                              <stringProp name="Argument.metadata">=</stringProp>
+                              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                            </elementProp>
+                          </collectionProp>
+                        </elementProp>
+                        <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
+                        <stringProp name="HTTPSampler.port">8097</stringProp>
+                        <stringProp name="HTTPSampler.protocol">http</stringProp>
+                        <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                        <stringProp name="HTTPSampler.path">/Order/OrderDispose/AddPackage</stringProp>
+                        <stringProp name="HTTPSampler.method">POST</stringProp>
+                        <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                        <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                        <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                        <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                        <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                        <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                      </HTTPSamplerProxy>
+                      <hashTree>
+                        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                          <collectionProp name="HeaderManager.headers">
+                            <elementProp name="Referer" elementType="Header">
+                              <stringProp name="Header.name">Referer</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097/Order/OrderDispose/ParcelWeigh?systemCode=wms&amp;moduleTitle=%E5%8C%85%E8%A3%85%E7%A7%B0%E9%87%8D&amp;WarehouseID=26519</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Language" elementType="Header">
+                              <stringProp name="Header.name">Accept-Language</stringProp>
+                              <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                            </elementProp>
+                            <elementProp name="Origin" elementType="Header">
+                              <stringProp name="Header.name">Origin</stringProp>
+                              <stringProp name="Header.value">http://172.16.20.6:8097</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept" elementType="Header">
+                              <stringProp name="Header.name">Accept</stringProp>
+                              <stringProp name="Header.value">*/*</stringProp>
+                            </elementProp>
+                            <elementProp name="X-Requested-With" elementType="Header">
+                              <stringProp name="Header.name">X-Requested-With</stringProp>
+                              <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                            </elementProp>
+                            <elementProp name="Content-Type" elementType="Header">
+                              <stringProp name="Header.name">Content-Type</stringProp>
+                              <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                            </elementProp>
+                            <elementProp name="Accept-Encoding" elementType="Header">
+                              <stringProp name="Header.name">Accept-Encoding</stringProp>
+                              <stringProp name="Header.value">gzip, deflate</stringProp>
+                            </elementProp>
+                            <elementProp name="User-Agent" elementType="Header">
+                              <stringProp name="Header.name">User-Agent</stringProp>
+                              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36</stringProp>
+                            </elementProp>
+                            <elementProp name="the_request_service" elementType="Header">
+                              <stringProp name="Header.name">the_request_service</stringProp>
+                              <stringProp name="Header.value">wms</stringProp>
+                            </elementProp>
+                          </collectionProp>
+                        </HeaderManager>
+                        <hashTree/>
+                      </hashTree>
                       <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="称重确认" enabled="true">
                         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                           <collectionProp name="Arguments.arguments">
@@ -5025,7 +5421,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
                             <elementProp name="num" elementType="HTTPArgument">
                               <boolProp name="HTTPArgument.always_encode">false</boolProp>
                               <stringProp name="Argument.name">num</stringProp>
-                              <stringProp name="Argument.value">1</stringProp>
+                              <stringProp name="Argument.value">4</stringProp>
                               <stringProp name="Argument.metadata">=</stringProp>
                               <boolProp name="HTTPArgument.use_equals">true</boolProp>
                             </elementProp>
@@ -5134,7 +5530,7 @@ vars.put(&quot;orderids&quot;,keywordStr);
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务成功" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=2 where operation=&quot;一票一件&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=2 where operation=&quot;一票多件&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -5171,7 +5567,7 @@ result=CASE
 		&quot;上次执行：失败&quot;
 END
 
-where operation=&apos;一票一件&apos;
+where operation=&apos;一票多件&apos;
 ;
 </stringProp>
             <stringProp name="queryArguments"></stringProp>

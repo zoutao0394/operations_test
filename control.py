@@ -58,7 +58,7 @@ def changeconfig(username,warehouseID,memberID):
 
 
 
-def createconfig(data={}):
+def createwarehouse(data={}):
 
     if len(data)>5:
         warehouseID = data['warehouseID']
@@ -66,11 +66,11 @@ def createconfig(data={}):
         memberID = data['memberID']
         membername = data['membername']
         memberno = data['memberno']
-        sex = data['sex']
-        user = data['user']
+        environment = data['environment']
+        user = data['username']
 
         sql1 = " insert into auto_warehouemember values (%s,'%s',%s,'%s','%s',(select environmentid from auto_environment where environmentname = '%s' ),0)" % (
-        warehouseID, warehousename, memberID, membername, memberno, sex)
+        warehouseID, warehousename, memberID, membername, memberno, environment)
 
         cursor = con.cursor()
         cursor.execute(sql1)
@@ -84,14 +84,23 @@ def createconfig(data={}):
         cursor.execute(sql2)
         con.commit()
 
-        return print('新增成功')
+        '新增成功'
     else:
         return '数据不合法'
 
 
 def showwarehouse():
 
-    sql = 'select * from auto_warehouemember'
+    sql = """
+    SELECT
+	t.* 
+FROM
+	auto_warehouemember t
+	JOIN auto_control t1 ON t.id = t1.warehousememberid
+	JOIN auto_user t2 ON t1.userid = t2.userid 
+WHERE
+	t2.`user` = 'zoutao';
+    """
     cursor = con.cursor()
     cursor.execute(sql)
 
@@ -105,7 +114,9 @@ def showwarehouse():
         # print(environmentname[0][0])
         i = list(i)
         i[5] = environmentname[0][0]
-        value.append(i[:-1])
+        i[6] = 'zoutao'
+        value.append(i)
+
     cursor.close()
 
     return value
@@ -162,7 +173,7 @@ WHERE
     cursor = con.cursor()
     cursor.execute(sql)
 
-    value = []
+
     data = cursor.fetchall()
     cursor.close()
 
@@ -174,7 +185,7 @@ def configlist():
         SELECT
     	* 
     FROM
-    	auto_warehouemember;
+    	auto_warehouemember ;
         """
     cursor = con.cursor()
     cursor.execute(sql)
@@ -192,13 +203,58 @@ def configlist():
     return dic
 
 
-def closecon():
-    con.close()
+def saveorder(ordercode,scriptname,warehousememberid):
+    try:
+        sql = "insert into auto_ordermanage value(0,'%s','%s',%s,0)" % (ordercode, scriptname, warehousememberid)
+        print(sql)
+        cursor = con.cursor()
+        cursor.execute(sql)
+        con.commit()
+        return print('新增成功')
+    except BaseException:
+        return print('新增失败')
+
+
+def order(scriptname,orders):
+    orderlist = orders.split(';')
+
+    sql = """
+        SELECT
+    	t1.* 
+    FROM
+    	auto_warehouemember t1
+    	JOIN auto_control t2 ON t1.id = t2.warehousememberid 
+    WHERE
+    	t2.`status` = 0 limit 1;
+        """
+    cursor = con.cursor()
+    cursor.execute(sql)
+
+    data = cursor.fetchall()
+    cursor.close()
+    warehousememberid = data[0][6]
+
+    for i in orderlist:
+        saveorder(i,scriptname,warehousememberid)
+
+    return "单据新增成功"
+
+def selectrun(script):
+    sl = scriptlist('selectorder')
+    for i in sl:
+        print(i)
+        print(script+".jmx")
+        if script+".jmx" == i:
+            run(script,'selectorder')
+            print(i)
+            return print('测试启动')
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
-    # a = currentwarehouse()
-    # print(a)
-    closecon()
-    # scriptrun('少量入库')
-
+    order("B2B出库","123asdf;1`23sadf;asdfa234;sdfsadf23;adfasqeq;asdfa23")
