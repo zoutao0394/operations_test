@@ -12,25 +12,18 @@ app = Flask(__name__)
 
 root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report")
 
-@app.route('/star_test',methods=['GET','POST'])
-def star_test():
-    script = request.form.to_dict()['detail ']
-    control.run(script)
-    return '开始测试'
-
-
-
 
 @app.route('/home')
 def home():
     return render_template('home.html')
 
 
+
 @app.route('/configmanage',methods=['GET'])
 def configmanage():
-    # if request.method == 'GET':
-    values = control.showwarehouse()
-    # value = str(a)
+    a = control.configmanage()
+    values = a.showwarehouse()
+
     return render_template('configmanage.html',values = values)
 
 
@@ -39,18 +32,35 @@ def changeconfig():
 
     detail = request.form.get("value")
     detail = detail.split(';')
-    control.changeconfig('zoutao',detail[0],detail[1])
-    return '切换成功'
-
-
+    print(detail)
+    change = control.configmanage()
+    result = change.changewarehouse('zoutao',detail[0],detail[1])
+    return result
 
 @app.route('/createwarehouse',methods=['POST'])
 def createwarehouse():
-    # data = request.form.to_dict()
-    # result = control.createwarehouse(data)
+    data = request.form.to_dict()
+    a = control.configmanage()
+    result = a.insertconfig(data)
 
-    return "新增成功"
+    return result
 
+@app.route('/currentwarehouse',methods=['get'])
+def currentwarehouse():
+    a = control.configmanage()
+    data = a.currentwarehouse[1]+'-'+a.currentwarehouse[3]
+    return "当前仓库："+data
+
+@app.route('/currentuser',methods=['get'])
+def currentuser():
+    # a = control.currentwarehouse()
+    return "当前用户：zoutao"
+
+@app.route('/star_test',methods=['GET','POST'])
+def star_test():
+    script = request.form.to_dict()['detail ']
+    control.run(script)
+    return '开始测试'
 
 @app.route('/casemanage',methods=['GET','POST'])
 def casemanage():
@@ -89,35 +99,7 @@ def operationstar():
 
 
 
-@app.route('/configdetail',methods=['GET','POST'])
-def configdetail():
-    return render_template('configdetail.html')
 
-
-# dirpath = os.path.join(app.root_path,'report')
-#
-# @app.route('/report',methods=['GET','POST'])
-# def report():
-#     return send_from_directory(dirpath,"./20200512112720B2B入库.jmx",as_attachment=True)
-
-@app.route('/currentwarehouse',methods=['get'])
-def currentwarehouse():
-    a = control.currentwarehouse()
-    return "当前仓库："+a
-
-@app.route('/currentuser',methods=['get'])
-def currentuser():
-    # a = control.currentwarehouse()
-    return "当前用户：zoutao"
-
-
-
-
-# @app.route('/configlist',methods=['get'])
-# def configlist():
-#     a = control.configlist()
-#     return jsonify(a)
-#
 
 @app.route('/scriptrun',methods=['post'])
 def scriptrun():
