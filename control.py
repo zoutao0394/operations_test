@@ -58,69 +58,6 @@ def changeconfig(username,warehouseID,memberID):
 
 
 
-def createwarehouse(data={}):
-
-    if len(data)>5:
-        warehouseID = data['warehouseID']
-        warehousename = data['warehousename']
-        memberID = data['memberID']
-        membername = data['membername']
-        memberno = data['memberno']
-        environment = data['environment']
-        user = data['username']
-
-        sql1 = " insert into auto_warehouemember values (%s,'%s',%s,'%s','%s',(select environmentid from auto_environment where environmentname = '%s' ),0)" % (
-        warehouseID, warehousename, memberID, membername, memberno, environment)
-
-        cursor = con.cursor()
-        cursor.execute(sql1)
-
-        con.commit()
-
-        sql2 = "insert into auto_control VALUES((select id from auto_warehouemember where warehouseID=%s limit 1),1,0,(select userid from auto_user where user = '%s'))" % (
-        warehouseID, user)
-        # print(sql2)
-
-        cursor.execute(sql2)
-        con.commit()
-
-        return '新增成功'
-    else:
-        return '数据不合法'
-
-
-def showwarehouse():
-
-    sql = """
-    SELECT
-	t.* 
-FROM
-	auto_warehouemember t
-	JOIN auto_control t1 ON t.id = t1.warehousememberid
-	JOIN auto_user t2 ON t1.userid = t2.userid 
-WHERE
-	t2.`user` = 'zoutao';
-    """
-    cursor = con.cursor()
-    cursor.execute(sql)
-
-    value = []
-    data = cursor.fetchall()
-
-    for i in data:
-        sql1 = 'select environmentname from auto_environment where environmentid = %d'%i[5]
-        cursor.execute(sql1)
-        environmentname = cursor.fetchall()
-        # print(environmentname[0][0])
-        i = list(i)
-        i[5] = environmentname[0][0]
-        i[6] = 'zoutao'
-        value.append(i)
-
-    cursor.close()
-
-    return value
-
 
 def jtl():
     t = open('D:\\operations_test\\report\\20200512112720B2B入库.jmx.jtl','r',encoding='UTF-8')
@@ -142,12 +79,13 @@ def jtl():
 
 def oplist():
     sql = "select * from auto_operation"
-    cursor = con.cursor()
-    cursor.execute(sql)
 
-    value = []
-    data = cursor.fetchall()
-    cursor.close()
+    db = dboperation()
+    db.cursor.execute(sql)
+
+    # value = []
+    data = db.cursor.fetchall()
+    db.over()
 
     return data
 
@@ -160,24 +98,6 @@ def operationstar(script):
     # os.system(r'jmeter -n -t ./JmeterScript/WMS/%s -l ./report/%s.jtl -e -o D:/autoAPI/testreport/html/%s' % (script, filename,filename))
     return "执行成功"
 
-def currentwarehouse():
-    sql = """
-    SELECT
-	t1.* 
-FROM
-	auto_warehouemember t1
-	JOIN auto_control t2 ON t1.id = t2.warehousememberid 
-WHERE
-	t2.`status` = 0 limit 1;
-    """
-    cursor = con.cursor()
-    cursor.execute(sql)
-
-
-    data = cursor.fetchall()
-    cursor.close()
-
-    return data[0][1]+"-"+data[0][3]
 
 
 def configlist():
@@ -339,6 +259,8 @@ class configmanage():
         db.over()
         return '切换成功'
 
+
+
     def showwarehouse(self):
         sql = """
             SELECT
@@ -373,19 +295,104 @@ class configmanage():
 
 
 class casemanage():
+
     def __init__(self):
         self.type = ''
         self.system = ''
-        self.name = ''
+        self.casetitle = ''
         self.createby = ''
         self.detail = ''
 
     def createcase(self,**kwargs):
-        self.type = kwargs['type']
-        self.system = kwargs['system']
-        self.name = kwargs['name']
-        self.createby = kwargs['name']
-        self.detail = kwargs['name']
+        if self.type=='':
+            try:
+                self.type = kwargs['type']
+                self.system = kwargs['system']
+                self.casetitle = kwargs['casetitle']
+                self.createby = kwargs['createby']
+                self.detail = kwargs['detail']
+                print(type(self.type))
+                sql = "insert into auto_testcase values(0,'%s','%s','%s','%s','%s',now(),0)" % (
+                self.system, self.type, self.casetitle, self.detail, self.createby)
+                print(sql)
+                db = dboperation()
+                db.cursor.execute(sql)
+                db.connect.commit()
+                db.over()
+                return '创建成功'
+            except BaseException:
+                return '创建失败'
+
+        else:
+            return '用例已存在'
+
+    def showcase(self):
+        sql = """
+SELECT
+	t1.caseid,
+	t1.system,
+	t2.casetype,
+	t1.casetitle,
+	t1.detail,
+	t3.`user`,
+	t1.createdate,
+	t4.casestatus 
+FROM
+	auto_testcase t1
+	LEFT JOIN auto_casetype t2 ON t1.type = t2.type
+	LEFT JOIN auto_user t3 ON t1.createby = t3.userid
+	LEFT JOIN auto_casestatus t4 ON t1.`status` = t4.`status`;
+
+        """
+        db = dboperation()
+        db.cursor.execute(sql)
+        data = db.cursor.fetchall()
+        db.over()
+
+        table = ''
+        for i in data:
+
+            table += '<tr>'
+            table += '<td><input type="checkbox" name="selectcase"></td>'
+            for j in i:
+                j = str(j)
+                td = '<td>'+j+'</td>'
+                table += td
+
+            table += '</tr>'
+
+        return table
+
+
+    def selectsystem(self):
+        sql="select systemname from auto_system;"
+
+        db = dboperation()
+        db.cursor.execute(sql)
+
+        data = db.cursor.fetchall()
+        db.over()
+
+        table = ''
+        for i in data:
+            table += '<option value="%s">%s</option>'%(i[0],i[0])
+
+        return table
+
+    def selectcasetype(self):
+        sql="select * from auto_casetype;"
+
+        db = dboperation()
+        db.cursor.execute(sql)
+
+        data = db.cursor.fetchall()
+        db.over()
+
+        table = ''
+        for i in data:
+            table += '<option value="%s">%s</option>'%(i[1],i[0])
+
+        return table
 
 
 
@@ -393,7 +400,10 @@ class casemanage():
 
 
 if __name__ == '__main__':
-    a = configmanage()
+    # a = configmanage()
     # a.changewarehouse('zoutao',27794,27795)
 
-    print(a.currentwarehouse[1]+"-")
+    # print(a.currentwarehouse[1]+"-")
+
+    a = casemanage()
+    a.selectcasetype()

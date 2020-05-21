@@ -1,0 +1,35 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1590032710201,547,标记任务开始,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,546,0,419
+1590032710751,9,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,6,0,0
+1590032710760,9,锁定账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,9,0,0
+1590032710769,2,获取仓库及会员信息,200,OK,全量出库 1-1,text,true,,115,0,1,1,null,2,0,0
+1590032710772,2,获取oms配置信息,200,OK,全量出库 1-1,text,true,,34,0,1,1,null,1,0,0
+1590032710774,2,获取wi配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1590032710776,3,获取basic配置信息,200,OK,全量出库 1-1,text,true,,46,0,1,1,null,3,0,0
+1590032710779,2,获取os配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,2,0,0
+1590032710781,2,获取opw配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,2,0,0
+1590032710783,2,获取op配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,2,0,0
+1590032710785,2,获取opr配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,2,0,0
+1590032710787,2,获取master配置信息,200,OK,全量出库 1-1,text,true,,41,0,1,1,null,2,0,0
+1590032710789,2,获取so配置信息,200,OK,全量出库 1-1,text,true,,37,0,1,1,null,2,0,0
+1590032710791,3,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,2,0,0
+1590032710854,374,登陆,200,OK,全量出库 1-1,text,true,,90362,1642,1,1,http://cloud.basic.fineex.net/Home/Index,180,0,95
+1590032710854,181,登陆-0,302,Found,全量出库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,180,0,95
+1590032711055,173,登陆-1,200,OK,全量出库 1-1,text,true,,89175,878,1,1,http://cloud.basic.fineex.net/Home/Index,128,0,0
+1590032711240,108,查询出库单信息,200,OK,全量出库 1-1,text,true,,1671,1236,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-21+00%3A00%3A00+&EndTime=+2020-05-21+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,108,0,40
+1590032711361,36,自动审核,200,OK,全量出库 1-1,text,true,,715,992,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,36,0,0
+1590033011402,1,Debug Sampler,200,OK,全量出库 1-1,text,true,,1481,0,1,1,null,0,0,0
+1590033011404,82,进入下架页面,200,OK,全量出库 1-1,text,true,,867,1002,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,82,0,54
+1590033011487,37,创建下架,200,OK,全量出库 1-1,text,true,,670,991,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,37,0,0
+1590033011525,101,创建下架保存,200,OK,全量出库 1-1,text,true,,709,1522,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,101,0,0
+1590033011628,16,查看出库单内下架信息,200,OK,全量出库 1-1,text,true,,872,962,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=287599&wareHouseId=25670&sort=&order=asc,16,0,0
+1590033011645,30,获取系统推荐批次,200,OK,全量出库 1-1,text,true,,977,1068,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,30,0,0
+1590033011676,85,下架完成,200,OK,全量出库 1-1,text,true,,670,1675,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/DownShelves,84,0,0
+1590033011763,39,获取封箱信息,200,OK,全量出库 1-1,text,true,,2186,979,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,38,0,0
+1590033011919,36,确认封箱,200,OK,全量出库 1-1,text,true,,687,2483,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/saveOutBox,36,0,0
+1590033011955,20,完成质检,200,OK,全量出库 1-1,text,true,,694,979,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/completeOutBox,20,0,0
+1590033011977,16,确认出库,200,OK,全量出库 1-1,text,true,,673,1029,1,1,http://cloud.wms.wi.b1.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,16,0,0
+1590033011994,78,出库完成,200,OK,全量出库 1-1,text,true,,701,1016,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,78,0,0
+1590033012075,85,释放登陆账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,84,0,29
+1590033012160,6,标记任务成功,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,6,0,0
+1590033012184,8,标记任务最终结果,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,8,0,0

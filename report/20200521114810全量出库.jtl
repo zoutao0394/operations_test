@@ -1,0 +1,23 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1590032892894,387,标记任务开始,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,387,0,385
+1590032893283,4,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,3,0,0
+1590032893288,91,锁定账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,91,0,0
+1590032893380,3,获取仓库及会员信息,200,OK,全量出库 1-1,text,true,,115,0,1,1,null,2,0,0
+1590032893383,3,获取oms配置信息,200,OK,全量出库 1-1,text,true,,34,0,1,1,null,3,0,0
+1590032893387,2,获取wi配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,2,0,0
+1590032893390,4,获取basic配置信息,200,OK,全量出库 1-1,text,true,,46,0,1,1,null,3,0,0
+1590032893396,2,获取os配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,2,0,0
+1590032893399,3,获取opw配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,2,0,0
+1590032893402,3,获取op配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,3,0,0
+1590032893406,1,获取opr配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,1,0,0
+1590032893408,1,获取master配置信息,200,OK,全量出库 1-1,text,true,,41,0,1,1,null,1,0,0
+1590032893410,1,获取so配置信息,200,OK,全量出库 1-1,text,true,,37,0,1,1,null,1,0,0
+1590032893412,1,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,1,0,0
+1590032893486,283,登陆,200,OK,全量出库 1-1,text,true,,90362,1642,1,1,http://cloud.basic.fineex.net/Home/Index,154,0,94
+1590032893486,154,登陆-0,302,Found,全量出库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,154,0,94
+1590032893648,121,登陆-1,200,OK,全量出库 1-1,text,true,,89175,878,1,1,http://cloud.basic.fineex.net/Home/Index,86,0,0
+1590032893781,96,查询出库单信息,200,OK,全量出库 1-1,text,true,,618,1236,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-05-21+00%3A00%3A00+&EndTime=+2020-05-21+23%3A59%3A59&pageType=2&OutStatus=1&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,96,0,46
+1590033193899,6,Debug Sampler,200,OK,全量出库 1-1,text,true,,1396,0,1,1,null,0,0,0
+1590033193906,24,释放登陆账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,24,0,22
+1590033193930,42,标记任务成功,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,42,0,0
+1590033193985,6,标记任务最终结果,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,6,0,0

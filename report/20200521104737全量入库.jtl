@@ -1,0 +1,18 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1590029260533,413,标记任务开始,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,413,0,375
+1590029260949,4,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,3,0,0
+1590029260954,6,锁定账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1590029260960,2,获取仓库及会员信息,200,OK,全量入库 1-1,text,true,,115,0,1,1,null,2,0,0
+1590029260962,1,获取oms配置信息,200,OK,全量入库 1-1,text,true,,34,0,1,1,null,1,0,0
+1590029260963,1,获取wi配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1590029260965,1,获取basic配置信息,200,OK,全量入库 1-1,text,true,,36,0,1,1,null,1,0,0
+1590029260966,1,获取os配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1590029260967,2,获取opw配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,2,0,0
+1590029260969,1,获取op配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1590029260970,1,获取opr配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,1,0,0
+1590029260971,1,获取master配置信息,200,OK,全量入库 1-1,text,true,,41,0,1,1,null,1,0,0
+1590029261025,88,登陆,200,OK,全量入库 1-1,text,true,,12516,764,1,1,http://cloud.basic.fineex.net/Login,88,0,39
+1590029261119,57,到货通知查询,200,OK,全量入库 1-1,text,true,,510,937,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Arrival/Query?searchText=&sortName=CreateDate&sortOrder=DESC&pageSize=20&pageNumber=1&PageSize=20&PageCurrent=1&StartTime=+2020-05-21+00%3A00%3A00+&EndTime=++2020-05-21+23%3A59%3A59&PageType=2&InStatus=&InCodes=&SyncIds=&MemberNo=0010000103&MemberID=26485&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&Memo=,57,0,46
+1590029261179,8,释放登陆账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,8,0,0
+1590029261187,6,标记任务成功,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1590029261213,6,标记任务最终结果,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0

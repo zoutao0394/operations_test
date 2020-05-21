@@ -99,6 +99,12 @@ $(function(){
         });
 
 
+    $("#casedetail").load('/showcase');
+
+    $("#selectsyetem").load('/selectsyetem');
+    $("#selectcasetype").load('/selectcasetype');
+
+
 
 
 });

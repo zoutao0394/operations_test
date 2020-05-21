@@ -62,10 +62,47 @@ def star_test():
     control.run(script)
     return '开始测试'
 
+
+# 测试用例管理
 @app.route('/casemanage',methods=['GET','POST'])
 def casemanage():
     caselist = control.scriptlist()
     return render_template('casemanage.html',values = caselist)
+
+@app.route('/showcase',methods=['GET','POST'])
+def showcase():
+    # caselist = control.scriptlist()
+    case = control.casemanage()
+    data = case.showcase()
+    return data
+
+@app.route('/selectsyetem',methods=['GET','POST'])
+def selectsyetem():
+    # caselist = control.scriptlist()
+    system = control.casemanage()
+    data = system.selectsystem()
+    return data
+
+@app.route('/selectcasetype',methods=['GET','POST'])
+def selectcasetype():
+    # caselist = control.scriptlist()
+    casetype = control.casemanage()
+    data = casetype.selectcasetype()
+    return data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

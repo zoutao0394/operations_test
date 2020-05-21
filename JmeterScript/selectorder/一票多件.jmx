@@ -119,7 +119,7 @@
           <hashTree>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="标记任务开始" enabled="true">
               <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;一票多件&quot;;</stringProp>
+              <stringProp name="query">update auto_operation set status=1,result=&apos;上次执行：运行中&apos; where operation=&quot;全量出库&quot;;</stringProp>
               <stringProp name="queryArguments"></stringProp>
               <stringProp name="queryArgumentsTypes"></stringProp>
               <stringProp name="queryTimeout"></stringProp>
@@ -222,11 +222,13 @@ WHERE
               <stringProp name="dataSource">test</stringProp>
               <stringProp name="query">SELECT HOST
 	,
-PORT 
+PORT ,
+t4.code
 FROM
 	auto_host t1
 	JOIN auto_warehouemember t2 ON t1.environmentid = t2.environmentid
 	JOIN auto_control t3 ON t2.id = t3.warehousememberid 
+	JOIN auto_environment t4 on t1.environmentid = t4.environmentid
 WHERE
 	t3.`status` = 0 
 	and t3. userid = (select userid from auto_user where `user` = &apos;zoutao&apos;)
@@ -237,7 +239,7 @@ WHERE
               <stringProp name="queryType">Select Statement</stringProp>
               <stringProp name="resultSetHandler">Store as String</stringProp>
               <stringProp name="resultVariable"></stringProp>
-              <stringProp name="variableNames">basichost,basicport</stringProp>
+              <stringProp name="variableNames">basichost,basicport,code</stringProp>
             </JDBCSampler>
             <hashTree/>
             <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取os配置信息" enabled="true">
@@ -350,7 +352,7 @@ WHERE
               <stringProp name="variableNames">masterhost,masterport</stringProp>
             </JDBCSampler>
             <hashTree/>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取os配置信息" enabled="true">
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取so配置信息" enabled="true">
               <stringProp name="dataSource">test</stringProp>
               <stringProp name="query">SELECT HOST
 	,
@@ -370,6 +372,18 @@ WHERE
               <stringProp name="resultSetHandler">Store as String</stringProp>
               <stringProp name="resultVariable"></stringProp>
               <stringProp name="variableNames">sohost,soport</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取账号" enabled="true">
+              <stringProp name="dataSource">test</stringProp>
+              <stringProp name="query">select testuser from auto_testuser where status=0 limit 1;</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">user</stringProp>
             </JDBCSampler>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="true">
@@ -412,7 +426,7 @@ WHERE
                   </elementProp>
                   <elementProp name="CaptchaValidator" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">ztcs</stringProp>
+                    <stringProp name="Argument.value">${code_1}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">CaptchaValidator</stringProp>

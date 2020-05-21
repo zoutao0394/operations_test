@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -186,7 +186,7 @@
                 <elementProp name="LoginNo" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">LoginNo</stringProp>
-                  <stringProp name="Argument.value">FWMS9001</stringProp>
+                  <stringProp name="Argument.value">123456</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -214,7 +214,7 @@
                 <elementProp name="LoginPassword" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.name">LoginPassword</stringProp>
-                  <stringProp name="Argument.value">a123456</stringProp>
+                  <stringProp name="Argument.value">abc123</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 </elementProp>
@@ -295,7 +295,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;UniqueCode&quot;:&quot;1e402c41b7588e51d9ca95f876f7e305&quot;,&quot;warehouseID&quot;:27588,&quot;loginNo&quot;:&quot;FWMS9024&quot;,&quot;loginPassword&quot;:&quot;a123456&quot;,&quot;CodeType&quot;:3}</stringProp>
+                  <stringProp name="Argument.value">{&quot;UniqueCode&quot;:&quot;1e402c41b7588e51d9ca95f876f7e305&quot;,&quot;warehouseID&quot;:27588,&quot;loginNo&quot;:&quot;zoutao&quot;,&quot;loginPassword&quot;:&quot;a123456&quot;,&quot;CodeType&quot;:3}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -355,7 +355,7 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建订单" enabled="true">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="创建订单" enabled="false">
           <boolProp name="LoopController.continue_forever">true</boolProp>
           <stringProp name="LoopController.loops">100</stringProp>
         </LoopController>
@@ -5500,7 +5500,7 @@ vars.put(&quot;boxs&quot;,boxs);
             </hashTree>
           </hashTree>
         </hashTree>
-        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="零拣拣选" enabled="false">
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="零拣拣选" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </LoopController>
@@ -5591,6 +5591,62 @@ WHERE
               <stringProp name="variableNames">BoxCode</stringProp>
             </JDBCSampler>
             <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取零拣任务" enabled="false">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;UserID&quot;:9999,&quot;warehouseID&quot;:27588,&quot;WarehouseID&quot;:27588,&quot;source&quot;:3,&quot;MemberID&quot;:&quot;27589&quot;,&quot;MarkCodeList&quot;:[&quot;${BoxCode_1}&quot;],&quot;SortTaskType&quot;:2}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">172.16.20.6</stringProp>
+              <stringProp name="HTTPSampler.port">8098</stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/FC/PDA/GetTaskBatchDetail</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="X-FC-Token" elementType="Header">
+                    <stringProp name="Header.name">X-FC-Token</stringProp>
+                    <stringProp name="Header.value">JlRvL+SNAqtV9qlwoYeM1Jcev8fdTmpz</stringProp>
+                  </elementProp>
+                  <elementProp name="From" elementType="Header">
+                    <stringProp name="Header.name">From</stringProp>
+                    <stringProp name="Header.value">Android</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                  </elementProp>
+                  <elementProp name="X-FC-Sign" elementType="Header">
+                    <stringProp name="Header.name">X-FC-Sign</stringProp>
+                    <stringProp name="Header.value">Bg618qUociXAmxYhecLxVE+RdA1C5CkGXYBnJGE229o=</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">okhttp/3.9.0</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取零拣任务" enabled="true">
               <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -5647,7 +5703,141 @@ WHERE
               </HeaderManager>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取任务详情" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取任务详情" enabled="false">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">cloud.pda.fineex.net</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/FC/PDA/GetBatchTaskInfo?source=3&amp;UserID=2534359&amp;warehouseID=28192</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="X-FC-Token" elementType="Header">
+                    <stringProp name="Header.name">X-FC-Token</stringProp>
+                    <stringProp name="Header.value">JlRvL+SNAqtV9qlwoYeM1Jcev8fdTmpz</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="From" elementType="Header">
+                    <stringProp name="Header.name">From</stringProp>
+                    <stringProp name="Header.value">Android</stringProp>
+                  </elementProp>
+                  <elementProp name="X-FC-Sign" elementType="Header">
+                    <stringProp name="Header.name">X-FC-Sign</stringProp>
+                    <stringProp name="Header.value">Bg618qUociXAmxYhecLxVE+RdA1C5CkGXYBnJGE229o=</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">okhttp/3.9.0</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="MarkID" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">MarkID</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;MarkID&quot;:(.+?),</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="BatchTaskID" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">BatchTaskID</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;BatchTaskID&quot;:(.+?),</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="CollectID" enabled="true">
+                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                <stringProp name="RegexExtractor.refname">CollectID</stringProp>
+                <stringProp name="RegexExtractor.regex">&quot;CollectID&quot;:(.+?),</stringProp>
+                <stringProp name="RegexExtractor.template">$1$</stringProp>
+                <stringProp name="RegexExtractor.default"></stringProp>
+                <stringProp name="RegexExtractor.match_number">1</stringProp>
+              </RegexExtractor>
+              <hashTree/>
+              <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Commoditys" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray; 
+import com.alibaba.fastjson.JSONObject;
+// 获取数据
+
+String response = prev.getResponseDataAsString();  // 获取Response
+
+JSONObject responseObj = JSON.parseObject(response);  // 整个Response作为JSON对象
+
+JSONArray listArray = responseObj.getJSONArray(&quot;Custom&quot;); 
+//JSONArray list = listArray.getJSONArray(&quot;CommodityList&quot;);// 获取列表。即，json串中[]的内容
+JSONArray CommodityList = listArray.get(0).get(&quot;CommodityList&quot;); 
+
+
+
+vars.put(&quot;list&quot;,CommodityList.toString());
+
+
+
+
+int len = CommodityList.size();
+String[] tempa = new String[len];
+String[] tempb = new String[len];
+
+
+
+StringBuffer sBuffer = new StringBuffer(&quot;&quot;);
+for(int i=0;i&lt;len;i++){
+
+
+       
+    tempa[i]= CommodityList.get(i).getString(&quot;Amount&quot;);
+    tempb[i]= CommodityList.get(i).getString(&quot;CommodityID&quot;);
+    
+    sBuffer.append(&quot;{\&quot;Amount\&quot;:&quot;).append(tempa[i]);
+    sBuffer.append(&quot;,\&quot;CommodityID\&quot;:&quot;).append(tempb[i]).append(&quot;}&quot;);
+    sBuffer.append(&quot;,&quot;);
+
+}
+
+String keywordStr = sBuffer.deleteCharAt(sBuffer.length()-1).toString();
+vars.put(&quot;Commoditys&quot;,keywordStr);</stringProp>
+              </BeanShellPostProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="3569038">true</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取任务详情" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
@@ -5655,7 +5845,7 @@ WHERE
               <stringProp name="HTTPSampler.port">8098</stringProp>
               <stringProp name="HTTPSampler.protocol">http</stringProp>
               <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
-              <stringProp name="HTTPSampler.path">/FC/PDA/GetBatchTaskInfo?source=3&amp;UserID=${UserID}&amp;warehouseID=27588</stringProp>
+              <stringProp name="HTTPSampler.path">/FC/PDA/GetBatchTaskInfo?source=3&amp;UserID=${UserID}warehouseID=27588</stringProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
