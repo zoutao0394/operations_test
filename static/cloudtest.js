@@ -105,8 +105,8 @@ $(function(){
     $("select[name='selectcasetype']").load('/selectcasetype');
 
     $("button[name='createcase']").click(function(){
-        var s = $("#selectsyetem").val();
-        var t = $("#selectcasetype").val();
+        var s = $("#system1").val();
+        var t = $("#casetype1").val();
         var ct = $("#casetitle").val();
         var cd = $("#detail").val();
 
