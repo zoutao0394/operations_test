@@ -71,9 +71,15 @@ def casemanage():
 
 @app.route('/showcase',methods=['GET','POST'])
 def showcase():
+    d = request.form.to_dict()
+    system = d['system']
+    casetype = d['casetype']
+    current_page = d['current_page']
+    # d = str(d)
     # caselist = control.scriptlist()
+    print(type(current_page))
     case = control.casemanage()
-    data = case.showcase()
+    data = case.showcase(system=system,casetype=casetype,current_page=int(current_page))
     return data
 
 @app.route('/selectsyetem',methods=['GET','POST'])
@@ -85,10 +91,33 @@ def selectsyetem():
 
 @app.route('/selectcasetype',methods=['GET','POST'])
 def selectcasetype():
-    # caselist = control.scriptlist()
     casetype = control.casemanage()
     data = casetype.selectcasetype()
     return data
+
+
+@app.route('/createcase',methods=['GET','POST'])
+def createcase():
+    data = request.form.to_dict()
+    case = control.casemanage()
+    result = case.createcase(data =data)
+    # print(d)
+    return result
+
+
+@app.route('/deletecase',methods=['GET','POST'])
+def deletecase():
+    data = request.form.get('caseid')
+    idlist = data.split(';')
+    case = control.casemanage()
+    for i in idlist:
+        print(i)
+        case.deletecase(i)
+
+    return "编号：%s 的用例删除成功"%data
+
+
+
 
 
 
@@ -160,6 +189,13 @@ def selectrun():
     # print(data)
     control.selectrun(data)
     return "%s启动"%data
+
+
+@app.route('/testcase',methods=['get'])
+def testcase():
+    a = control.casemanage()
+    data = a.testcase()
+    return jsonify(data)
 
 
 

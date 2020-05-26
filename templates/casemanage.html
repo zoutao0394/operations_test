@@ -1,5 +1,12 @@
 {% extends 'home.html' %}
 {% block MainContainer %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-zh-CN.min.js"></script>
 <div class="container">
   <div class="row">
     <!--<div class="col-sm-4">-->
@@ -18,10 +25,29 @@
       <h2>用例详情</h2>
       <h5 id="warehouse"></h5>
       <h5 id="user"></h5>
-            <button type="button" class="btn btn-primary">执行用例</button>
+        <br>
+
+        <div>
+
+                <div class="input-group" id="selectsystem">
+            <span class="input-group-addon">选择系统:</span>
+                    <select name="selectsyetem" class="form-control"></select>
+        </div>
+                <br>
+                <div class="input-group" id="selectcasetype">
+            <span class="input-group-addon">用例类型:</span>
+            <select name="selectcasetype" class="form-control"></select>
+        </div>
+
+        </div>
+
+        <br>
+            <button type="button" class="btn btn-primary" id="selectcase">查询用例</button>
             <button type="button" class="btn btn-primary" data-target="#createcase" data-toggle="modal">新增用例</button>
-            <button type="button" class="btn btn-danger">删除用例</button>
-        <div style="height='500px'">
+            <button type="button" class="btn btn-danger" name="deletecase">删除用例</button>
+        <button type="button" class="btn btn-primary">编辑用例</button>
+
+        <div>
         <table class="table table-hover">
         <caption>用例列表</caption>
         <thead>
@@ -40,6 +66,8 @@
         <tbody  id="casedetail">
         </tbody>
     </table>
+          <ul class="pagination">
+</ul>
             </div>
     </div>
   </div>
@@ -56,42 +84,37 @@
     <form class="bs-example bs-example-form" role="form" id="insertcase">
         <div class="input-group">
             <span class="input-group-addon">选择系统:</span>
-            <select class="form-control" id="selectsyetem">
+            <select class="form-control" name="selectsyetem">
     </select>
         </div>
         <br>
             <div class="input-group">
             <span class="input-group-addon">用例类型:</span>
-            <select class="form-control" id="selectcasetype">
+            <select class="form-control" name="selectcasetype">
     </select>
         </div>
         <br>
             <div class="input-group">
             <span class="input-group-addon">用例标题:</span>
-            <input type="text" class="form-control" id="memberID" placeholder="用例标题" value="">
+            <input type="text" class="form-control" id="casetitle" placeholder="用例标题">
         </div>
         <br>
             <div class="input-group">
             <span class="input-group-addon">用例详情:</span>
-            <!--<input type="text" class="form-control" placeholder="操作步骤-预期结果" value="" id="membername">-->
-                <!--<lable for="name">用例详情:</lable>-->
-                <textarea class="form-control" rows="8" placeholder="操作步骤-预期结果"></textarea>
-        <!--</div>-->
-        <!--<br>-->
-            <!--<div class="input-group">-->
-            <!--<span class="input-group-addon">创建人:</span>-->
-            <!--<input type="text" class="form-control" placeholder="创建人" value="" id="memberno">-->
-        <!--</div>-->
+
+                <textarea class="form-control" rows="8" placeholder="请输入测试脚本名称，多个脚本用；隔开！" id="detail"></textarea>
+
 </div>
     </form>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary"   name="insertwarehouse">确认</button>
+                <button type="button" class="btn btn-primary"   name="createcase">确认</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
+
 
 {% endblock %}

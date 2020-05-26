@@ -6,6 +6,8 @@ import datetime
 import config
 import requests
 from config import *
+import math
+
 
 
 def scriptlist(path="WMS"):
@@ -187,6 +189,24 @@ class dboperation():
         self.cursor.close()
         self.connect.close()
 
+
+def paginate(display=20,**kwargs):
+    a = kwargs['num']
+    b = kwargs['current_page']
+    c = math.ceil(a / display)
+    if b < c:
+        d = ((b - 1) * display + 1, b * display)
+    elif b == c:
+        d = ((b - 1) * display + 1,a)
+
+    else:
+        return '最大页数%d页'%c
+
+    return d,c
+
+
+
+
 class configmanage():
 
     def __init__(self):
@@ -306,11 +326,11 @@ class casemanage():
     def createcase(self,**kwargs):
         if self.type=='':
             try:
-                self.type = kwargs['type']
-                self.system = kwargs['system']
-                self.casetitle = kwargs['casetitle']
-                self.createby = kwargs['createby']
-                self.detail = kwargs['detail']
+                self.type = kwargs["data"]['type']
+                self.system = kwargs["data"]['system']
+                self.casetitle = kwargs["data"]['casetitle']
+                self.createby = kwargs["data"]['createby']
+                self.detail = kwargs["data"]['detail']
                 print(type(self.type))
                 sql = "insert into auto_testcase values(0,'%s','%s','%s','%s','%s',now(),0)" % (
                 self.system, self.type, self.casetitle, self.detail, self.createby)
@@ -326,42 +346,64 @@ class casemanage():
         else:
             return '用例已存在'
 
-    def showcase(self):
-        sql = """
-SELECT
-	t1.caseid,
-	t1.system,
-	t2.casetype,
-	t1.casetitle,
-	t1.detail,
-	t3.`user`,
-	t1.createdate,
-	t4.casestatus 
-FROM
-	auto_testcase t1
-	LEFT JOIN auto_casetype t2 ON t1.type = t2.type
-	LEFT JOIN auto_user t3 ON t1.createby = t3.userid
-	LEFT JOIN auto_casestatus t4 ON t1.`status` = t4.`status`;
-
-        """
+    def showcase(self,display=20,current_page=1,casetype=1,system='WMS'):
+        count = "select count(1) from auto_testcase where `system`='%s' and type= '%s';"%(system,casetype)
+        print(count)
         db = dboperation()
+        db.cursor.execute(count)
+        count = db.cursor.fetchall()
+        print(type(count[0][0]))
+        print(type(current_page))
+        page = paginate(display=display, num=count[0][0], current_page=current_page)
+        # print(type(count[0][0]))
+
+        sql = """
+                                         SELECT
+                   	t1.caseid,
+                   	t1.system,
+                   	t2.casetype,
+                   	t1.casetitle,
+                   	t1.detail,
+                   	t3.`user`,
+                   	t1.createdate,
+                   	t4.casestatus 
+                   FROM
+                   	auto_testcase t1
+                   	LEFT JOIN auto_casetype t2 ON t1.type = t2.type
+                   	LEFT JOIN auto_user t3 ON t1.createby = t3.userid
+                   	LEFT JOIN auto_casestatus t4 ON t1.`status` = t4.`status`
+                   WHERE
+                   	t1.system = '%s'
+                   	AND t1.type= %s
+                   LIMIT
+                       %d,%d
+
+                                                  """ % (system, casetype, page[0][0], page[0][1])
+
+        # print(sql)
         db.cursor.execute(sql)
         data = db.cursor.fetchall()
         db.over()
-
         table = ''
         for i in data:
-
+            # count += 1
             table += '<tr>'
-            table += '<td><input type="checkbox" name="selectcase"></td>'
+            table += '<td><input type="checkbox" name="selectcase" value=%s></td>' % i[0]
             for j in i:
                 j = str(j)
-                td = '<td>'+j+'</td>'
+                td = '<td>' + j + '</td>'
                 table += td
 
             table += '</tr>'
 
-        return table
+        result = {"detail": table, "count": count[0][0], "maxpage": page[1]}
+
+        return result
+
+
+
+
+
 
 
     def selectsystem(self):
@@ -394,9 +436,66 @@ FROM
 
         return table
 
+    def deletecase(self,id):
+        sql = 'delete from auto_testcase where caseid=%s'%id
+
+        db=dboperation()
+        db.cursor.execute(sql)
+        db.connect.commit()
+        db.over()
+        return '删除成功'
+
+    def testcase(self):
+        sql = """
+SELECT
+    t1.caseid,
+    t1.system,
+    t2.casetype,
+    t1.casetitle,
+    t1.detail,
+    t3.`user`,
+    t1.createdate,
+    t4.casestatus 
+FROM
+    auto_testcase t1
+    LEFT JOIN auto_casetype t2 ON t1.type = t2.type
+    LEFT JOIN auto_user t3 ON t1.createby = t3.userid
+    LEFT JOIN auto_casestatus t4 ON t1.`status` = t4.`status`;
+
+        """
+        db = dboperation()
+        db.cursor.execute(sql)
+        data = db.cursor.fetchall()
+        # db.over()
+        col = db.cursor.description
+
+        jsonArray =[]
+        result = {}
+        for i in data:
+            json = {}
+            index = 0
+            for j in i:
+                json[col[index][0]]=j
+                index += 1
+
+            jsonArray.append(json)
+        # print(col)
+        result["data"]=jsonArray
+        # print(result)
+        return result
 
 
 
+
+
+        # return
+
+
+
+
+def testdict(**kw):
+    print(kw['data']['system'])
+    print(kw)
 
 
 if __name__ == '__main__':
@@ -404,6 +503,12 @@ if __name__ == '__main__':
     # a.changewarehouse('zoutao',27794,27795)
 
     # print(a.currentwarehouse[1]+"-")
-
+    #
     a = casemanage()
-    a.selectcasetype()
+    # # # a.selectcasetype()
+    # # # testdict(data ={'system': 'WMS', 'type': '1', 'casetitle': 'sadf', 'casedetail': 'asdf'})
+    b = a.showcase(display=20,current_page=1,system='TOMS')
+    print(b)
+    # a = paginate(90,num=87,current_page=1)
+    # print(str(a))
+

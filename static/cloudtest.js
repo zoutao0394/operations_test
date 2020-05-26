@@ -99,12 +99,139 @@ $(function(){
         });
 
 
-    $("#casedetail").load('/showcase');
+//    $("#casedetail").load('/showcase');
 
-    $("#selectsyetem").load('/selectsyetem');
-    $("#selectcasetype").load('/selectcasetype');
+    $("select[name='selectsyetem']").load('/selectsyetem');
+    $("select[name='selectcasetype']").load('/selectcasetype');
+
+    $("button[name='createcase']").click(function(){
+        var s = $("#selectsyetem").val();
+        var t = $("#selectcasetype").val();
+        var ct = $("#casetitle").val();
+        var cd = $("#detail").val();
+
+//        alert(system+type+casetitle+casedetail);
+        $.post('/createcase',{
+            system:s,
+            type:t,
+            casetitle:ct,
+            detail:cd,
+            createby:1
+        },function(data){
+            alert(data)
+            $("#createcase").modal('hide');
+            $('#casetitle').val("");
+            $('#detail').val("");
+            $("#casedetail").load('/showcase');
+
+        });
+    });
+
+    $("button[name='deletecase']").click(function(){
+        var check = '';
+        $("input[name='selectcase']:checked").each(function(){
+            check +=($(this).attr('value'));
+            check += ";";
+
+        });
+
+//         alert(check.slice(0,-1));
+        $.post('/deletecase',{
+            caseid:check.slice(0,-1)
+        },
+        function(data){
+            alert(data);
+        }
+        );
+    });
+
+//    $("button[name='testcase']").click(function(){
+//        $.get('/testcase',function(result){
+////            console.log(result.data);
+////            alert(result[0]);
+//            var tabledetail = result.data;
+//            $.each(tabledetail,function(index){
+//                console.log(tabledetail[index].createdate);
+//
+//            });
+//        });
+//    });
+
+//    $("#selectcase").click(function(){
+//        var s = $("#selectsystem select").val();
+//        var c = $("#selectcasetype select").val();
+//        $("#casedetail").load('/showcase',{
+//            system:s,
+//            casetype:c
+//        },function(){
+//            $("ul.pagination").append('<li><a href="#">3</a></li>');
+//        });
+//    });
 
 
 
+    $("#selectcase").click(function(){
+        $("#casedetail").empty();
+        $("ul.pagination").empty();
+        var s = $("#selectsystem select").val();
+        var c = $("#selectcasetype select").val();
+        var page = 1;
+        $.post('/showcase',{
+            system:s,
+            casetype:c,
+            current_page:page
+
+        },function(data){
+            $("#casedetail").append(data.detail);
+
+            if(data.maxpage>0){
+//                $("ul.pagination").append('<li><a href="#">&laquo;</a></li>');
+                for(var i=0;i<data.maxpage;i++){
+
+                $("ul.pagination").append('<li class="page-number"><a href="#">'+(i+1)+'</a></li>');
+
+
+
+            }
+//                $("ul.pagination").append('<li><a href="+&raquo;+">&raquo;</a></li>');
+            };
+
+
+        });
+    });
+
+
+    $(document).on('click',".page-number a[href='#']",function(){
+        var value = $(this).text();
+        $("#casedetail").empty();
+        $("ul.pagination").empty();
+        var s = $("#selectsystem select").val();
+        var c = $("#selectcasetype select").val();
+        var page = value;
+        $.post('/showcase',{
+            system:s,
+            casetype:c,
+            current_page:page
+
+        },function(data){
+            $("#casedetail").append(data.detail);
+
+            if(data.maxpage>0){
+//                $("ul.pagination").append('<li><a href="#">&laquo;</a></li>');
+                for(var i=0;i<data.maxpage;i++){
+
+                $("ul.pagination").append('<li class="page-number"><a href="#">'+(i+1)+'</a></li>');
+
+
+
+            }
+//                $("ul.pagination").append('<li><a href="+&raquo;+">&raquo;</a></li>');
+            };
+
+
+        });
+//        console.log(value);
+    });
 
 });
+
