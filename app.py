@@ -1,8 +1,9 @@
 # encoding:utf-8
-from flask import Flask,request,render_template,jsonify,json,send_from_directory
+from flask import Flask,request,render_template,jsonify,json,send_from_directory,flash,redirect,url_for
 import control
 from page_operation.basic import *
-
+import os
+from werkzeug.utils import secure_filename
 
 import time
 
@@ -13,12 +14,23 @@ app = Flask(__name__)
 root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report")
 
 
+app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\JmeterScript\\testcase'
+
+
+
+
+
+
+
+
+
 @app.route('/home')
 def home():
     return render_template('home.html')
 
 
 
+# 基础配置的视图函数
 @app.route('/configmanage',methods=['GET'])
 def configmanage():
     a = control.configmanage()
@@ -63,7 +75,7 @@ def star_test():
     return '开始测试'
 
 
-# 测试用例管理
+# 测试用例管理的视图函数
 @app.route('/casemanage',methods=['GET','POST'])
 def casemanage():
     caselist = control.scriptlist()
@@ -71,16 +83,23 @@ def casemanage():
 
 @app.route('/showcase',methods=['GET','POST'])
 def showcase():
-    d = request.form.to_dict()
-    system = d['system']
-    casetype = d['casetype']
-    current_page = d['current_page']
-    # d = str(d)
-    # caselist = control.scriptlist()
-    print(type(current_page))
-    case = control.casemanage()
-    data = case.showcase(system=system,casetype=casetype,current_page=int(current_page))
-    return data
+    if request.method == 'POST':
+        d = request.form.to_dict()
+        print(d)
+        system = d['system']
+        casetype = d['casetype']
+        current_page = d['current_page']
+        case = control.casemanage()
+        if system == '' or casetype == '':
+            data = case.showcase()
+            return data
+        # process = d['process']
+        # d = str(d)
+
+        else:
+            data = case.showcase(system=system, casetype=casetype, current_page=int(current_page))
+            return data
+
 
 @app.route('/selectsyetem',methods=['GET','POST'])
 def selectsyetem():
@@ -117,15 +136,72 @@ def deletecase():
     return "编号：%s 的用例删除成功"%data
 
 
+@app.route('/upload', methods = ['POST'])
+def upload():
+    # print(request.files)
+    file = request.files['file_data']
+    # print(file)
+    # print(file.filename)
+    filename = file.filename.split('.')[0]
+    a = control.casemanage()
+    result = a.caseintegrate(filename)
+    if result == True:
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
+        return jsonify({'result':'用例导入成功'})
+    else:
+        return jsonify({'result':'没有找到匹配的用例'})
 
 
 
 
 
+# 测试任务模块的视图函数
+@app.route('/taskconfig',methods=['GET','POST'])
+def taskconfig():
+    return render_template('taskconfig.html')
 
 
+@app.route('/showtask',methods=['GET','POST'])
+def showtask():
+    a = control.taskmanage()
+    result = a.show(a.selecttask)
+    return jsonify(result)
 
 
+@app.route('/starttask',methods=['POST'])
+def starttask():
+    taskname = request.form.get('taskname')
+    a = control.taskmanage()
+    b = a.taskscript(taskname)
+    c = a.starttask(b)
+
+    return c
+
+
+@app.route('/taskcasedetail',methods=['GET'])
+def taskcasedetail():
+    # taskname = request.form.get('taskname')
+    a = control.taskmanage()
+    b = a.show(a.taskcasedetail)
+    return b
+
+
+@app.route('/createtask',methods=['POST'])
+def createtask():
+    task = request.form.to_dict()
+    a = control.taskmanage()
+    print(task)
+    b = a.createtask(task['taskname'],task['startmode'],task['caseids'])
+    # b = a.showcase()
+    return b
+
+
+@app.route('/taskcase',methods=['POST'])
+def taskcase():
+    taskname = request.form.to_dict()
+    a = control.taskmanage()
+    b = a.show(a.taskcase,taskname=taskname['taskname'])
+    return b
 
 
 
@@ -145,9 +221,6 @@ def reportmanage():
 
 
 
-@app.route('/taskconfig',methods=['GET','POST'])
-def taskconfig():
-    return render_template('taskconfig.html')
 
 
 @app.route('/develop',methods=['GET','POST'])

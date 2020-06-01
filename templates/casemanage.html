@@ -1,12 +1,6 @@
 {% extends 'home.html' %}
 {% block MainContainer %}
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
-<!-- Latest compiled and minified Locales -->
-<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-zh-CN.min.js"></script>
 <div class="container">
   <div class="row">
     <!--<div class="col-sm-4">-->
@@ -26,30 +20,44 @@
       <h5 id="warehouse"></h5>
       <h5 id="user"></h5>
         <br>
-
+        <from class="form-inline" role="form">
         <div>
 
                 <div class="input-group" id="selectsystem">
             <span class="input-group-addon">选择系统:</span>
                     <select name="selectsyetem" class="form-control"></select>
-        </div>
-                <br>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
                 <div class="input-group" id="selectcasetype">
             <span class="input-group-addon">用例类型:</span>
             <select name="selectcasetype" class="form-control"></select>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <div class="input-group" id="casestatus">
+            <span class="input-group-addon">用例状态:</span>
+            <select name="casestatus" class="form-control">
+                <option value="0">已创建</option>
+                <option value="1">已集成</option>
+            </select>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <div class="input-group">
+            <span class="input-group-addon">所属流程:</span>
+            <input type="text" class="form-control" id="selectprocess" placeholder="所属流程">
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <button type="button" class="btn btn-primary" id="selectcase">查询用例</button>
         </div>
 
-        </div>
 
+
+            </from>
         <br>
-            <button type="button" class="btn btn-primary" id="selectcase">查询用例</button>
             <button type="button" class="btn btn-primary" data-target="#createcase" data-toggle="modal">新增用例</button>
             <button type="button" class="btn btn-danger" name="deletecase">删除用例</button>
-        <button type="button" class="btn btn-primary">编辑用例</button>
+        <button type="button" class="btn btn-primary" title="上传脚本之后，用例状态变更为已集成，已集成的用例可配置为测试任务。" data-target="#modal2" data-toggle="modal" name="uploadfile">上传脚本</button>
 
         <div>
         <table class="table table-hover">
-        <caption>用例列表</caption>
+        <caption>脚本名要与用例名称一致</caption>
         <thead>
             <tr>
                 <th>请选择</th>
@@ -57,7 +65,8 @@
                 <th>系统</th>
                 <th>类型</th>
                 <th>标题</th>
-                <th>详情</th>
+                <!--<th>详情</th>-->
+                <th>流程</th>
                 <th>创建人</th>
                 <th>创建时间</th>
                 <th>状态</th>
@@ -99,18 +108,45 @@
             <input type="text" class="form-control" id="casetitle" placeholder="用例标题">
         </div>
         <br>
-            <div class="input-group">
-            <span class="input-group-addon">用例详情:</span>
+        <div class="input-group">
+            <span class="input-group-addon">所属流程:</span>
+            <input type="text" class="form-control" id="process" placeholder="所属流程">
+        </div>
 
-                <textarea class="form-control" rows="8" placeholder="请输入测试脚本名称，多个脚本用；隔开！" id="detail"></textarea>
+        <br>
+            <!--<div class="input-group">-->
+            <!--<span class="input-group-addon">用例详情:</span>-->
 
-</div>
+                <!--<textarea class="form-control" rows="8" placeholder="描述每个脚本的主要测试点。" id="detail"></textarea>-->
+
+<!--</div>-->
     </form>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary"   name="createcase">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >上传脚本</h4>
+            </div>
+            <div class="modal-body">
+
+
+        <label class="control-label">选择脚本</label>
+    <input type="file" id="file" class="file-loading" multiple>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <!--<button type="button" class="btn btn-primary"   name="upload">提交</button>-->
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->

@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1590743766386,436,标记任务开始,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,436,0,434
+1590743766823,5,获取账号,200,OK,一票一件 1-1,text,true,,18,0,1,1,null,3,0,0
+1590743766828,45,锁定账号,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,45,0,0
+1590743766874,1,获取仓库及会员信息,200,OK,一票一件 1-1,text,true,,115,0,1,1,null,1,0,0
+1590743766875,2,获取oms配置信息,200,OK,一票一件 1-1,text,true,,34,0,1,1,null,2,0,0
+1590743766877,1,获取wi配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,1,0,0
+1590743766879,1,获取basic配置信息,200,OK,一票一件 1-1,text,true,,46,0,1,1,null,1,0,0
+1590743766880,2,获取os配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,2,0,0
+1590743766882,1,获取opw配置信息,200,OK,一票一件 1-1,text,true,,38,0,1,1,null,1,0,0
+1590743766883,2,获取op配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,2,0,0
+1590743766885,1,获取opr配置信息,200,OK,一票一件 1-1,text,true,,38,0,1,1,null,1,0,0
+1590743766886,2,获取master配置信息,200,OK,一票一件 1-1,text,true,,41,0,1,1,null,2,0,1
+1590743766888,1,获取so配置信息,200,OK,一票一件 1-1,text,true,,37,0,1,1,null,1,0,0
+1590743766889,1,获取账号,200,OK,一票一件 1-1,text,true,,18,0,1,1,null,1,0,0
+1590743766948,196,登陆,200,OK,一票一件 1-1,text,true,,93444,1642,1,1,http://cloud.basic.fineex.net/Home/Index,87,0,41
+1590743766948,87,登陆-0,302,Found,一票一件 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,87,0,41
+1590743767040,104,登陆-1,200,OK,一票一件 1-1,text,true,,92257,878,1,1,http://cloud.basic.fineex.net/Home/Index,81,0,0
+1590743767147,52,查询待调度的订单信息,200,OK,一票一件 1-1,text,true,,618,1088,1,1,http://cloud.wms.so.fineex.net/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=25670&MemberID=&BeginDate=2020-05-29+00%3A00%3A00+&EndDate=+2020-05-29+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,52,0,16
+1590743767204,37,创建笼车波次,200,OK,一票一件 1-1,text,false,Test failed: text expected to contain /true/,768,1989,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/SaveBatchOrder,37,0,10
+1590743767253,1,标记任务最终结果,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,1,0,0

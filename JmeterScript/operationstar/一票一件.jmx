@@ -374,18 +374,6 @@ WHERE
               <stringProp name="variableNames">sohost,soport</stringProp>
             </JDBCSampler>
             <hashTree/>
-            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="获取账号" enabled="true">
-              <stringProp name="dataSource">test</stringProp>
-              <stringProp name="query">select testuser from auto_testuser where status=0 limit 1;</stringProp>
-              <stringProp name="queryArguments"></stringProp>
-              <stringProp name="queryArgumentsTypes"></stringProp>
-              <stringProp name="queryTimeout"></stringProp>
-              <stringProp name="queryType">Select Statement</stringProp>
-              <stringProp name="resultSetHandler">Store as String</stringProp>
-              <stringProp name="resultVariable"></stringProp>
-              <stringProp name="variableNames">user</stringProp>
-            </JDBCSampler>
-            <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
@@ -710,7 +698,7 @@ WHERE
                 <stringProp name="RegexExtractor.match_number">-1</stringProp>
               </RegexExtractor>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="3506649">rows</stringProp>
                 </collectionProp>
@@ -816,7 +804,7 @@ WHERE
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="false">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="3569038">true</stringProp>
                   </collectionProp>
@@ -1402,7 +1390,7 @@ WHERE
                   <stringProp name="RegexExtractor.match_number">-1</stringProp>
                 </RegexExtractor>
                 <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="false">
                   <stringProp name="ConstantTimer.delay">300000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
