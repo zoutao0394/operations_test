@@ -1,0 +1,35 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591781107054,363,标记任务开始,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,363,0,361
+1591781107418,5,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,3,0,0
+1591781107423,108,锁定账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,108,0,0
+1591781107531,2,获取仓库及会员信息,200,OK,全量出库 1-1,text,true,,115,0,1,1,null,2,0,0
+1591781107533,2,获取oms配置信息,200,OK,全量出库 1-1,text,true,,34,0,1,1,null,1,0,0
+1591781107535,1,获取wi配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591781107536,2,获取basic配置信息,200,OK,全量出库 1-1,text,true,,46,0,1,1,null,2,0,0
+1591781107538,1,获取os配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591781107539,1,获取opw配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,1,0,0
+1591781107541,1,获取op配置信息,200,OK,全量出库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591781107542,1,获取opr配置信息,200,OK,全量出库 1-1,text,true,,38,0,1,1,null,1,0,0
+1591781107543,1,获取master配置信息,200,OK,全量出库 1-1,text,true,,41,0,1,1,null,1,0,0
+1591781107545,1,获取so配置信息,200,OK,全量出库 1-1,text,true,,37,0,1,1,null,1,0,0
+1591781107546,1,获取账号,200,OK,全量出库 1-1,text,true,,18,0,1,1,null,1,0,0
+1591781107600,275,登陆,200,OK,全量出库 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,122,0,62
+1591781107600,122,登陆-0,302,Found,全量出库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,122,0,62
+1591781107727,148,登陆-1,200,OK,全量出库 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,111,0,0
+1591781107882,137,查询出库单信息,200,OK,全量出库 1-1,text,true,,1735,1235,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&pageType=2&OutStatus=&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,136,0,73
+1591781108024,63,自动审核,200,OK,全量出库 1-1,text,true,,715,992,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,63,0,0
+1591781408094,1,Debug Sampler,200,OK,全量出库 1-1,text,true,,1481,0,1,1,null,0,0,0
+1591781408097,42,进入下架页面,200,OK,全量出库 1-1,text,true,,1183,1002,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,42,0,14
+1591781408141,42,创建下架,200,OK,全量出库 1-1,text,true,,670,991,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,42,0,0
+1591781408184,19,创建下架保存,200,OK,全量出库 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""保存成功！""],/",749,2059,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,19,0,0
+1591781408205,18,查看出库单内下架信息,200,OK,全量出库 1-1,text,true,,874,962,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=293799&wareHouseId=25670&sort=&order=asc,18,0,0
+1591781408224,24,获取系统推荐批次,200,OK,全量出库 1-1,text,true,,1351,1068,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,24,0,0
+1591781408249,23,下架完成,200,OK,全量出库 1-1,text,false,"Test failed: text expected to contain /""Success"":true,/",756,2328,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/SoldOutManage/DownShelves,23,0,0
+1591781408273,19,获取封箱信息,200,OK,全量出库 1-1,text,true,,725,979,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,19,0,0
+1591781408364,13,确认封箱,200,OK,全量出库 1-1,,true,,475,951,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/saveOutBox,13,0,0
+1591781408378,15,完成质检,200,OK,全量出库 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""完成质检成功！""],/",725,979,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/PackingTest/completeOutBox,15,0,0
+1591781408394,18,确认出库,200,OK,全量出库 1-1,text,true,,673,1029,1,1,http://cloud.wms.wi.b1.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,18,0,0
+1591781408414,28,出库完成,200,OK,全量出库 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""确认成功！""],""/",834,1016,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,28,0,0
+1591781408443,100,释放登陆账号,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,100,0,17
+1591781408543,7,标记任务成功,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,7,0,0
+1591781408565,8,标记任务最终结果,200,OK,全量出库 1-1,text,true,,9,0,1,1,null,8,0,0

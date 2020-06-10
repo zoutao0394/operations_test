@@ -282,17 +282,35 @@ def uploadreport():
     # print(file.filename)
     # filename = file.filename.split('.')[0]
     filetype = file.filename.split('.')[1]
+    a = control.report()
 
     if filetype != 'jmx':
-        app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\static\\report\\testreport'
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-        return jsonify({'result': '用例导入成功'})
+        b = a.savereport(file.filename)
+        if b:
+            app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\static\\report\\testreport'
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+            return jsonify({'result': '用例导入成功'})
+        else:
+            return jsonify({'result': '用例名称不符合规范'})
 
 
     else:
-        pass
+        return jsonify({'result': '文件格式不正确'})
 
 
+@app.route('/reportlist',methods=['GET','POST'])
+def reportlist():
+    # systemname = request.form.to_dict()['systemname']
+    # print(taskid)
+    if request.method == 'GET':
+        a = control.report()
+        b = a.show(a.reportlist)
+        return jsonify(b)
+    else:
+        systemname = request.form.to_dict()['systemname']
+        a = control.report(systemname=systemname)
+        b = a.show(a.reportlist)
+        return jsonify(b)
 
 
 

@@ -269,6 +269,8 @@
     //导入文件上传完成之后的事件
     $("#"+ ctrlName).on("fileuploaded", function (event, data, previewId, index) {
         $("#modal2").modal("hide");
+//        console.log(data);
+//        alert(data.response.result);
 
     });
 }
@@ -528,6 +530,47 @@
 
     $('#modal2').on('hidden.bs.modal',function(){
         $('#report').prop('disabled',false).fileinput('destroy');
+    });
+
+
+    $.get('/reportlist',function(data){
+
+//        $("#taskdetail").html("");
+        for(var i in data.data){
+                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+"></td>"
+            +"<td>"
+            +data.data[i]['reportid']+"</td><td>"+data.data[i]['systemname']+"</td><td>"+data.data[i]['reportname']
+            +"</td><td>"+data.data[i]['createdate']+"</td></tr>";
+
+
+            $("#reportlist").append(t);
+//
+//
+        };
+
+    });
+
+    $('#selectreport').click(function(){
+
+         $("#reportlist").empty();
+        $("ul.pagination").empty();
+        var s = $("#selectsystem select").val();
+        console.log(s)
+        $.post('/reportlist',{
+            systemname:s,
+        },function(data){
+            for(var i in data.data){
+                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+"></td>"
+            +"<td>"
+            +data.data[i]['reportid']+"</td><td>"+data.data[i]['systemname']+"</td><td>"+data.data[i]['reportname']
+            +"</td><td>"+data.data[i]['createdate']+"</td></tr>";
+
+
+            $("#reportlist").append(t);
+
+
+          }
+        });
     });
 
 

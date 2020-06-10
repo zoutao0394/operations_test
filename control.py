@@ -44,8 +44,8 @@ def run(script,path="WMS"):
 def scriptrun(script):
     sl = scriptlist('operationstar')
     for i in sl:
-        print(i)
-        print(script+".jmx")
+        # print(i)
+        # print(script+".jmx")
         if script+".jmx" == i:
             run(script,'operationstar')
             print(i)
@@ -326,10 +326,10 @@ class casemanage():
                 self.createby = kwargs["data"]['createby']
                 # self.detail = kwargs["data"]['detail']
                 self.process = kwargs["data"]['process']
-                print(type(self.type))
+                # print(type(self.type))
                 sql = "insert into auto_testcase(caseid,`system`,type,casetitle,process,createby,createdate,`status`) values(0,'%s','%s','%s','%s','%s',now(),0)" % (
                 self.system, self.type, self.casetitle, self.process, self.createby)
-                print(sql)
+                # print(sql)
                 db = dboperation()
                 db.cursor.execute(sql)
                 db.connect.commit()
@@ -490,7 +490,7 @@ FROM
             return False
         else:
             sql = 'select `status`,caseid,type from auto_testcase where casetitle="%s"'%filename[0]
-            print(sql)
+            # print(sql)
             db = dboperation()
             db.cursor.execute(sql)
             case = db.cursor.fetchall()
@@ -531,7 +531,7 @@ FROM
 
             db.cursor.execute(sql)
             data = db.cursor.fetchall()
-            print(data[0])
+            # print(data[0])
             return data[0]
 
 
@@ -576,9 +576,9 @@ class taskmanage():
                 db.connect.commit()
                 # time.sleep(0.1)
                 for i in caseids:
-                    print(taskname)
+                    # print(taskname)
                     sql3 = "insert into auto_taskcase(taskid,caseid,status) value((select taskid from auto_task where taskname = '%s'),%s,0)" %(taskname, i)
-                    print(sql3)
+                    # print(sql3)
                     db.cursor.execute(sql3)
                     db.connect.commit()
                 db.over()
@@ -605,7 +605,7 @@ class taskmanage():
             for i in col:
                 key.append(i[0])
             db.over()
-            print(value)
+            # print(value)
             return value,key
         else:
             db.over()
@@ -727,7 +727,7 @@ class taskmanage():
 
     def getconfig(self,taskid):
         sql = "select environmentid,configid from auto_task where taskid=%s"%taskid
-        print(sql)
+        # print(sql)
         db = dboperation()
         db.cursor.execute(sql)
         value = db.cursor.fetchall()
@@ -756,7 +756,7 @@ class taskmanage():
                         db.cursor.execute(startcount)
                         count = db.cursor.fetchall()
 
-                        while count[0][0] > 2:
+                        while count[0][0] > 1:
                             time.sleep(2)
                             db.cursor.execute(startcount)
                             count = db.cursor.fetchall()
@@ -769,6 +769,7 @@ class taskmanage():
                             'jmeter -Jtaskid=%s -Jcaseid=%s -Jenvironmentid=%s -Jconfig=%s -n -t ./JmeterScript/testcase/%s.jmx -l ./static/report/%s.jtl' % (
                             taskid, script[1], config[0], config[1], script[0], filename),
                             shell=True)
+                        # time.sleep(1)
 
                         start = """
                             update auto_taskcase set `status`=1 where taskid=%s and caseid=%s;
@@ -815,8 +816,9 @@ class taskmanage():
 #     print(time.time())
 
 class report():
-    def __init__(self,taskid):
+    def __init__(self,taskid=0,systemname='WMS'):
         self.taskid = taskid
+        self.systemname = systemname
 
 
     def formatfile(self):
@@ -952,12 +954,57 @@ class report():
 
 
     def savereport(self,reportname):
+        db = dboperation()
         detail = reportname.split('-')
+        if len(detail)<2 or len(detail)>2:
+            return False
+        system = detail[0]
+        name = detail[1]
+        name = name.split('.')[0]
+        sql0 = "select count(1) from auto_report where url='./static/report/testreport/%s'"%reportname
+        db.cursor.execute(sql0)
+        count = db.cursor.fetchall()
+
+        if count[0][0]<1:
+            sql = "insert into auto_report(reportname,url,systemname,createdate) values('%s','./static/report/testreport/%s','%s',now())"%(name,reportname,system)
+
+            db.cursor.execute(sql)
+            db.connect.commit()
+        db.over()
+
+        return True
+
+    def reportlist(self):
+        # sql = "select * from auto_report where systemname='%s';"%self.systemname
+        sql1 = "select count(1) from auto_report where systemname='%s';"%self.systemname
+        db = dboperation()
+        db.cursor.execute(sql1)
+        data = db.cursor.fetchall()
+        if data[0][0]>0:
+            sql2 = "select reportid,reportname,systemname,createdate from auto_report where systemname='%s';"%self.systemname
+            db = dboperation()
+            db.cursor.execute(sql2)
+            value = db.cursor.fetchall()
+            col = db.cursor.description
+            key = []
+            for i in col:
+                key.append(i[0])
+            db.over()
+            # print(value)
+            return value,key
+        else:
+            db.over()
+            return '没有数据'
+
+
+
+
 
 
 
 
 if __name__ == '__main__':
-    a = report(62)
-    b = a.report()
-    print(b)
+    a = report()
+    b = a.savereport('TMS-迭代测试测试用例.xlsx')
+    # b = a.show(a.reportlist)
+    # print(b)

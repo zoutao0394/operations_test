@@ -1,0 +1,22 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591777745640,287,标记任务开始,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,286,0,284
+1591777745929,5,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,3,0,0
+1591777745934,44,锁定账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,44,0,0
+1591777745978,2,获取仓库及会员信息,200,OK,全量入库 1-1,text,true,,115,0,1,1,null,2,0,0
+1591777745980,2,获取oms配置信息,200,OK,全量入库 1-1,text,true,,34,0,1,1,null,2,0,0
+1591777745982,1,获取wi配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591777745984,2,获取basic配置信息,200,OK,全量入库 1-1,text,true,,46,0,1,1,null,1,0,0
+1591777745986,1,获取os配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591777745987,2,获取opw配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,2,0,0
+1591777745989,1,获取op配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591777745990,2,获取opr配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,1,0,0
+1591777745992,1,获取master配置信息,200,OK,全量入库 1-1,text,true,,41,0,1,1,null,1,0,0
+1591777745993,1,获取so配置信息,200,OK,全量入库 1-1,text,true,,37,0,1,1,null,1,0,0
+1591777745994,1,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,1,0,0
+1591777746057,258,登陆,200,OK,全量入库 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,123,0,73
+1591777746057,123,登陆-0,302,Found,全量入库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,123,0,73
+1591777746186,129,登陆-1,200,OK,全量入库 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,82,0,0
+1591777746318,170,到货通知查询,200,OK,全量入库 1-1,text,true,,2339,1203,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Arrival/Query?searchText=&sortName=CreateDate&sortOrder=DESC&pageSize=20&pageNumber=1&PageSize=20&PageCurrent=1&StartTime=+2020-06-10+00%3A00%3A00+&EndTime=++2020-06-10+23%3A59%3A59&PageType=2&InStatus=&InCodes=&SyncIds=&MemberNo=0010000104&MemberID=26486&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&Memo=,170,0,85
+1591777746492,3,释放登陆账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,3,0,0
+1591777746495,6,标记任务成功,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1591777746518,7,标记任务最终结果,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,7,0,0
