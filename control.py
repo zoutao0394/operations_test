@@ -312,8 +312,8 @@ class casemanage():
         # self.detail = ''
         self.process = ''
 
-    def downloadcase(self):
-        return "D:\\operations_test\\static\\testcase\\casetemplate\\测试用例模板.xls"
+    # def downloadcase(self):
+    #     return "D:\\operations_test\\static\\testcase\\casetemplate\\测试用例模板.xls"
 
 
 
@@ -810,6 +810,10 @@ class taskmanage():
                 return '任务执行失败'
 
 
+
+
+#
+
 #
 # from apscheduler.schedulers.blocking import BlockingScheduler
 # def testcase():
@@ -997,6 +1001,16 @@ class report():
             return '没有数据'
 
 
+    def reportpath(self,reportid):
+        db = dboperation()
+        sql = "select url from auto_report where reportid=%s" % reportid
+        db.cursor.execute(sql)
+        data = db.cursor.fetchall()[0][0]
+        reportname = data[27:]
+        # print(data[0])
+        return reportname
+
+
 
 
 
@@ -1005,6 +1019,6 @@ class report():
 
 if __name__ == '__main__':
     a = report()
-    b = a.savereport('TMS-迭代测试测试用例.xlsx')
+    b = a.reportpath(1252)
     # b = a.show(a.reportlist)
-    # print(b)
+    print(b)

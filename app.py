@@ -313,6 +313,22 @@ def reportlist():
         return jsonify(b)
 
 
+@app.route("/downloadreport", methods=['GET'])
+def downloadreport():
+    reportid = request.args.get("reportid")
+    # print(caseid)
+    # caseid = 193
+    a = control.report()
+    b = a.reportpath(reportid)
+    filename = b
+    path = "./static/report/testreport/"
+    # print(b)
+
+    response = make_response(
+		send_from_directory(path, filename.encode('utf-8').decode('utf-8'), as_attachment=True))
+    response.headers["Content-Disposition"] = "attachment; filename={}".format(filename.encode().decode('latin-1'))
+    return response
+
 
 
 

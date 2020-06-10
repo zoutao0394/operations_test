@@ -574,6 +574,26 @@
     });
 
 
+    $('button[name="downloadreport"]').click(function(){
+       var i = $("input[type='checkbox']:checked").length;
+       $('#downloadreport').attr('href','#');
+
+        if(i == 0){
+        alert('请选择一条任务');
+        }else if(i >1){
+        alert('只能选择一条');
+        }else{
+//
+        var reportid = $("input[type='checkbox']:checked").val();
+//        alert(caseid)
+        $('#downloadreport').attr('href','/downloadreport?reportid='+reportid+'');
+        $('#downloadreport').click();
+        alert('下载成功')
+        }
+//        alert(filename)
+    });
+
+
 });
 
 function checkTr(tr) {
