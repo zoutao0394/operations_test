@@ -1,0 +1,23 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591759327898,352,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,351,0,344
+1591759328251,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591759328255,5,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591759328260,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591759328262,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591759328263,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591759328264,2,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591759328266,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591759328267,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591759328268,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591759328269,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591759328270,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591759328272,0,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,0,0,0
+1591759328273,2,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,2,0,0
+1591759328275,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591759328339,142,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,61,0,30
+1591759328339,61,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,61,0,30
+1591759328408,73,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,56,0,0
+1591759328489,34,查询已审核的波次,200,OK,线程组 1-1,text,true,,632,1229,1,1,http://os.uat.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=1&pageNumber=1&CreateTime=2020-06-05+05%3A22%3A08+%7E+2020-06-10+23%3A59%3A59&WareHouseName%5B%5D=%E5%98%89%E5%90%883%E4%BB%93%7E%E9%80%B8%E4%BB%99%E7%94%B5%E5%95%86&WareHouseName%5B%5D=23361&MemberNo=0210045308&MemberID=25346&WarehouseID=23361&OrderStatus=2&OrderType=3&DeliveryPlanTime=&OrderBatchID=&PickType=0&BatchAttribute=0&PageSize=1&PageCurrent=1,33,0,6
+1591759328527,8,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,8,0,0
+1591759328548,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591759328554,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

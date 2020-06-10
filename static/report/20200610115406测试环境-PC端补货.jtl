@@ -1,0 +1,35 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591761271941,796,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,795,0,753
+1591761272739,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,4,0,0
+1591761272744,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591761272750,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591761272752,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761272754,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761272756,3,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,3,0,0
+1591761272759,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761272760,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591761272762,2,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591761272764,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761272766,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591761272767,2,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591761272769,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761272771,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761273733,671,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,601,0,565
+1591761273733,601,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,601,0,565
+1591761274340,64,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,41,0,0
+1591761274413,1262,缺货补货查询,200,OK,线程组 1-1,text,true,,612,1061,1,1,http://wi.uat.fineex.net/OnWareHouse/ReplenishAccept/GetOOS?WareHouseID=23361&MemberID=25346&model.BarCode=&model.Area=&model.Tunnel=&model.MemberNo=0210045308&model.MemberID=25346&model.WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&model.WarehouseID=23361&model.BeginTime=2020-06-10+00%3A00%3A00&model.EndTime=+2020-06-10+23%3A59%3A59&model.OrderType=&model.Type=&sortName=CommodityID&sortOrder=desc&pageSize=20&pageNumber=1,1262,0,19
+1591761275866,149,生成主动补货单,200,OK,线程组 1-1,text,true,,3319,1210,1,1,http://wi.uat.fineex.net/DataCenter/PosStorageSearch/QueryStorage?sortName=Amount&sortOrder=desc&pageSize=2&pageNumber=1&MemberNo=0210045308&MemberID=25346&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&Codes=&PosCode=&PosType=&CommodityName=&CommodityCode=&Code=&BarCode=&PageSize=2&PageCurrent=1,149,0,0
+1591761277116,100,生成补货单,200,OK,线程组 1-1,text,true,,719,1225,1,1,http://wi.uat.fineex.net/OnWareHouse/ReplenishAccept/PCSubmitCommodityList,100,0,34
+1591761278221,81,查询补货单信息,200,OK,线程组 1-1,text,true,,1240,1188,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishQuery?sortName=CreateDate&sortOrder=desc&pageSize=20&pageNumber=1&MemberNo=0210045308&MemberID=25346&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&ReplenishCode=&Status=1&BarCode=&WareHouseID=23361&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&PageSize=20&PageCurrent=1,81,0,0
+1591761279308,30,打印,200,OK,线程组 1-1,text,true,,1531,966,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/GetPrintData,30,0,4
+1591761280340,25,上锁,200,OK,线程组 1-1,text,true,,670,967,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishLock,24,0,0
+1591761281366,37,获取可下架信息,200,OK,线程组 1-1,text,true,,1163,995,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishShelfQuery,37,0,5
+1591761282413,250,下架,200,OK,线程组 1-1,text,true,,696,1514,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishDownShelf,250,0,0
+1591761282666,325,查询仓库库位信息,200,OK,线程组 1-1,text,true,,18659,1267,1,1,http://master.uat.fineex.net/BasicInfo/StorageLocationManage/QueryPosData,313,0,11
+1591761283996,37,上架信息,200,OK,线程组 1-1,text,true,,1089,999,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishComfirmQuery,37,0,11
+1591761285053,250,确认补货,200,OK,线程组 1-1,text,true,,696,1539,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishUpShelf,250,0,0
+1591761286305,22,解锁,200,OK,线程组 1-1,text,true,,688,968,1,1,http://wi.uat.fineex.net/OnWareHouse/Replenish/ReplenishUnlock,22,0,6
+1591761286350,3,Debug Sampler,200,OK,线程组 1-1,text,true,,3380,0,1,1,null,0,0,0
+1591761286354,7,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591761286382,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591761286388,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

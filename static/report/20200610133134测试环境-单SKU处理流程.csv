@@ -1,0 +1,23 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591767100280,999,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,999,0,997
+1591767101280,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591767101286,5,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591767101291,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,1,0,0
+1591767101293,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,1,0,0
+1591767101294,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591767101296,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,1,0,0
+1591767101297,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591767101299,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767101300,2,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767101302,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767101303,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591767101304,2,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,2,0,1
+1591767101306,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767101307,2,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767101386,190,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,94,0,45
+1591767101386,94,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,94,0,45
+1591767101487,89,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,66,0,0
+1591767101579,58,查询已审核的波次,200,OK,线程组 1-1,text,true,,618,1273,1,1,http://cloud.wms.os.b1.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=1&pageNumber=1&CreateTime=2019-12-22+00%3A00%3A00+%7E+2020-06-10+23%3A59%3A59&WareHouseName%5B%5D=%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BB%93%7E%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BC%9A%E5%91%98&WareHouseName%5B%5D=26769&MemberNo=0010000167&MemberID=26770&WarehouseID=26769&OrderStatus=2&OrderType=2&DeliveryPlanTime=&OrderBatchID=&PickType=0&BatchAttribute=0&PageSize=1&PageCurrent=1,58,0,12
+1591767101642,11,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,11,0,0
+1591767101670,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,1
+1591767101677,3,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,3,0,0

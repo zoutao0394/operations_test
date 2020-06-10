@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591767535377,1054,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1054,0,1052
+1591767536433,6,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,4,0,0
+1591767536439,9,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,9,0,0
+1591767536448,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,2,0,0
+1591767536450,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,2,0,0
+1591767536452,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767536453,2,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,2,0,0
+1591767536455,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591767536457,3,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,3,0,0
+1591767536460,1,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767536462,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767536463,2,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591767536465,1,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591767536466,2,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,2,0,0
+1591767536468,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767536551,229,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,126,0,67
+1591767536551,126,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,126,0,67
+1591767536682,98,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,75,0,0
+1591767536783,76,查询待创建团购波次订单,200,OK,线程组 1-1,text,true,,11504,1232,1,1,http://cloud.wms.os.b1.fineex.net/Order/GroupBuying/Query,75,0,12
+1591767536871,33,创建团购波次,200,OK,线程组 1-1,text,true,,698,1668,1,1,http://cloud.wms.os.b1.fineex.net/Order/GroupBuying/SaveBatchOrder,33,0,0
+1591767536905,7,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591767536928,7,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591767536935,2,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,2,0,0

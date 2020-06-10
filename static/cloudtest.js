@@ -153,41 +153,7 @@
         );
     });
 
-//    $.fn.selectcase = function(){
-//        $("#casedetail").empty();
-//        $("ul.pagination").empty();
-//        var s = $("#selectsystem select").val();
-//        var c = $("#selectcasetype select").val();
-//        var page = 1;
-//        $.post('/showcase',{
-//            system:s,
-//            casetype:c,
-//            current_page:page,
-//
-//
-//        },function(data){
-//            $("#casedetail").append(data.detail);
-//
-//            if(data.maxpage>0){
-////                $("ul.pagination").append('<li><a href="#">&laquo;</a></li>');
-//                for(var i=0;i<data.maxpage;i++){
-//                    if(i==0){
-//                        $("ul.pagination").append('<li class="page-number active"><a href="#">'+(i+1)+'</a></li>');
-//                    }else{
-//                        $("ul.pagination").append('<li class="page-number"><a href="#">'+(i+1)+'</a></li>');
-//                    };
-//
-//
-//
-//
-//            }
-////                $("ul.pagination").append('<li><a href="+&raquo;+">&raquo;</a></li>');
-//               $("ul.pagination").append('<li><span class="pagination-info">共'+data.maxpage+'页： '+data.count+'条用例 </span></li>');
-//            };
-//
-//
-//        });
-//    };
+
 
     $("#selectcase").click(function(){
         $("#casedetail").empty();
@@ -282,7 +248,7 @@
     control.fileinput({
         language: 'zh', //设置语言
         uploadUrl: uploadUrl, //上传的地址
-        allowedFileExtensions: ['jmx'],//接收的文件后缀
+        allowedFileExtensions: ['jmx','xls','xlsx'],//接收的文件后缀
         showUpload: true, //是否显示上传按钮
         showCaption: false,//是否显示标题
         browseClass: "btn btn-primary", //按钮样式
@@ -301,20 +267,8 @@
     });
 
     //导入文件上传完成之后的事件
-    $("#file").on("fileuploaded", function (event, data, previewId, index) {
-//        $("#file").val("");
-//        alert(data.response.result);
-
+    $("#"+ ctrlName).on("fileuploaded", function (event, data, previewId, index) {
         $("#modal2").modal("hide");
-
-
-//        $(".file-preview-thumbnails clearfix").remove();
-//        var data = data.response.success;
-//        if (data == 'true') {
-////            toastr.error('文件格式类型不正确');
-//
-//        }
-
 
     });
 }
@@ -325,9 +279,7 @@
     //0.初始化fileinput
     var oFileInput = new FileInput();
     oFileInput.Init("file", "/upload");
-//    var obj = document.getElementById("file") ;
-//    obj.select();
-//    document.selection.clear();
+
 });
 
     $('#modal2').on('hidden.bs.modal',function(){
@@ -335,15 +287,16 @@
     });
 
     $.get('/showtask',function(data){
-
+        console.log(data);
+//        $("#taskdetail").html("");
         for(var i in data.data){
-            var t = "<tr><td><button type='button' class='btn btn-primary' name='starttask'>启动</button>"
-            +"<button type='button' class='btn btn-info' name='taskdetail' data-target='#task' data-toggle='modal'>详情</button></td><td>"
-            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td></td><td>"+data.data[i]['name']+"</td></tr>";
+                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['taskid']+"' value="+data.data[i]['taskid']+"></td>"
+            +"<td>"
+            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td>"+data.data[i]['name']
+            +"</td><td>"+data.data[i]['runtime']+"</td></tr>";
 
 
             $("#taskdetail").append(t);
-
 
 
         };
@@ -351,13 +304,45 @@
     });
 
     $(document).on('click',"button[name='starttask']",function(){
-        var task = $(this).parent().next().html();
+//        var task = $(this).parent().next().html();
+//
 
-        $.post('/starttask',{
-            taskname:task
+//         $("#taskcase").html("");
+        var i = $("input[type='checkbox']:checked").length;
+
+        if(i == 0){
+        alert('请选择一条任务');
+
+        }else if(i >1){
+        alert('只能选择一条');
+        }else{
+        alert('任务已启动');
+
+             var taskid = $("input[type='checkbox']:checked").val();
+                    $.post('/starttask',{
+            taskid:taskid
         },function(data){
-            alert(task);
+
+            $("#taskdetail").html("");
+            $.get('/showtask',function(data){
+
+        console.log(data);
+        for(var i in data.data){
+                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['taskid']+"' value="+data.data[i]['taskid']+"></td>"
+            +"<td>"
+            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td>"+data.data[i]['name']
+            +"</td><td>"+data.data[i]['runtime']+"</td></tr>";
+
+
+            $("#taskdetail").append(t);
+
+
+        };
+
+    });
+
         });
+        };
     });
 
     $("#createtask1").click(function(){
@@ -365,7 +350,7 @@
         $.get('/taskcasedetail',function(data){
             console.log(data);
             for(var i in data.data){
-                var t = '<tr><td><input type="checkbox" name="selectcase" value='+data.data[i]['caseid']+'></td><td>'
+                var t = '<tr onclick="checkTr(this);"><td><input type="checkbox" onclick="checkInput(this);" name="selectcase" value='+data.data[i]['caseid']+'></td><td>'
                 +data.data[i]['caseid']+"</td><td>"+data.data[i]['system']+"</td><td>"+data.data[i]['process']+"</td><td>"+data.data[i]['casetitle']+"</td></tr>";
 
 
@@ -401,13 +386,16 @@
                 alert(data);
                 $("#createtask").modal("hide");
                 $.get('/showtask',function(data){
-                   $("#taskdetail").html("");
+                $("#taskdetail").html("");
         for(var i in data.data){
-            var t = "<tr><td><button type='button' class='btn btn-primary' name='starttask'>启动任务</button></td><td>"
-            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td></td><td>"+data.data[i]['name']+"</td></tr>";
+                       var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['taskid']+"' value="+data.data[i]['taskid']+"></td>"
+            +"<td>"
+            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td>"+data.data[i]['name']
+            +"</td><td>"+data.data[i]['runtime']+"</td><td></td></tr>";
 
 
             $("#taskdetail").append(t);
+             $("#taskcasedetail").html("");
 
 
 
@@ -429,24 +417,141 @@
 
     $(document).on('click',"button[name='taskdetail']",function(){
         $("#taskcase").html("");
-        var taskname = $(this).parent().next().html();
-        $.post('/taskcase',{
-            taskname:taskname
-        },function(data){
+        var i = $("input[type='checkbox']:checked").length;
+
+        if(i == 0){
+        alert('请选择一条任务');
+
+        }else if(i >1){
+        alert('只能选择一条');
+        }else{
+             var taskid = $("input[type='checkbox']:checked").val();
+            $.post('/taskcase',{
+            taskid:taskid
+            },function(data){
             console.log(data);
             for(var i in data.data){
-                var t = '<tr><td>'
-                +data.data[i]['caseid']+"</td><td>"+data.data[i]['system']+"</td><td>"+data.data[i]['process']+"</td><td>"+data.data[i]['casetitle']+"</td></tr>";
+            var t = '<tr><td>'
+            +data.data[i]['caseid']+"</td><td>"+data.data[i]['system']+"</td><td>"+data.data[i]['process']+"</td><td>"+data.data[i]['casetitle']+"</td></tr>";
 
 
-                $("#taskcase").append(t);
+            $("#taskcase").append(t);
 
-                };
+            };
 
-        })
+            })
+            $('#task').modal("show");
+        };
+
 
         });
+
+
+    $("button[name='report']").click(function(){
+        var i = $("input[type='checkbox']:checked").length;
+
+        if(i == 0){
+        alert('请选择一条任务');
+        }else if(i >1){
+        alert('只能选择一条');
+        }else{
+        var taskid = $("input[type='checkbox']:checked").val();
+        $("#taskreportdetail").html("");
+        $("#taskreportdetail").load('/showreport',{taskid: taskid},function(data){
+            if(data=="当前任务未执行完毕"){
+                alert(data);
+            }else{
+                $('#taskreport').modal("show");
+            }
+        });
+        }
+
+
+
+//        $.get('/showreport',function(data){
+//            console.log(data);
+//            $("#taskreportdetail").html("");
+//        for(var i in data){
+//
+//            if(data[i]['success']=='false'){
+//                var t = "<tr bgcolor='red'><td>"
+//                +data[i]['threadName']+"</td><td>"+data[i]['label']+"</td><td>"+data[i]['success']
+//                +"</td><td>"+data[i]['URL']+"</td><td>"+data[i]['failureMessage']+"</td></tr>";
+//                console.log(data[i]);
+//
+//                $("#taskreportdetail").append(t);
+//            }else{
+//                 var t = "<tr><td>"
+//                +data[i]['threadName']+"</td><td>"+data[i]['label']+"</td><td>"+data[i]['success']
+//                +"</td><td>"+data[i]['URL']+"</td><td>"+data[i]['failureMessage']+"</td></tr>";
+//                console.log(data[i]);
+//
+//                $("#taskreportdetail").append(t);
+//            }
+//
+////             $("#taskcasedetail").html("");
+//
+//
+//
+//        };
+//
+//        });
+    });
+
+    $('button[name="downloadcase"]').click(function(){
+       var i = $("input[type='checkbox']:checked").length;
+       $('#downloadcase').attr('href','#');
+
+        if(i == 0){
+        alert('请选择一条任务');
+        }else if(i >1){
+        alert('只能选择一条');
+        }else{
+//
+        var caseid = $("input[type='checkbox']:checked").val();
+//        alert(caseid)
+        $('#downloadcase').attr('href','/downloadcase?caseid='+caseid+'');
+        $('#downloadcase').click();
+        alert('下载成功')
+        }
+//        alert(filename)
+    });
+//
+
+
+    $("button[name='uploadreport']").click(function(){
+    //0.初始化fileinput
+    var report = new FileInput();
+    report.Init("report", "/uploadreport");
+
 });
+
+    $('#modal2').on('hidden.bs.modal',function(){
+        $('#report').prop('disabled',false).fileinput('destroy');
+    });
+
+
+});
+
+function checkTr(tr) {
+var tds = tr.childNodes;
+for(var j = 0; j < tds.length; j++) {
+    var inputs = tds[j].childNodes;
+    for(var i = 0; i < inputs.length; i++) // 遍历页面上所有的 input
+    {
+        if(inputs[i].type == "checkbox") {
+            inputs[i].checked = !inputs[i].checked;
+            tr.style.backgroundColor = inputs[i].checked ? "#f3fbff" : "";
+        }
+
+    }
+}
+}
+
+function checkInput(input){
+    input.checked=!input.checked;
+}
+
 
 
 

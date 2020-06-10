@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591766378774,365,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,365,0,363
+1591766379140,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591766379145,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591766379151,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591766379152,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591766379154,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766379155,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591766379156,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766379157,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,1
+1591766379159,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766379160,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591766379161,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591766379163,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,0,0,0
+1591766379164,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766379165,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766379227,152,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,83,0,52
+1591766379227,83,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,83,0,52
+1591766379316,63,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,47,0,0
+1591766379381,40,常用分拣查询,200,OK,线程组 1-1,text,true,,710,1425,1,1,http://os.uat.fineex.net/Order/CommonBuying/Query,40,0,13
+1591766379422,17,创建笼车波次,200,OK,线程组 1-1,text,false,Test failed: text expected to contain /true/,734,1961,1,1,http://os.uat.fineex.net/Order/CommonBuying/SaveBatchOrder,17,0,0
+1591766379442,6,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591766379462,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591766379467,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

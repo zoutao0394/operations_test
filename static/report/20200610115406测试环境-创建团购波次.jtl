@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591761272250,1640,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1640,0,1635
+1591761273892,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591761273897,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591761273903,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,2,0,1
+1591761273905,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761273907,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761273909,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591761273910,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761273911,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761273913,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761273914,2,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591761273916,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591761273918,2,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761273920,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761273921,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761274422,196,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,115,0,70
+1591761274422,116,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,115,0,70
+1591761274544,74,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,55,0,0
+1591761274621,44,查询待创建团购波次订单,200,OK,线程组 1-1,text,true,,2582,1207,1,1,http://os.uat.fineex.net/Order/GroupBuying/Query,44,0,10
+1591761274670,31,创建团购波次,200,OK,线程组 1-1,text,true,,698,1606,1,1,http://os.uat.fineex.net/Order/GroupBuying/SaveBatchOrder,31,0,0
+1591761274702,6,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591761274724,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591761274730,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

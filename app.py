@@ -1,5 +1,5 @@
 # encoding:utf-8
-from flask import Flask,request,render_template,jsonify,json,send_from_directory,flash,redirect,url_for
+from flask import Flask,request,render_template,jsonify,json,send_from_directory,flash,redirect,url_for,make_response
 import control
 from page_operation.basic import *
 import os
@@ -11,10 +11,18 @@ import time
 
 app = Flask(__name__)
 
-root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report")
+# root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report")
 
 
-app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\JmeterScript\\testcase'
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,6 +33,7 @@ app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\JmeterScript\\testcase'
 
 
 @app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -142,14 +151,46 @@ def upload():
     file = request.files['file_data']
     # print(file)
     # print(file.filename)
-    filename = file.filename.split('.')[0]
-    a = control.casemanage()
-    result = a.caseintegrate(filename)
-    if result == True:
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
-        return jsonify({'result':'用例导入成功'})
+    # filename = file.filename.split('.')[0]
+    filetype = file.filename.split('.')[1]
+
+    if filetype != 'jmx':
+        app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\static\\testcase\\casetemplate'
+        a = control.casemanage()
+        result = a.caseintegrate(file.filename)
+        if result == True:
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
+            return jsonify({'result':'用例导入成功'})
+        else:
+            return jsonify({'result':'没有找到匹配的用例'})
     else:
-        return jsonify({'result':'没有找到匹配的用例'})
+        app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\JmeterScript\\testcase'
+        a = control.casemanage()
+        result = a.caseintegrate(file.filename)
+        if result == True:
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
+            return jsonify({'result':'用例导入成功'})
+        else:
+            return jsonify({'result':'没有找到匹配的用例'})
+
+
+
+@app.route("/downloadcase", methods=['GET'])
+def downloadcase():
+    caseid = request.args.get("caseid")
+    # print(caseid)
+    # caseid = 193
+    a = control.casemanage()
+    b = a.casepath(caseid)
+    filename = b[0]
+    path = b[1]
+    # print(b)
+
+    response = make_response(
+		send_from_directory(path, filename.encode('utf-8').decode('utf-8'), as_attachment=True))
+    response.headers["Content-Disposition"] = "attachment; filename={}".format(filename.encode().decode('latin-1'))
+    return response
+
 
 
 
@@ -170,12 +211,12 @@ def showtask():
 
 @app.route('/starttask',methods=['POST'])
 def starttask():
-    taskname = request.form.get('taskname')
+    taskid = request.form.get('taskid')
     a = control.taskmanage()
-    b = a.taskscript(taskname)
-    c = a.starttask(b)
+    # b = a.taskscript(taskid)
+    a.starttask(taskid)
 
-    return c
+    return '任务已启动'
 
 
 @app.route('/taskcasedetail',methods=['GET'])
@@ -198,9 +239,9 @@ def createtask():
 
 @app.route('/taskcase',methods=['POST'])
 def taskcase():
-    taskname = request.form.to_dict()
+    taskid = request.form.to_dict()
     a = control.taskmanage()
-    b = a.show(a.taskcase,taskname=taskname['taskname'])
+    b = a.show(a.taskcase,taskid=taskid['taskid'])
     return b
 
 
@@ -209,7 +250,7 @@ def taskcase():
 
 
 
-
+#测试报告模块
 
 @app.route('/reportmanage',methods=['GET','POST'])
 def reportmanage():
@@ -217,6 +258,57 @@ def reportmanage():
     print(report)
 
     return render_template('reportmanage.html',values=report)
+
+
+
+@app.route('/showreport',methods=['GET','POST'])
+def showreport():
+    taskid = request.form.to_dict()['taskid']
+    # print(taskid)
+    a = control.report(taskid)
+    try:
+        b = a.reporthtml()
+
+        return b
+    except BaseException:
+        return "当前任务未执行完毕"
+
+
+@app.route('/uploadreport', methods = ['POST'])
+def uploadreport():
+    # print(request.files)
+    file = request.files['file_data']
+    # print(file)
+    # print(file.filename)
+    # filename = file.filename.split('.')[0]
+    filetype = file.filename.split('.')[1]
+
+    if filetype != 'jmx':
+        app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\static\\report\\testreport'
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        return jsonify({'result': '用例导入成功'})
+
+
+    else:
+        pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -264,11 +356,6 @@ def selectrun():
     return "%s启动"%data
 
 
-@app.route('/testcase',methods=['get'])
-def testcase():
-    a = control.casemanage()
-    data = a.testcase()
-    return jsonify(data)
 
 
 

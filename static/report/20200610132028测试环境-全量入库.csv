@@ -1,0 +1,23 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591766431099,364,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,364,0,362
+1591766431466,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591766431471,19,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,19,0,0
+1591766431491,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591766431492,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591766431494,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766431496,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591766431497,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766431498,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591766431500,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766431502,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591766431503,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591766431504,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591766431505,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766431506,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766431574,210,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,94,0,49
+1591766431574,95,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,94,0,49
+1591766431674,110,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,96,0,0
+1591766431787,92,到货通知查询,200,OK,线程组 1-1,text,true,,1437,1155,1,1,http://wi.uat.fineex.net/WareHouseIN/Arrival/Query?searchText=&sortName=CreateDate&sortOrder=DESC&pageSize=1&pageNumber=1&PageSize=1&PageCurrent=1&StartTime=+2020-06-10+00%3A00%3A00+&EndTime=++2020-06-10+23%3A59%3A59&PageType=2&InStatus=&InCodes=&SyncIds=&MemberNo=0210045308&MemberID=25346&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&ErpSyncIds=&BarCodes=&Memo=,92,0,48
+1591766431883,8,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,8,0,0
+1591766431907,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591766431913,2,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,2,0,0

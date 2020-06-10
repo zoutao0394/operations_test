@@ -23,39 +23,31 @@
         <from class="form-inline" role="form">
         <div>
 
-                <div class="input-group" id="selectsystem">
+                <div class="input-group" id="selectsystem" style="width:300px">
             <span class="input-group-addon">选择系统:</span>
                     <select name="selectsyetem" class="form-control"></select>
         </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-                <div class="input-group" id="selectcasetype">
+                <div class="input-group" id="selectcasetype" style="width:300px">
             <span class="input-group-addon">用例类型:</span>
             <select name="selectcasetype" class="form-control"></select>
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <div class="input-group" id="casestatus">
-            <span class="input-group-addon">用例状态:</span>
-            <select name="casestatus" class="form-control">
-                <option value="0">已创建</option>
-                <option value="1">已集成</option>
-            </select>
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <div class="input-group">
-            <span class="input-group-addon">所属流程:</span>
-            <input type="text" class="form-control" id="selectprocess" placeholder="所属流程">
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <button type="button" class="btn btn-primary" id="selectcase">查询用例</button>
+        </div>
+
+                <button type="button" class="btn btn-primary pull-right" id="selectcase">查询用例</button>
         </div>
 
 
 
             </from>
         <br>
+         <br>
+         <br>
             <button type="button" class="btn btn-primary" data-target="#createcase" data-toggle="modal">新增用例</button>
             <button type="button" class="btn btn-danger" name="deletecase">删除用例</button>
-        <button type="button" class="btn btn-primary" title="上传脚本之后，用例状态变更为已集成，已集成的用例可配置为测试任务。" data-target="#modal2" data-toggle="modal" name="uploadfile">上传脚本</button>
+        <button type="button" class="btn btn-primary" title="上传脚本之后，用例状态变更为已集成，已集成的用例可配置为测试任务。" data-target="#modal2" data-toggle="modal" name="uploadfile">上传用例</button>
+       <a href="" id="downloadcase"> <button type="button" class="btn btn-primary" name="downloadcase">下载用例</button></a>
 
-        <div>
+
         <table class="table table-hover">
         <caption>脚本名要与用例名称一致</caption>
         <thead>
@@ -75,9 +67,9 @@
         <tbody  id="casedetail">
         </tbody>
     </table>
-          <ul class="pagination">
+
+         <ul class="pagination">
 </ul>
-            </div>
     </div>
   </div>
 </div>

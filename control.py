@@ -4,9 +4,22 @@ import subprocess
 import time
 import datetime
 import json
-import requests
+import csv
 from config import *
 import math
+# from win32com.client import Dispatch, constants, gencache, DispatchEx
+import xlrd
+
+
+
+# import win32com
+import win32com.client
+
+
+
+
+
+
 
 
 
@@ -39,12 +52,6 @@ def scriptrun(script):
             return print('测试启动')
 
 
-def create_testcase():
-    pass
-
-def create_task():
-    pass
-
 def changeconfig(username,warehouseID,memberID):
     sql1 = 'update auto_control set status=1 where userid = (select userid from auto_user where user = "%s")'%username
     sql2 = 'update auto_control set status=0 where warehousememberid = (select id from auto_warehouemember where warehouseID = %s and memberID=%s  limit 1)'%(warehouseID,memberID)
@@ -58,25 +65,6 @@ def changeconfig(username,warehouseID,memberID):
     con.commit()
     cursor.close()
 
-
-
-
-def jtl():
-    t = open('D:\\operations_test\\report\\20200512112720B2B入库.jmx.jtl','r',encoding='UTF-8')
-    file = t.read()
-    print(type(file))
-    file = file.split('\n')
-    key = file[0].split(',')
-    del file[0]
-    del file[-1]
-    for i in range(len(file)):
-        print(i)
-
-    # a = []
-    # for f in file:
-    #     f = f.split(',')
-    #     a.append(f)
-    print(key,file)
 
 
 def oplist():
@@ -324,6 +312,11 @@ class casemanage():
         # self.detail = ''
         self.process = ''
 
+    def downloadcase(self):
+        return "D:\\operations_test\\static\\testcase\\casetemplate\\测试用例模板.xls"
+
+
+
     def createcase(self,**kwargs):
         if self.type=='':
             try:
@@ -334,7 +327,7 @@ class casemanage():
                 # self.detail = kwargs["data"]['detail']
                 self.process = kwargs["data"]['process']
                 print(type(self.type))
-                sql = "insert into auto_testcase values(0,'%s','%s','%s','%s','%s',now(),0)" % (
+                sql = "insert into auto_testcase(caseid,`system`,type,casetitle,process,createby,createdate,`status`) values(0,'%s','%s','%s','%s','%s',now(),0)" % (
                 self.system, self.type, self.casetitle, self.process, self.createby)
                 print(sql)
                 db = dboperation()
@@ -389,8 +382,8 @@ class casemanage():
             table = ''
             for i in data:
             # count += 1
-                table += '<tr>'
-                table += '<td><input type="checkbox" name="selectcase" value=%s></td>' % i[0]
+                table += '<tr onclick="checkTr(this);">'
+                table += '<td><input type="checkbox" name="selectcase" value=%s onclick="checkInput(this);"></td>' % i[0]
                 for j in i:
                     j = str(j)
                     td = '<td>' + j + '</td>'
@@ -482,11 +475,13 @@ FROM
             jsonArray.append(json)
         # print(col)
         result["data"]=jsonArray
+        db.over()
         # print(result)
         return result
 
-    def caseintegrate(self,filename):
-        sql = 'select count(1) from auto_testcase where casetitle="%s"'%filename
+    def caseintegrate(self,file):
+        filename = file.split('.')
+        sql = 'select count(1) from auto_testcase where casetitle="%s"'%filename[0]
         db = dboperation()
         db.cursor.execute(sql)
         data = db.cursor.fetchall()
@@ -494,14 +489,51 @@ FROM
             db.over()
             return False
         else:
-            sql = 'update auto_testcase set `status` = 1 where casetitle="%s"'%filename
+            sql = 'select `status`,caseid,type from auto_testcase where casetitle="%s"'%filename[0]
             print(sql)
             db = dboperation()
             db.cursor.execute(sql)
-            db.connect.commit()
-            db.over()
+            case = db.cursor.fetchall()
 
-            return True
+            if case[0][0] == "1":
+                db.over()
+                return True
+            else:
+                if case[0][2] == "1":
+                    path = './JmeterScript/testcase'
+                else:
+                    path = './static/testcase/casetemplate'
+                sql1 = 'update auto_testcase set `status` = 1 where casetitle="%s"'%filename[0]
+                sql2 = 'insert into auto_casefile(caseid,filename,path) value(%s,"%s","%s")' % (case[0][1],file,path)
+
+                # db = dboperation()
+                db.cursor.execute(sql1)
+                db.cursor.execute(sql2)
+                db.connect.commit()
+                db.over()
+
+                return True
+
+
+    def casepath(self,caseid):
+        db = dboperation()
+        sql = "select `status` from auto_testcase where caseid = %s"%caseid
+        db.cursor.execute(sql)
+        status = db.cursor.fetchall()
+        # print(sql)
+
+
+        if status[0][0]=="0":
+
+            return '用例没有集成'
+        else:
+            sql = "select filename,path from auto_casefile where caseid=%s" % caseid
+
+            db.cursor.execute(sql)
+            data = db.cursor.fetchall()
+            print(data[0])
+            return data[0]
+
 
 
     # def
@@ -514,7 +546,19 @@ class taskmanage():
 
 
 
+    # 创建测试接口自动化测试任务
     def createtask(self,taskname,startmode,caseids=[]):
+        en = taskname.split('-')
+        if 'UAT'in en[0]:
+            environmentid = 2
+            configid = 3
+        elif 'PRD'in en[0]:
+            environmentid = 3
+            configid = 2
+        else:
+            environmentid = 1
+            configid = 1
+
         caseids = json.loads(caseids)
         if caseids==[]:
             return  '请关联测试用例'
@@ -525,13 +569,15 @@ class taskmanage():
             data = db.cursor.fetchall()
 
             if data[0][0] == 0:
-                sql2 = "insert into auto_task(taskid,taskname,startmode,status,createdate,createby) values(0,'%s','%s',1,now(),1)" % (taskname, startmode)
+                sql2 = "insert into auto_task(taskid,taskname,startmode,status,createdate,createby,environmentid,configid) values(0,'%s','%s',0,now(),1,%s,%s)" % (taskname, startmode,environmentid,configid)
                 # print(sql2)
 
                 db.cursor.execute(sql2)
                 db.connect.commit()
+                # time.sleep(0.1)
                 for i in caseids:
-                    sql3 = "insert into auto_taskcase(taskid,caseid) value((select taskid from auto_task where taskname = '%s'),%s)" %(taskname, i)
+                    print(taskname)
+                    sql3 = "insert into auto_taskcase(taskid,caseid,status) value((select taskid from auto_task where taskname = '%s'),%s,0)" %(taskname, i)
                     print(sql3)
                     db.cursor.execute(sql3)
                     db.connect.commit()
@@ -543,14 +589,14 @@ class taskmanage():
 
 
 
-
+    # 展示任务列表
     def selecttask(self):
         sql1 = 'select count(1) from auto_task'
         db = dboperation()
         db.cursor.execute(sql1)
         data = db.cursor.fetchall()
         if data[0][0]>0:
-            sql2 = "select taskname,startmode,t2.`name` from auto_task t1 JOIN auto_taskstatus t2 on t1.`status`=t2.`status`"
+            sql2 = "select t1.taskid,taskname,startmode,t2.`name`,t1.runtime from auto_task t1 JOIN auto_taskstatus t2 on t1.`status`=t2.`status`"
             db = dboperation()
             db.cursor.execute(sql2)
             value = db.cursor.fetchall()
@@ -559,29 +605,15 @@ class taskmanage():
             for i in col:
                 key.append(i[0])
             db.over()
+            print(value)
             return value,key
         else:
             db.over()
             return '没有数据'
 
-    # def showtask(self):
-    #
-    #     value = self.selecttask()
-    #     if value != '没有数据':
-    #         key = value[1]
-    #         jsonArray = []
-    #
-    #         for i in value[0]:
-    #             n = 0
-    #             json = {}
-    #             for j in i:
-    #                 json[key[n]]=j
-    #                 n += 1
-    #
-    #             jsonArray.append(json)
-    #
-    #         return {'data':jsonArray}
 
+
+    # 创建任务的用例列表
     def taskcasedetail(self):
 
         sql1 = 'select count(1) from auto_testcase where type=1 and status=1'
@@ -603,7 +635,9 @@ class taskmanage():
             db.over()
             return '没有数据'
 
-    def taskcase(self,taskname=''):
+
+    # 测试任务详情关联的测试用例
+    def taskcase(self,taskid=''):
         sql = """
                 SELECT
         	caseid,
@@ -613,8 +647,8 @@ class taskmanage():
         FROM
         	auto_testcase 
         WHERE
-        	caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = ( SELECT taskid FROM auto_task WHERE taskname = '%s' ) )
-            """%taskname
+        	caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s)
+            """%taskid
 
         db = dboperation()
         db.cursor.execute(sql)
@@ -626,6 +660,7 @@ class taskmanage():
         db.over()
         return value, key
 
+    # 拼装数据返回给浏览器
     def show(self,function,*args,**kwargs):
         value = function(*args,**kwargs)
         if value != '没有数据':
@@ -636,6 +671,7 @@ class taskmanage():
                 n = 0
                 json = {}
                 for j in i:
+                    j = str(j)
                     json[key[n]] = j
                     n += 1
 
@@ -643,51 +679,285 @@ class taskmanage():
 
             return {'data': jsonArray}
 
-    def taskscript(self,taskname):
-        sql = """
-                        SELECT
-                	casetitle 
-                FROM
-                	auto_testcase 
-                WHERE
-                	caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = ( SELECT taskid FROM auto_task WHERE taskname = '%s' ) )
-                    """ % taskname
+    # 获取待执行的脚本列表，标记任务状态
+    def taskscript(self,taskid):
+        db = dboperation()
+        taskstatus = """
+            select status from auto_task where taskid=%s
+        """%taskid
+        db.cursor.execute(taskstatus)
+        taskstatus = db.cursor.fetchall()
+        # print(taskid)
+        if taskstatus[0][0]!= 1:
+            sql = """
+                                    SELECT
+                            	casetitle ,
+                            	caseid
+                            FROM
+                            	auto_testcase 
+                            WHERE
+                            	caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
+                                """ % taskid  # 获取脚本和用例ID
+            sql1 = """
+                            update auto_taskcase set `status`=0 where taskid= %s
+                    """ % taskid  # 初始化脚本状态
+            sql2 = """
+                                    update auto_task set `status`=1 ,runtime= now() where taskid = %s
+                            """ % taskid  # 初始化任务状态
+            sql0 = """
+                                        update auto_taskreport set status=1 where taskid=%s
+                                    """ % (taskid)  # 变更以前的任务执行报告
 
+            db.cursor.execute(sql)
+            value = db.cursor.fetchall()
+            db.cursor.execute(sql0)
+            db.cursor.execute(sql1)
+            db.cursor.execute(sql2)
+            db.connect.commit()
+            scriptlist = []
+
+            for i in value:
+                scriptlist.append(i)
+
+            db.over()
+            return scriptlist
+        else:
+            db.over()
+            return '当前任务执行中'
+
+    def getconfig(self,taskid):
+        sql = "select environmentid,configid from auto_task where taskid=%s"%taskid
+        print(sql)
         db = dboperation()
         db.cursor.execute(sql)
         value = db.cursor.fetchall()
-        scriptlist = []
-
-        for i in value:
-            scriptlist.append(i[0])
-
         db.over()
-        return scriptlist
+        return value[0]
 
-    def starttask(self,scriptlist):
-        for script in scriptlist:
-            t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-            filename = t + script
-            # subprocess.Popen(
-            #     'jmeter -n -t ./JmeterScript/testcase/%s.jmx -l ./report/%s.jtl' % ( script, filename),
-            #     shell=True)
-            print(filename)
-        return "开始执行"
+
+
+    # 运行任务内的脚本
+    def starttask(self,taskid):
+        scriptlist = self.taskscript(taskid)
+        if scriptlist == '当前任务执行中':
+            return '当前任务执行中'
+        else:
+            try:
+                if len(scriptlist) >= 1:
+                    db = dboperation()
+                    config = self.getconfig(taskid)
+
+                    # print(scriptlist, taskid)
+                    startcount ="""
+                        select count(caseid) from auto_taskcase where taskid=%s and status=1;
+                    """%taskid
+                    # print(startcount)
+                    for script in scriptlist:
+                        db.cursor.execute(startcount)
+                        count = db.cursor.fetchall()
+
+                        while count[0][0] > 2:
+                            time.sleep(2)
+                            db.cursor.execute(startcount)
+                            count = db.cursor.fetchall()
+                            db.connect.commit()
+
+
+                        t = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+                        filename = t + script[0]
+                        subprocess.Popen(
+                            'jmeter -Jtaskid=%s -Jcaseid=%s -Jenvironmentid=%s -Jconfig=%s -n -t ./JmeterScript/testcase/%s.jmx -l ./static/report/%s.jtl' % (
+                            taskid, script[1], config[0], config[1], script[0], filename),
+                            shell=True)
+
+                        start = """
+                            update auto_taskcase set `status`=1 where taskid=%s and caseid=%s;
+                        """%(taskid, script[1])
+
+                        # time.sleep(5)
+                        sql = """
+                            insert into auto_report(reportname,url) VALUES('%s','./static/report/%s.csv')
+                        """ % (filename, filename)
+
+                        sql1 = """
+                            insert into auto_taskreport(taskid,reportid,status) VALUES(%s,(select reportid from auto_report where reportname='%s' limit 1),0)
+                        """ % (taskid, filename)
+
+
+
+                        db.cursor.execute(sql)
+                        db.cursor.execute(start)
+                        db.connect.commit()
+                        db.cursor.execute(sql1)
+                        db.connect.commit()
+                        db.cursor.execute(startcount)
+                        count = db.cursor.fetchall()
+
+                    db.over()
+
+                    return "开始执行"
+                else:
+                    return '没有待执行脚本，请检查任务详情！'
+            except BaseException:
+                sql = """
+                                        update auto_task set `status`=1 ,runtime= now() where taskid = %s
+                                """ % taskid  # 标记任务执行失败
+                db = dboperation()
+                db.cursor.execute(sql)
+                db.connect.commit()
+                db.over()
+                return '任务执行失败'
+
+
+#
+# from apscheduler.schedulers.blocking import BlockingScheduler
+# def testcase():
+#     print(time.time())
+
+class report():
+    def __init__(self,taskid):
+        self.taskid = taskid
+
+
+    def formatfile(self):
+        files = os.listdir('./static/report/')
+        reportlist = self.taskreportdetail()
+        # print(files)
+        for filename in files:
+            # if filename in reportlist:
+            portion = os.path.splitext(filename)  # 分离文件名与扩展名
+            name = portion[0] + '.csv'
+            # 如果后缀是jpg
+            if portion[1] == '.jtl' and name in reportlist:
+                # 重新组合文件名和后缀名
+                newname = name
+                os.rename('./static/report/%s'%filename, './static/report/%s'%newname)
+            # if portion[0][]
+
+        filelist = reportlist
+        return filelist
+
+    def taskreportdetail(self):
+        sql = """
+            select reportname from auto_report where reportid in (select reportid from auto_taskreport where taskid=%s and status=0)
+        """%self.taskid
+        db = dboperation()
+        db.cursor.execute(sql)
+        value = db.cursor.fetchall()
+        filelist = []
+        for file in value:
+            filelist.append(file[0]+'.csv')
+        return filelist
+
+
+    def report(self):
+        filelist = self.formatfile()
+        # filelist = self.taskreportdetail()
+        rows = []
+        # print(set(reportlist)>set(filelist))
+        # if set(reportlist)>set(filelist):
+        for filename in filelist:
+            with open(r'./static/report/%s'%filename, 'r',encoding='UTF-8') as f:
+                data = csv.reader(f)
+                a = next(data)
+
+                for i in data:
+                    n=0
+                    json = {}
+                    for j in i:
+                        json[a[n]] = j
+                        n += 1
+                    json['true']=0
+                    json['false'] = 0
+                    json['samples']=0
+                    if json['URL']=='null':
+                        continue
+                        # pass
+                    elif json['success']=='true':
+                        json['true'] +=1
+                        json['samples']+=1
+                    else:
+                        json['false'] += 1
+                        json['samples']+=1
+
+                    m = 0
+                    for k in rows:
+                        if json['label'] == k['label'] and json['threadName'] == k['threadName']:
+                            k['false'] += json['false']
+                            k['true'] += json['true']
+                            k['samples'] += json['samples']
+                            if json['failureMessage'] not in k['failureMessage']:
+                                k['failureMessage'] += json['failureMessage']
+                            m = 1
+                            continue
+
+                    if m == 1:
+                        continue
+
+                    # print(len(rows))
+                    # print(m)
+                    rows.append(json)
+
+        return rows
+
+    def reporthtml(self):
+        rows = self.report()
+        html = ''
+        for data in rows:
+            tr = ''
+            if data['false']>0:
+                tr += "<tr bgcolor='red'>"
+                tr += "<td>" + data['threadName'] + "</td>"
+                tr += "<td>" + data['label'] + "</td>"
+                tr += "<td>" + str(data['samples']) + "</td>"
+                tr += "<td>" + str(data['true']) + "</td>"
+                tr += "<td>" + str(data['false']) + "</td>"
+                tr += "<td>" + data['URL'] + "</td>"
+                tr += "<td>" + data['failureMessage'] + "</td>"
+                tr += "</tr>"
+            else:
+                tr += "<tr>"
+                tr += "<td>" + data['threadName'] + "</td>"
+                tr += "<td>" + data['label'] + "</td>"
+                tr += "<td>" + str(data['samples']) + "</td>"
+                tr += "<td>" + str(data['true']) + "</td>"
+                tr += "<td>" + str(data['false']) + "</td>"
+                tr += "<td>" + data['URL'] + "</td>"
+                tr += "<td>" + data['failureMessage'] + "</td>"
+                tr += "</tr>"
+
+            # print(tr)
+            html += tr
+        return html
+
+
+    def show(self, function, *args, **kwargs):
+        value = function(*args, **kwargs)
+        if value != '没有数据':
+            key = value[1]
+            jsonArray = []
+
+            for i in value[0]:
+                n = 0
+                json = {}
+                for j in i:
+                    # print(j)
+                    j = str(j)
+                    json[key[n]] = j
+                    n += 1
+
+                jsonArray.append(json)
+
+            return {'data': jsonArray}
+
+
+    def savereport(self,reportname):
+        detail = reportname.split('-')
+
+
 
 
 if __name__ == '__main__':
-    # a = configmanage()
-    # a.changewarehouse('zoutao',27794,27795)
-
-    # print(a.currentwarehouse[1]+"-")
-    #
-    a = taskmanage()
-    # # # a.selectcasetype()
-    # # # testdict(data ={'system': 'WMS', 'type': '1', 'casetitle': 'sadf', 'casedetail': 'asdf'})
-    b = a.taskscript('WMS-测试环境-发布监测')
-    c = a.starttask(b)
-    # b = a.showtask()
-    print( c)
-    # a = paginate(90,num=87,current_page=1)
-    # print(str(a))
-
+    a = report(62)
+    b = a.report()
+    print(b)

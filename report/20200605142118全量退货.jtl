@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591338080523,265,标记任务开始,200,OK,全量退货 1-1,text,true,,9,0,1,1,null,265,0,263
+1591338080790,5,获取账号,200,OK,全量退货 1-1,text,true,,18,0,1,1,null,3,0,0
+1591338080795,155,锁定账号,200,OK,全量退货 1-1,text,true,,9,0,1,1,null,155,0,0
+1591338080950,2,获取仓库及会员信息,200,OK,全量退货 1-1,text,true,,115,0,1,1,null,2,0,0
+1591338080952,2,获取oms配置信息,200,OK,全量退货 1-1,text,true,,34,0,1,1,null,2,0,0
+1591338080954,1,获取wi配置信息,200,OK,全量退货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591338080955,2,获取basic配置信息,200,OK,全量退货 1-1,text,true,,46,0,1,1,null,2,0,0
+1591338080957,1,获取os配置信息,200,OK,全量退货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591338080958,2,获取opw配置信息,200,OK,全量退货 1-1,text,true,,38,0,1,1,null,1,0,0
+1591338080960,1,获取op配置信息,200,OK,全量退货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591338080961,1,获取opr配置信息,200,OK,全量退货 1-1,text,true,,38,0,1,1,null,1,0,0
+1591338080962,2,获取master配置信息,200,OK,全量退货 1-1,text,true,,41,0,1,1,null,2,0,0
+1591338080964,1,获取so配置信息,200,OK,全量退货 1-1,text,true,,37,0,1,1,null,1,0,0
+1591338080965,1,获取账号,200,OK,全量退货 1-1,text,true,,18,0,1,1,null,1,0,0
+1591338081019,261,登陆,200,OK,全量退货 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,122,0,68
+1591338081019,122,登陆-0,302,Found,全量退货 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,122,0,68
+1591338081146,134,登陆-1,200,OK,全量退货 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,84,0,0
+1591338081285,77,退货单管理查询,200,OK,全量退货 1-1,text,true,,762,1203,1,1,http://cloud.oms.fineex.net/BackOrder/BackOrder/RefoundOrderQuery?sortName=CreateDate&sortOrder=desc&pageSize=100&pageNumber=1&CreateDate=2020-06-05+00%3A00%3A00+%7E+2020-06-05+23%3A59%3A59&MemberNo=&MemberID=&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ReturnCode=&CarryCode=&DeliverOrderCode=&DeliverCarryCode=&SyncID=&ReturnStatus=1&PageSize=100&PageCurrent=1,77,0,23
+1591338081445,39,退货处理查询功能,200,OK,全量退货 1-1,text,true,,688,1335,1,1,http://cloud.oms.fineex.net/BackOrder/BackOrderHandle/RefoundOrderQuery?sortName=CreateDate&sortOrder=desc&pageSize=100&pageNumber=1&StartTime=+2020-06-05+00%3A00%3A00+&EndTime=++2020-06-05+23%3A59%3A59&CreateDate=2020-06-05+00%3A00%3A00+%7E+2020-06-05+23%3A59%3A59&MemberNo=&MemberID=&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ReturnCode=&CarryCode=&DeliverOrderCode=&DeliverCarryCode=&SyncID=&ReturnStatus=2&PageSize=100&PageCurrent=1&PageType=1,39,0,0
+1591338381489,163,退货入库查询,200,OK,全量退货 1-1,text,true,,618,1293,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/ShelfManage/QueryQuickReturn?searchText=&sortName=CreateDate&sortOrder=Desc&pageSize=100&pageNumber=1&PageSize=100&PageCurrent=1&StartTime=2020-06-05+00%3A00%3A00+&EndTime=+2020-06-05+23%3A59%3A59&PageType=6&CreateDate=2020-06-05+00%3A00%3A00+%7E+2020-06-05+23%3A59%3A59&InCodes=&SyncIds=&ErpSyncIds=&MemberNo=0010000104&MemberID=26486&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&BarCodes=,163,0,86
+1591338381665,27,释放登陆账号,200,OK,全量退货 1-1,text,true,,9,0,1,1,null,27,0,26
+1591338381693,53,标记任务成功,200,OK,全量退货 1-1,text,true,,9,0,1,1,null,53,0,0
+1591338381760,6,标记任务最终结果,200,OK,全量退货 1-1,text,true,,9,0,1,1,null,6,0,0

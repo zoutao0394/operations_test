@@ -1,26 +1,16 @@
-# encoding:utf-8
-from page_operation.basic import Login
+# coding=utf-8
+
+
+import pandas as pd
+import codecs
+xd = pd.ExcelFile('./static/testcase/casetemplate/迭代测试用例模板.xlsx')
+df = xd.parse()
+with codecs.open('./static/testcase/casetemplate/迭代测试用例模板.html','w','utf-8') as html_file:
+    html_file.write(df.to_html(header = True,index = False))
 
 
 
 
-print('请输入登录用户名')
-user = input()
-print('请输入登录密码')
-password = input()
-print('请输入url地址')
-url = input()
-print('请输入系统名')
-systemname = input()
-print('请输入模块名')
-modulename = input()
-print('开始测试')
 
-test = Login(user, password, url)
 
-test.login()
 
-test.system(systemname)
-test.index(modulename)
-# test.indexdetail(test.index())
-test.close()

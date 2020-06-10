@@ -1,0 +1,20 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591673000046,349,标记任务开始,200,OK,一票多件 1-1,text,true,,9,0,1,1,null,348,0,347
+1591673000397,4,获取账号,200,OK,一票多件 1-1,text,true,,18,0,1,1,null,3,0,0
+1591673000401,51,锁定账号,200,OK,一票多件 1-1,text,true,,9,0,1,1,null,51,0,0
+1591673000452,2,获取仓库及会员信息,200,OK,一票多件 1-1,text,true,,115,0,1,1,null,2,0,0
+1591673000454,1,获取oms配置信息,200,OK,一票多件 1-1,text,true,,34,0,1,1,null,1,0,0
+1591673000455,2,获取wi配置信息,200,OK,一票多件 1-1,text,true,,40,0,1,1,null,2,0,0
+1591673000457,1,获取basic配置信息,200,OK,一票多件 1-1,text,true,,46,0,1,1,null,1,0,0
+1591673000458,2,获取os配置信息,200,OK,一票多件 1-1,text,true,,40,0,1,1,null,2,0,0
+1591673000460,1,获取opw配置信息,200,OK,一票多件 1-1,text,true,,38,0,1,1,null,1,0,0
+1591673000461,1,获取op配置信息,200,OK,一票多件 1-1,text,true,,40,0,1,1,null,1,0,0
+1591673000463,1,获取opr配置信息,200,OK,一票多件 1-1,text,true,,38,0,1,1,null,1,0,0
+1591673000464,1,获取master配置信息,200,OK,一票多件 1-1,text,true,,41,0,1,1,null,1,0,0
+1591673000466,1,获取so配置信息,200,OK,一票多件 1-1,text,true,,37,0,1,1,null,1,0,0
+1591673000527,638,登陆,200,OK,一票多件 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,431,0,84
+1591673000527,431,登陆-0,302,Found,一票多件 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,431,0,84
+1591673000963,202,登陆-1,200,OK,一票多件 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,124,0,0
+1591673001172,272,查询待调度的订单信息,200,OK,一票多件 1-1,text,true,,618,1088,1,1,http://cloud.wms.so.fineex.net/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=25670&MemberID=&BeginDate=2020-06-09+00%3A00%3A00+&EndDate=+2020-06-09+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,272,0,72
+1591673001461,256,创建笼车波次,200,OK,一票多件 1-1,text,false,Test failed: text expected to contain /true/,808,1989,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/SaveBatchOrder,256,0,95
+1591673001755,14,标记任务最终结果,200,OK,一票多件 1-1,text,true,,9,0,1,1,null,14,0,0

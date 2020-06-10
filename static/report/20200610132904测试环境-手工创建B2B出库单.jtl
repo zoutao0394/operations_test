@@ -1,0 +1,25 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591766979758,2126,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,2126,0,2124
+1591766981885,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591766981890,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591766981896,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,1,0,0
+1591766981898,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,1,0,0
+1591766981899,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591766981901,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,1,0,0
+1591766981902,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591766981905,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591766981906,2,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591766981908,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591766981909,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591766981911,1,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766981912,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591766981914,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591766982493,402,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,251,0,196
+1591766982493,252,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,251,0,196
+1591766982752,143,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,103,0,0
+1591766983900,64,获取出库单号,200,OK,线程组 1-1,text,true,,619,923,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAccept/getWareHouseOutCode,64,0,11
+1591766983970,37,获取商品信息,200,OK,线程组 1-1,text,true,,3214,1304,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/WarehouseStorageSearch/QueryStorage?sortName=FactAmount&sortOrder=desc&pageSize=2&pageNumber=1&MemberNo=0010000167&MemberID=26770&WareHouseName=%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BB%93&WarehouseID=26769&BarCode=&Stand=&FactAmountMin=&FactAmountMax=&OperateAmountMin=&OperateAmountMax=&HoldAmountMin=&HoldAmountMax=&LockAmountMin=&LockAmountMax=&CommodityName=&CommodityCode=&Code=&PageSize=2&PageCurrent=1,37,0,0
+1591766985106,29,生成B2B出库单,200,OK,线程组 1-1,text,true,,716,2498,1,1,http://cloud.wms.wi.b1.fineex.net/OutWareHouse/OutWareHouseAccept/saveWareHouseOut,29,0,0
+1591766985136,7,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591766985157,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,1
+1591766985163,2,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,2,0,0

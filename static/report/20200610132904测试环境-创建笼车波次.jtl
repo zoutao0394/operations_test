@@ -1,0 +1,25 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591766971679,1403,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1403,0,1401
+1591766973086,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591766973091,4,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,4,0,0
+1591766973096,4,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,3,0,0
+1591766973100,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,2,0,0
+1591766973102,3,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,3,0,0
+1591766973105,2,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,1,0,0
+1591766973109,1,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591766973111,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591766973113,1,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591766973115,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591766973116,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591766973118,1,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766973120,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591766973121,2,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,2,0,0
+1591766973239,480,登陆,200,OK,线程组 1-1,text,true,,14221,2555,1,1,http://cloud.basic.fineex.net/Login?appKey=670b14728ad9902aecba32e22fa4dd34,406,0,353
+1591766973239,406,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,406,0,353
+1591766973652,32,登陆-1,302,Found,线程组 1-1,text,true,,528,878,1,1,http://cloud.basic.fineex.net/Home/Index,32,0,0
+1591766973685,34,登陆-2,200,OK,线程组 1-1,text,true,,12506,913,1,1,http://cloud.basic.fineex.net/Login?appKey=670b14728ad9902aecba32e22fa4dd34,34,0,0
+1591766973724,30,常用分拣查询,200,OK,线程组 1-1,text,true,,510,1426,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/Query,30,0,7
+1591766973755,25,创建笼车波次,200,OK,线程组 1-1,text,false,Test failed: text expected to contain /true/,510,1954,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/SaveBatchOrder,25,0,0
+1591766973787,8,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,8,0,0
+1591766973811,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591766973818,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

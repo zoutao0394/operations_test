@@ -1181,7 +1181,7 @@ WHERE
           <hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="os站点" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">1</stringProp>
+              <stringProp name="LoopController.loops">3</stringProp>
             </LoopController>
             <hashTree>
               <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="os默认配置" enabled="true">
@@ -1391,7 +1391,7 @@ WHERE
                 </RegexExtractor>
                 <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
-                  <stringProp name="ConstantTimer.delay">300000</stringProp>
+                  <stringProp name="ConstantTimer.delay">600000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>

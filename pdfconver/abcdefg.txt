@@ -1,0 +1,29 @@
+1：根据下面的表结构，写出查询SQL（mysql）:
+							
+订单表	OrderID(pk)	Consignee	SubmitData	
+order				
+							
+							
+订单明细	OrderID	Barcode	Amount	
+orderdetail				
+							
+							
+
+查询提交时间为去年5月份，买过Barcode为A数量大于3，且购买的总商品数量大于10的Consignee的列表。
+
+
+
+
+2：用你熟悉的语言，写一段冒泡排序或者快速排序的算法。
+
+
+
+
+
+
+
+
+
+
+
+3：针对于输入三角形三边，生成三角形图形的程序，写一个完整的测试用例。

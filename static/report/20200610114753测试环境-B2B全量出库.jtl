@@ -1,0 +1,36 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591760875882,389,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,389,0,380
+1591760876272,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591760876277,5,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591760876282,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591760876284,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760876285,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760876286,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591760876288,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760876289,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591760876291,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760876292,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760876294,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591760876295,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760876296,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760876297,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760876353,226,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,137,0,86
+1591760876353,137,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,137,0,86
+1591760876509,70,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,57,0,0
+1591760876583,89,查询出库单信息,200,OK,线程组 1-1,text,true,,1699,1185,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=1&pageNumber=1&PageSize=1&PageCurrent=1&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&pageType=2&OutStatus=&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,89,0,59
+1591760876680,23,自动审核,200,OK,线程组 1-1,text,true,,715,983,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,23,0,0
+1591761026712,1,Debug Sampler,200,OK,线程组 1-1,text,true,,1773,0,1,1,null,0,0,0
+1591761026714,58,进入下架页面,200,OK,线程组 1-1,text,true,,1263,993,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,58,0,19
+1591761026774,30,创建下架,200,OK,线程组 1-1,text,true,,670,982,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,30,0,0
+1591761026806,120,创建下架保存,200,OK,线程组 1-1,text,true,,712,2238,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,120,0,0
+1591761026929,19,查看出库单内下架信息,200,OK,线程组 1-1,text,true,,871,953,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=297109&wareHouseId=23361&sort=&order=asc,19,0,0
+1591761026951,52,获取系统推荐批次,200,OK,线程组 1-1,text,true,,1473,1061,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,52,0,0
+1591761027006,262,下架完成,200,OK,线程组 1-1,text,true,,670,2586,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/DownShelves,262,0,0
+1591761027271,508,获取封箱信息,200,OK,线程组 1-1,text,true,,4108,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,508,0,0
+1591761027883,70,确认封箱,200,OK,线程组 1-1,text,true,,687,3838,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/saveOutBox,70,0,0
+1591761027954,29,完成质检,200,OK,线程组 1-1,text,true,,694,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/completeOutBox,29,0,0
+1591761027985,14,确认出库,200,OK,线程组 1-1,text,true,,673,1020,1,1,http://wi.uat.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,14,0,0
+1591761028001,143,出库完成,200,OK,线程组 1-1,text,true,,701,1007,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,143,0,0
+1591761028146,47,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,47,0,0
+1591761028243,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591761028249,3,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,3,0,0

@@ -1,0 +1,36 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591763263003,453,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,452,0,450
+1591763263457,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591763263462,17,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,17,0,0
+1591763263479,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591763263481,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591763263482,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591763263484,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591763263485,2,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591763263487,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591763263488,2,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591763263490,2,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591763263492,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591763263493,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591763263494,2,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,2,0,0
+1591763263497,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591763263581,208,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,83,0,39
+1591763263581,83,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,83,0,39
+1591763263670,119,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,55,0,0
+1591763263792,35,查询出库单信息,200,OK,线程组 1-1,text,true,,1699,1185,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=1&pageNumber=1&PageSize=1&PageCurrent=1&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&pageType=2&OutStatus=&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,35,0,5
+1591763263833,33,自动审核,200,OK,线程组 1-1,text,true,,715,983,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,33,0,0
+1591763413883,3,Debug Sampler,200,OK,线程组 1-1,text,true,,1773,0,1,1,null,0,0,0
+1591763413890,49,进入下架页面,200,OK,线程组 1-1,text,true,,1263,993,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,49,0,20
+1591763413941,24,创建下架,200,OK,线程组 1-1,text,true,,670,982,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,24,0,0
+1591763413966,78,创建下架保存,200,OK,线程组 1-1,text,true,,712,2238,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,78,0,0
+1591763414046,17,查看出库单内下架信息,200,OK,线程组 1-1,text,true,,871,953,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=297309&wareHouseId=23361&sort=&order=asc,17,0,0
+1591763414067,53,获取系统推荐批次,200,OK,线程组 1-1,text,true,,1473,1061,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,53,0,0
+1591763414123,197,下架完成,200,OK,线程组 1-1,text,true,,670,2586,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/DownShelves,197,0,0
+1591763414323,50,获取封箱信息,200,OK,线程组 1-1,text,true,,4108,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,49,0,0
+1591763414505,42,确认封箱,200,OK,线程组 1-1,text,true,,687,3838,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/saveOutBox,42,0,0
+1591763414547,26,完成质检,200,OK,线程组 1-1,text,true,,694,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/completeOutBox,25,0,0
+1591763414573,14,确认出库,200,OK,线程组 1-1,text,true,,673,1020,1,1,http://wi.uat.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,14,0,0
+1591763414588,119,出库完成,200,OK,线程组 1-1,text,true,,701,1007,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,119,0,0
+1591763414708,40,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,40,0,1
+1591763414770,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591763414776,5,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0

@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591333833082,282,标记任务开始,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,282,0,280
+1591333833367,5,获取账号,200,OK,多次收货 1-1,text,true,,18,0,1,1,null,3,0,0
+1591333833372,14,锁定账号,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,14,0,0
+1591333833386,2,获取仓库及会员信息,200,OK,多次收货 1-1,text,true,,115,0,1,1,null,2,0,0
+1591333833388,1,获取oms配置信息,200,OK,多次收货 1-1,text,true,,34,0,1,1,null,1,0,0
+1591333833390,1,获取wi配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333833391,2,获取basic配置信息,200,OK,多次收货 1-1,text,true,,46,0,1,1,null,2,0,0
+1591333833393,1,获取os配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333833394,1,获取opw配置信息,200,OK,多次收货 1-1,text,true,,38,0,1,1,null,1,0,0
+1591333833396,1,获取op配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333833397,2,获取opr配置信息,200,OK,多次收货 1-1,text,true,,38,0,1,1,null,2,0,0
+1591333833399,1,获取master配置信息,200,OK,多次收货 1-1,text,true,,41,0,1,1,null,1,0,0
+1591333833400,2,获取so配置信息,200,OK,多次收货 1-1,text,true,,37,0,1,1,null,2,0,0
+1591333833402,1,获取账号,200,OK,多次收货 1-1,text,true,,18,0,1,1,null,1,0,0
+1591333833458,190,登陆,200,OK,多次收货 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,77,0,31
+1591333833458,77,登陆-0,302,Found,多次收货 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,77,0,31
+1591333833540,108,登陆-1,200,OK,多次收货 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,76,0,0
+1591333833651,3,释放登陆账号,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,3,0,0
+1591333833655,6,标记任务成功,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,6,0,0
+1591333833691,5,标记任务最终结果,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,5,0,0

@@ -1,0 +1,21 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591335710901,322,标记任务开始,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,322,0,275
+1591335711224,4,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,3,0,0
+1591335711228,7,锁定账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1591335711235,2,获取仓库及会员信息,200,OK,全量入库 1-1,text,true,,115,0,1,1,null,1,0,0
+1591335711237,1,获取oms配置信息,200,OK,全量入库 1-1,text,true,,34,0,1,1,null,1,0,0
+1591335711238,1,获取wi配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591335711240,1,获取basic配置信息,200,OK,全量入库 1-1,text,true,,46,0,1,1,null,1,0,0
+1591335711241,1,获取os配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591335711242,1,获取opw配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,1,0,0
+1591335711244,1,获取op配置信息,200,OK,全量入库 1-1,text,true,,40,0,1,1,null,1,0,0
+1591335711245,1,获取opr配置信息,200,OK,全量入库 1-1,text,true,,38,0,1,1,null,1,0,0
+1591335711246,1,获取master配置信息,200,OK,全量入库 1-1,text,true,,41,0,1,1,null,1,0,0
+1591335711247,1,获取so配置信息,200,OK,全量入库 1-1,text,true,,37,0,1,1,null,1,0,0
+1591335711249,0,获取账号,200,OK,全量入库 1-1,text,true,,18,0,1,1,null,0,0,0
+1591335711304,205,登陆,200,OK,全量入库 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,86,0,36
+1591335711304,86,登陆-0,302,Found,全量入库 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,86,0,36
+1591335711402,107,登陆-1,200,OK,全量入库 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,76,0,0
+1591335711513,3,释放登陆账号,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,3,0,0
+1591335711517,6,标记任务成功,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,6,0,0
+1591335711566,5,标记任务最终结果,200,OK,全量入库 1-1,text,true,,9,0,1,1,null,5,0,0

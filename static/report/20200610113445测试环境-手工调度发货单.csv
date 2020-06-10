@@ -1,0 +1,25 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591760087913,517,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,517,0,511
+1591760088432,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591760088437,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591760088444,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591760088446,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760088447,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760088448,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591760088450,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760088451,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760088453,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760088454,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760088455,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591760088456,2,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760088458,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760088459,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760088521,135,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,69,0,39
+1591760088521,69,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,69,0,39
+1591760088595,61,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,48,0,0
+1591760088659,84,查询待调度的订单信息,200,OK,线程组 1-1,text,true,,632,1082,1,1,http://so.uat.fineex.net/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=23361&MemberID=&BeginDate=2020-06-10+00%3A00%3A00+&EndDate=+2020-06-10+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,84,0,5
+1591760088756,20,获取仓库网点,200,OK,线程组 1-1,text,true,,578,874,1,1,http://so.uat.fineex.net/OrderScheduling/GetSchedulingNetPoint?WarehouseID=23361&_=1591760087635,20,0,0
+1591760088780,17,调度订单查询,200,OK,线程组 1-1,text,false,"Test failed: text expected to contain /""Status"":""已调度"",/",544,1143,1,1,http://so.uat.fineex.net/Order/OrderScheduling/Query?SubmitDate=2020-06-10+00%3A00%3A00+%7E+2020-06-10+23%3A59%3A59&Status=0&Number=&ERPOrderCode=&City=&CityID=&MemberNo=&MemberID=&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&NetPointID=&OrderType=&sortName=&sortOrder=asc&pageSize=20&pageNumber=1,17,0,0
+1591760088798,7,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591760088828,7,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591760088835,2,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

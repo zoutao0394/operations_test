@@ -1,0 +1,25 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591767994130,1171,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1171,0,1169
+1591767995302,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591767995307,6,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591767995313,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591767995315,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591767995317,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591767995319,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591767995320,2,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591767995322,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591767995323,2,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591767995325,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591767995326,2,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591767995328,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591767995329,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591767995331,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591767995425,212,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,145,0,112
+1591767995425,145,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,145,0,112
+1591767995576,61,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,44,0,0
+1591767996646,35,获取出库单号,200,OK,线程组 1-1,text,true,,631,914,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseAccept/getWareHouseOutCode,35,0,6
+1591767996686,318,获取商品信息,200,OK,线程组 1-1,text,true,,3277,1278,1,1,http://wi.uat.fineex.net/DataCenter/WarehouseStorageSearch/QueryStorage?sortName=FactAmount&sortOrder=desc&pageSize=2&pageNumber=1&MemberNo=0210045308&MemberID=25346&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&BarCode=&Stand=&FactAmountMin=&FactAmountMax=&OperateAmountMin=&OperateAmountMax=&HoldAmountMin=&HoldAmountMax=&LockAmountMin=&LockAmountMax=&CommodityName=&CommodityCode=&Code=&PageSize=2&PageCurrent=1,318,0,0
+1591767998237,35,生成B2B出库单,200,OK,线程组 1-1,text,true,,716,2589,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseAccept/saveWareHouseOut,35,0,0
+1591767998273,14,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,14,0,0
+1591767998312,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591767998318,4,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,4,0,0

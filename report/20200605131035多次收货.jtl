@@ -1,0 +1,22 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591333837734,300,标记任务开始,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,300,0,298
+1591333838036,4,获取账号,200,OK,多次收货 1-1,text,true,,18,0,1,1,null,3,0,0
+1591333838040,33,锁定账号,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,33,0,0
+1591333838073,2,获取仓库及会员信息,200,OK,多次收货 1-1,text,true,,115,0,1,1,null,1,0,0
+1591333838075,1,获取oms配置信息,200,OK,多次收货 1-1,text,true,,34,0,1,1,null,1,0,0
+1591333838076,1,获取wi配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333838078,1,获取basic配置信息,200,OK,多次收货 1-1,text,true,,46,0,1,1,null,1,0,0
+1591333838079,2,获取os配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333838081,1,获取opw配置信息,200,OK,多次收货 1-1,text,true,,38,0,1,1,null,1,0,0
+1591333838082,2,获取op配置信息,200,OK,多次收货 1-1,text,true,,40,0,1,1,null,1,0,0
+1591333838084,1,获取opr配置信息,200,OK,多次收货 1-1,text,true,,38,0,1,1,null,1,0,0
+1591333838085,2,获取master配置信息,200,OK,多次收货 1-1,text,true,,41,0,1,1,null,2,0,0
+1591333838087,1,获取so配置信息,200,OK,多次收货 1-1,text,true,,37,0,1,1,null,1,0,0
+1591333838088,1,获取账号,200,OK,多次收货 1-1,text,true,,18,0,1,1,null,1,0,0
+1591333838148,308,登陆,200,OK,多次收货 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,177,0,104
+1591333838148,178,登陆-0,302,Found,多次收货 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,177,0,104
+1591333838340,116,登陆-1,200,OK,多次收货 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,80,0,0
+1591333838460,123,到货通知查询,200,OK,多次收货 1-1,text,true,,618,1203,1,1,http://cloud.wms.wi.b1.fineex.net/WareHouseIN/Arrival/Query?searchText=&sortName=CreateDate&sortOrder=DESC&pageSize=20&pageNumber=1&PageSize=20&PageCurrent=1&StartTime=+2020-06-05+00%3A00%3A00+&EndTime=++2020-06-05+23%3A59%3A59&PageType=2&InStatus=&InCodes=&SyncIds=&MemberNo=0010000103&MemberID=26485&WareHouseName=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301&WarehouseID=25670&ErpSyncIds=&BarCodes=&Memo=,122,0,81
+1591333838595,3,释放登陆账号,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,3,0,0
+1591333838599,6,标记任务成功,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,6,0,0
+1591333838623,5,标记任务最终结果,200,OK,多次收货 1-1,text,true,,9,0,1,1,null,5,0,0

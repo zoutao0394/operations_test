@@ -1,0 +1,36 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591760133227,398,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,398,0,390
+1591760133627,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,2,0,0
+1591760133631,5,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591760133636,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591760133638,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760133639,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591760133641,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591760133642,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760133643,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760133644,1,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760133645,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591760133646,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591760133648,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591760133649,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760133650,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591760133705,192,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,113,0,67
+1591760133705,113,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,113,0,67
+1591760133830,67,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,52,0,0
+1591760133900,84,查询出库单信息,200,OK,线程组 1-1,text,true,,1699,1185,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/Query?searchText=&sortName=CreateTime&sortOrder=DESC&pageSize=1&pageNumber=1&PageSize=1&PageCurrent=1&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&pageType=2&OutStatus=&OutCode=&SyncIds=&MemberNo=&MemberID=&WareHouseName=%E5%98%89%E5%90%883%E4%BB%93&WarehouseID=23361&ErpSyncIds=&BarCodes=&DeliveryPlanTime=,84,0,50
+1591760133989,20,自动审核,200,OK,线程组 1-1,text,true,,715,983,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseCheck/AutoCheck,20,0,0
+1591760284026,4,Debug Sampler,200,OK,线程组 1-1,text,true,,1773,0,1,1,null,0,0,0
+1591760284033,75,进入下架页面,200,OK,线程组 1-1,text,true,,534,993,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetCommoditiesInfoCouldSoldOutByOutId,75,0,51
+1591760284110,15,创建下架,200,OK,线程组 1-1,text,true,,760,982,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/CheckIsCouldDownshel,15,0,0
+1591760284126,13,创建下架保存,200,OK,线程组 1-1,,false,Response was null,475,1046,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/SubmitDownShelf,13,0,0
+1591760284140,11,查看出库单内下架信息,200,OK,线程组 1-1,text,true,,524,953,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetShelfInfoByOutId?outId=297009&wareHouseId=23361&sort=&order=asc,11,0,0
+1591760284152,10,获取系统推荐批次,200,OK,线程组 1-1,,true,,475,1076,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/GetDownShelfDetailInfoByIds,10,0,0
+1591760284163,10,下架完成,200,OK,线程组 1-1,,false,Response was null,475,1045,1,1,http://wi.uat.fineex.net/OutWareHouse/SoldOutManage/DownShelves,10,0,0
+1591760284174,17,获取封箱信息,200,OK,线程组 1-1,text,true,,725,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/getPackingTestInfo,17,0,0
+1591760284259,10,确认封箱,200,OK,线程组 1-1,,true,,475,942,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/saveOutBox,10,0,0
+1591760284270,13,完成质检,200,OK,线程组 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""完成质检成功！""],/",725,970,1,1,http://wi.uat.fineex.net/OutWareHouse/PackingTest/completeOutBox,13,0,0
+1591760284284,15,确认出库,200,OK,线程组 1-1,text,true,,673,1020,1,1,http://wi.uat.fineex.net/LogisticsCode/LogisticsCode/LogisticsCodeJudge,15,0,0
+1591760284301,21,出库完成,200,OK,线程组 1-1,text,false,"Test failed: text expected to contain /""errorMsg"":[""确认成功！""],""/",834,1007,1,1,http://wi.uat.fineex.net/OutWareHouse/OutWareHouseAffirm/ConfirmOutOrder,21,0,0
+1591760284323,40,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,40,0,0
+1591760284391,7,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591760284398,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

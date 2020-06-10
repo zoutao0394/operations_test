@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591766979675,1776,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1776,0,1774
+1591766981453,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591766981458,7,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591766981466,1,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,1,0,0
+1591766981467,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,2,0,0
+1591766981469,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591766981470,3,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,3,0,0
+1591766981473,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591766981475,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,2,0,0
+1591766981477,1,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591766981478,2,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,2,0,1
+1591766981480,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591766981482,1,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591766981483,2,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591766981485,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591766982227,466,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,365,0,294
+1591766982227,365,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,365,0,294
+1591766982599,94,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,63,0,0
+1591766982696,170,查询待调度的订单信息,200,OK,线程组 1-1,text,true,,618,1088,1,1,http://cloud.wms.so.fineex.net/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=26769&MemberID=&BeginDate=2020-06-10+00%3A00%3A00+&EndDate=+2020-06-10+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,170,0,12
+1591766982871,27,获取仓库网点,200,OK,线程组 1-1,text,true,,581,880,1,1,http://cloud.wms.so.fineex.net/OrderScheduling/GetSchedulingNetPoint?WarehouseID=26769&_=1591766978362,27,0,0
+1591766982901,6,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591766982921,5,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591766982927,2,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

@@ -1,0 +1,55 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591761190449,403,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,403,0,396
+1591761190853,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591761190858,5,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,5,0,0
+1591761190863,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,1,0,0
+1591761190865,1,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761190866,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761190867,2,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,2,0,1
+1591761190869,1,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591761190870,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761190871,2,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591761190873,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591761190874,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591761190875,2,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,1
+1591761190877,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761190878,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591761190932,144,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,67,0,32
+1591761190932,67,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,67,0,32
+1591761191004,72,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,48,0,0
+1591761191086,38,查询已审核的波次,200,OK,线程组 1-1,text,true,,1158,1229,1,1,http://os.uat.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=1&pageNumber=1&CreateTime=2019-12-22+00%3A00%3A00+%7E+2020-06-10+23%3A59%3A59&WareHouseName%5B%5D=%E5%98%89%E5%90%883%E4%BB%93%7E%E9%80%B8%E4%BB%99%E7%94%B5%E5%95%86&WareHouseName%5B%5D=23361&MemberNo=0210045308&MemberID=25346&WarehouseID=23361&OrderStatus=2&OrderType=2&DeliveryPlanTime=&OrderBatchID=&PickType=0&BatchAttribute=0&PageSize=1&PageCurrent=1,38,0,13
+1591761191141,3,Debug Sampler,200,OK,线程组 1-1,text,true,,1927,0,1,1,null,0,0,0
+1591761191145,30,确认打印波次,200,OK,线程组 1-1,text,true,,703,965,1,1,http://os.uat.fineex.net/Order/OrderSorting/ConfirmPrint,30,0,0
+1591761191176,14,查询已审核的波次,200,OK,线程组 1-1,text,true,,1070,1288,1,1,http://os.uat.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=1&pageNumber=1&CreateTime=2019-12-22+00%3A00%3A00+%7E+2020-06-10+23%3A59%3A59&WareHouseName%5B%5D=%E5%98%89%E5%90%883%E4%BB%93%7E%E9%80%B8%E4%BB%99%E7%94%B5%E5%95%86&WareHouseName%5B%5D=23361&MemberNo=0210045308&MemberID=25346&WarehouseID=23361&OrderStatus=&OrderType=&DeliveryPlanTime=&OrderBatchID=FD550200604000006&PickType=0&BatchAttribute=0&PageSize=1&PageCurrent=1,14,0,0
+1591761191191,27,进入波次明细页面,200,OK,线程组 1-1,text,true,,10226,877,1,1,http://os.uat.fineex.net/Order/OrderSorting/OrderSortingDetail?batchId=720699009&WarehouseID=23361&systemCode=wms,18,0,0
+1591761191219,12,获取波次内订单信息,200,OK,线程组 1-1,text,true,,4520,921,1,1,http://os.uat.fineex.net/Order/OrderSorting/OrderSortingDetailOrders?WarehouseID=23361&batchId=720699009,12,0,0
+1591761191233,14,波次明细信息,200,OK,线程组 1-1,text,true,,517,971,1,1,http://os.uat.fineex.net/Order/OrderSorting/OrderSortingDetailOutOfStock?sortName=BatchNO&sortOrder=asc&memberId=25346&WarehouseID=23361&batchId=720699009,14,0,0
+1591761191248,13,验证是否已打印,200,OK,线程组 1-1,text,true,,519,839,1,1,http://os.uat.fineex.net/Order/Print/GetIsBatchIsPrint?WarehouseID=23361&batchId=720699009,13,0,0
+1591761191262,27,获取打印信息,200,OK,线程组 1-1,text,true,,8100,1024,1,1,http://os.uat.fineex.net/Order/Print/PickingList,27,0,0
+1591761191364,13,更改波次打印状态,200,OK,线程组 1-1,text,true,,670,851,1,1,http://os.uat.fineex.net/Order/OrderSorting/UpdateBatchIsPrintTrue?WarehouseID=23361&batchId=720699009,13,0,0
+1591761191378,11,获取打印快递单URL,200,OK,线程组 1-1,text,true,,665,931,1,1,http://os.uat.fineex.net/Basedata/GetBaseData?elementType=GetJoinUrl&jumpUrl=%2FOrder%2FOrderSorting%2FPrintExpressOrder%2F%24%7BBatchId_1%7D%3FWarehouseID%3D23361&jumpSiteConfigKey=,11,0,0
+1591761191390,22,进入打印快递单页面,200,OK,线程组 1-1,text,true,,9289,868,1,1,http://os.uat.fineex.net/Order/OrderSorting/PrintExpressOrder/720699009?WarehouseID=23361&systemCode=wms,22,0,0
+1591761191413,23,波次管理打印面单,200,OK,线程组 1-1,text,true,,17952,1320,1,1,http://os.uat.fineex.net/Order/Print/ExpressList,23,0,0
+1591761191437,12,打印分拣汇总单,200,OK,线程组 1-1,text,true,,527,979,1,1,http://os.uat.fineex.net/Order/Print/GetPrintSortingSummaryListIsPrint,12,0,0
+1591761191450,18,分拣汇总单,200,OK,线程组 1-1,text,true,,1240,1001,1,1,http://os.uat.fineex.net/Order/Print/SortingSummaryList,18,0,0
+1591761191469,0,Debug Sampler,200,OK,线程组 1-1,text,true,,4252,0,1,1,null,0,0,0
+1591761191485,169,打开单SKU模块,200,OK,线程组 1-1,text,true,,19698,839,1,1,http://op.uat.fineex.net/Order/SingleQuality/SingleQuality?systemCode=wms&moduleTitle=%E5%8D%95SKU%E7%A1%AE%E8%AE%A4&WarehouseID=23361,159,0,75
+1591761191657,12,是否开启流水线,200,OK,线程组 1-1,text,true,,520,841,1,1,http://op.uat.fineex.net/Order/SingleQuality/GetOpenFlowLine?WarehouseID=23361,12,0,0
+1591761191672,26,单SKU输入波次号,200,OK,线程组 1-1,text,true,,7244,988,1,1,http://op.uat.fineex.net/Order/SingleQuality/VerificationBatchNo,26,0,0
+1591761191703,37,获取包材信息,200,OK,线程组 1-1,text,true,,1936,963,1,1,http://op.uat.fineex.net/OrderDispose/GetPackegBox,37,0,0
+1591761191744,19,打印合格证,200,OK,线程组 1-1,text,true,,722,1049,1,1,http://op.uat.fineex.net/Order/Print/GetCommodityIdentifierPrintData,19,0,0
+1591761191766,72,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,72,0,0
+1591761191840,21,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,21,0,0
+1591761191863,26,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,26,0,0
+1591761191890,23,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,22,0,0
+1591761191913,26,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,26,0,0
+1591761191940,19,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,19,0,0
+1591761191960,25,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,25,0,0
+1591761191988,20,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,20,0,0
+1591761192010,23,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,23,0,0
+1591761192035,22,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,22,0,0
+1591761192059,25,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,25,0,0
+1591761192086,19,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,19,0,0
+1591761192107,23,确认订单,200,OK,线程组 1-1,text,true,,604,1096,1,1,http://op.uat.fineex.net/Order/SingleQuality/OrderConfirm,23,0,0
+1591761192132,19,打印面单,200,OK,线程组 1-1,text,true,,2651,1019,1,1,http://op.uat.fineex.net/Order/Print/ExpressList,19,0,0
+1591761192

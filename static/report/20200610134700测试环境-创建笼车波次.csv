@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591768023299,414,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,414,0,411
+1591768023715,5,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591768023720,9,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,9,0,1
+1591768023729,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,102,0,1,1,null,2,0,0
+1591768023732,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591768023734,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591768023737,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,44,0,1,1,null,1,0,0
+1591768023738,2,获取os配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,2,0,0
+1591768023740,2,获取opw配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,2,0,0
+1591768023742,2,获取op配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591768023744,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,32,0,1,1,null,1,0,0
+1591768023745,1,获取master配置信息,200,OK,线程组 1-1,text,true,,35,0,1,1,null,1,0,0
+1591768023747,1,获取so配置信息,200,OK,线程组 1-1,text,true,,31,0,1,1,null,1,0,0
+1591768023748,2,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,2,0,0
+1591768023750,2,获取capacity配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591768023816,132,登陆,200,OK,线程组 1-1,text,true,,90858,1638,1,1,http://basic.uat.fineex.net/Home/Index,61,0,31
+1591768023816,61,登陆-0,302,Found,线程组 1-1,text,true,,1201,762,1,1,http://basic.uat.fineex.net/Login,61,0,31
+1591768023882,66,登陆-1,200,OK,线程组 1-1,text,true,,89657,876,1,1,http://basic.uat.fineex.net/Home/Index,48,0,0
+1591768023951,34,常用分拣查询,200,OK,线程组 1-1,text,true,,865,1425,1,1,http://os.uat.fineex.net/Order/CommonBuying/Query,34,0,6
+1591768023986,32,创建笼车波次,200,OK,线程组 1-1,text,true,,698,1961,1,1,http://os.uat.fineex.net/Order/CommonBuying/SaveBatchOrder,32,0,0
+1591768024021,6,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591768024041,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591768024047,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

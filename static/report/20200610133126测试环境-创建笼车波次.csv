@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591767091842,962,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,962,0,960
+1591767092808,6,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,4,0,0
+1591767092814,8,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,8,0,0
+1591767092822,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,2,0,0
+1591767092824,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,1,0,0
+1591767092826,2,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591767092828,2,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,2,0,0
+1591767092830,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767092832,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767092833,1,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767092835,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767092837,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591767092838,2,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,2,0,1
+1591767092840,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767092842,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767093135,243,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,128,0,79
+1591767093135,128,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,128,0,79
+1591767093270,108,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,88,0,0
+1591767093383,43,常用分拣查询,200,OK,线程组 1-1,text,true,,845,1450,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/Query,43,0,12
+1591767093428,88,创建笼车波次,200,OK,线程组 1-1,text,true,,698,2022,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/SaveBatchOrder,87,0,0
+1591767093519,8,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591767093541,6,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591767093547,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

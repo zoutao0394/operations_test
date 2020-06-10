@@ -1,0 +1,35 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591767119367,386,标记任务开始,200,OK,线程组 1-1,text,true,,9,0,1,1,null,385,0,383
+1591767119755,4,获取账号,200,OK,线程组 1-1,text,true,,18,0,1,1,null,3,0,0
+1591767119759,7,锁定账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591767119766,2,获取仓库及会员信息,200,OK,线程组 1-1,text,true,,113,0,1,1,null,2,0,1
+1591767119768,2,获取oms配置信息,200,OK,线程组 1-1,text,true,,34,0,1,1,null,1,0,0
+1591767119770,1,获取wi配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767119771,1,获取basic配置信息,200,OK,线程组 1-1,text,true,,46,0,1,1,null,1,0,0
+1591767119772,2,获取os配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,2,0,0
+1591767119774,1,获取opw配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,1,0,0
+1591767119775,1,获取op配置信息,200,OK,线程组 1-1,text,true,,40,0,1,1,null,1,0,0
+1591767119777,1,获取opr配置信息,200,OK,线程组 1-1,text,true,,38,0,1,1,null,0,0,0
+1591767119778,1,获取master配置信息,200,OK,线程组 1-1,text,true,,41,0,1,1,null,1,0,0
+1591767119779,1,获取so配置信息,200,OK,线程组 1-1,text,true,,37,0,1,1,null,1,0,0
+1591767119780,1,获取Strategy配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767119781,1,获取capacity配置信息,200,OK,线程组 1-1,text,true,,43,0,1,1,null,1,0,0
+1591767119844,231,登陆,200,OK,线程组 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,97,0,35
+1591767119844,97,登陆-0,302,Found,线程组 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,97,0,35
+1591767119946,129,登陆-1,200,OK,线程组 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,92,0,0
+1591767120089,1220,缺货补货查询,200,OK,线程组 1-1,text,true,,598,1087,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/ReplenishAccept/GetOOS?WareHouseID=26769&MemberID=26770&model.BarCode=&model.Area=&model.Tunnel=&model.MemberNo=0010000167&model.MemberID=26770&model.WareHouseName=%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BB%93&model.WarehouseID=26769&model.BeginTime=2020-06-10+00%3A00%3A00&model.EndTime=+2020-06-10+23%3A59%3A59&model.OrderType=&model.Type=&sortName=CommodityID&sortOrder=desc&pageSize=20&pageNumber=1,1220,0,84
+1591767121392,42,生成主动补货单,200,OK,线程组 1-1,text,true,,3243,1236,1,1,http://cloud.wms.wi.b1.fineex.net/DataCenter/PosStorageSearch/QueryStorage?sortName=Amount&sortOrder=desc&pageSize=2&pageNumber=1&MemberNo=0010000167&MemberID=26770&WareHouseName=%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BB%93&WarehouseID=26769&Codes=&PosCode=&PosType=&CommodityName=&CommodityCode=&Code=&BarCode=&PageSize=2&PageCurrent=1,42,0,0
+1591767122442,76,生成补货单,200,OK,线程组 1-1,text,true,,719,1234,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/ReplenishAccept/PCSubmitCommodityList,76,0,14
+1591767123520,25,查询补货单信息,200,OK,线程组 1-1,text,true,,1247,1214,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishQuery?sortName=CreateDate&sortOrder=desc&pageSize=20&pageNumber=1&MemberNo=0010000167&MemberID=26770&WareHouseName=%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%BB%93&WarehouseID=26769&ReplenishCode=&Status=1&BarCode=&WareHouseID=26769&StartTime=2020-06-10+00%3A00%3A00+&EndTime=+2020-06-10+23%3A59%3A59&PageSize=20&PageCurrent=1,25,0,0
+1591767124547,221,打印,200,OK,线程组 1-1,text,true,,1457,974,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/GetPrintData,221,0,10
+1591767125769,15,上锁,200,OK,线程组 1-1,text,true,,670,975,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishLock,15,0,0
+1591767126787,35,获取可下架信息,200,OK,线程组 1-1,text,true,,1080,1003,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishShelfQuery,35,0,12
+1591767127829,93,下架,200,OK,线程组 1-1,text,true,,696,1424,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishDownShelf,92,0,0
+1591767127924,142,查询仓库库位信息,200,OK,线程组 1-1,text,true,,2548,1289,1,1,http://cloud.wms.master.fineex.net/BasicInfo/StorageLocationManage/QueryPosData,142,0,11
+1591767129068,42,上架信息,200,OK,线程组 1-1,text,true,,1044,1007,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishComfirmQuery,42,0,14
+1591767130141,130,确认补货,200,OK,线程组 1-1,text,true,,696,1429,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishUpShelf,129,0,0
+1591767131273,29,解锁,200,OK,线程组 1-1,text,true,,688,976,1,1,http://cloud.wms.wi.b1.fineex.net/OnWareHouse/Replenish/ReplenishUnlock,29,0,13
+1591767131311,2,Debug Sampler,200,OK,线程组 1-1,text,true,,3334,0,1,1,null,0,0,0
+1591767131313,7,释放登陆账号,200,OK,线程组 1-1,text,true,,9,0,1,1,null,7,0,0
+1591767131353,7,标记任务结果,200,OK,线程组 1-1,text,true,,9,0,1,1,null,6,0,0
+1591767131360,1,变更任务状态,200,OK,线程组 1-1,text,true,,9,0,1,1,null,1,0,0

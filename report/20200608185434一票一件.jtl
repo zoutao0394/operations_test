@@ -1,0 +1,24 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1591613681371,465,标记任务开始,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,464,0,463
+1591613681837,4,获取账号,200,OK,一票一件 1-1,text,true,,18,0,1,1,null,3,0,0
+1591613681841,62,锁定账号,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,61,0,0
+1591613681903,2,获取仓库及会员信息,200,OK,一票一件 1-1,text,true,,115,0,1,1,null,2,0,0
+1591613681905,1,获取oms配置信息,200,OK,一票一件 1-1,text,true,,34,0,1,1,null,1,0,0
+1591613681906,2,获取wi配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,1,0,0
+1591613681908,1,获取basic配置信息,200,OK,一票一件 1-1,text,true,,46,0,1,1,null,1,0,0
+1591613681909,1,获取os配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,1,0,0
+1591613681911,1,获取opw配置信息,200,OK,一票一件 1-1,text,true,,38,0,1,1,null,1,0,0
+1591613681912,2,获取op配置信息,200,OK,一票一件 1-1,text,true,,40,0,1,1,null,2,0,1
+1591613681915,1,获取opr配置信息,200,OK,一票一件 1-1,text,true,,38,0,1,1,null,1,0,0
+1591613681917,2,获取master配置信息,200,OK,一票一件 1-1,text,true,,41,0,1,1,null,2,0,0
+1591613681919,2,获取so配置信息,200,OK,一票一件 1-1,text,true,,37,0,1,1,null,2,0,0
+1591613682044,275,登陆,200,OK,一票一件 1-1,text,true,,92286,1642,1,1,http://cloud.basic.fineex.net/Home/Index,157,0,99
+1591613682044,157,登陆-0,302,Found,一票一件 1-1,text,true,,1187,764,1,1,http://cloud.basic.fineex.net/Login,157,0,99
+1591613682219,100,登陆-1,200,OK,一票一件 1-1,text,true,,91099,878,1,1,http://cloud.basic.fineex.net/Home/Index,78,0,0
+1591613682325,81,查询待调度的订单信息,200,OK,一票一件 1-1,text,true,,1279,1088,1,1,http://cloud.wms.so.fineex.net/Order/OrderScheduling/OrderSchedulingDetailQuery?sortName=&sortOrder=asc&WarehouseID=25670&MemberID=&BeginDate=2020-06-08+00%3A00%3A00+&EndDate=+2020-06-08+23%3A59%3A59&ISBanAviation=false&IsPayment=false&Express=&CustomMemo=&Number=&City=&CityID=&CityLike=&OrderType=&IsDispatchFail=false&ShopName=&SortName=&SortOrder=asc,81,0,35
+1591613682415,49,执行手工调度,200,OK,一票一件 1-1,text,true,,701,1030,1,1,http://cloud.wms.so.fineex.net/Order/OrderScheduling/Dispatch,49,0,0
+1591613682466,107,创建笼车波次,200,OK,一票一件 1-1,text,true,,772,1989,1,1,http://cloud.wms.os.b1.fineex.net/Order/CommonBuying/SaveBatchOrder,107,0,19
+1591613982577,84,查询已审核的波次,200,OK,一票一件 1-1,text,true,,1067,1310,1,1,http://cloud.wms.os.b1.fineex.net/Order/OrderSorting/Query?sortName=CreateDate&sortOrder=desc&pageSize=100&pageNumber=1&CreateTime=2020-06-08+00%3A00%3A00+%7E+2020-06-08+23%3A59%3A59&WareHouseName%5B%5D=%E6%8E%A5%E5%8F%A3%E8%81%94%E8%B0%83%E6%B5%8B%E8%AF%95%E4%BB%9301%7E%E6%8E%A5%E5%8F%A3test02&WareHouseName%5B%5D=25670&MemberNo=0010000103&MemberID=26485&WarehouseID=25670&OrderStatus=2&OrderType=&DeliveryPlanTime=&OrderBatchID=&PickType=0&BatchAttribute=0&PageSize=100&PageCurrent=1,84,0,22
+1591613982679,2,Debug Sampler,200,OK,一票一件 1-1,text,true,,1979,0,1,1,null,0,0,0
+1591613982684,19,确认打印波次,200,OK,一票一件 1-1,text,false,Test failed: text expected to contain /true/,722,971,1,1,http://cloud.wms.os.b1.fineex.net/Order/OrderSorting/ConfirmPrint,19,0,0
+1591613982741,90,标记任务最终结果,200,OK,一票一件 1-1,text,true,,9,0,1,1,null,90,0,15
