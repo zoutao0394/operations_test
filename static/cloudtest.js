@@ -611,7 +611,7 @@
         },
         function(data){
             alert(data);
-            $("#selectcase").click();
+            $("#selectreport").click();
         }
         );
     });
