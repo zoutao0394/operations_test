@@ -289,9 +289,9 @@ def uploadreport():
         if b:
             app.config['UPLOAD_FOLDER'] = 'D:\\operations_test\\static\\report\\testreport'
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-            return jsonify({'result': '用例导入成功'})
+            return jsonify({'result': '报告导入成功'})
         else:
-            return jsonify({'result': '用例名称不符合规范'})
+            return jsonify({'result': '报告名称不符合规范'})
 
 
     else:
@@ -328,6 +328,21 @@ def downloadreport():
 		send_from_directory(path, filename.encode('utf-8').decode('utf-8'), as_attachment=True))
     response.headers["Content-Disposition"] = "attachment; filename={}".format(filename.encode().decode('latin-1'))
     return response
+
+
+@app.route('/deletereport', methods=['GET', 'POST'])
+def deletereport():
+    data = request.form.get('reportid')
+    idlist = data.split(';')
+    case = control.report()
+    for i in idlist:
+        print(i)
+        case.deletereport(i)
+
+    return "编号：%s 的报告删除成功" % data
+
+
+
 
 
 

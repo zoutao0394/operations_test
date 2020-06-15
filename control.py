@@ -1011,6 +1011,17 @@ class report():
         return reportname
 
 
+    def deletereport(self,reportid):
+        sql = 'delete from auto_report where reportid=%s'%reportid
+
+        db=dboperation()
+        db.cursor.execute(sql)
+        db.connect.commit()
+        db.over()
+        return '删除成功'
+
+
+
 
 
 

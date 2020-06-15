@@ -537,7 +537,7 @@
 
 //        $("#taskdetail").html("");
         for(var i in data.data){
-                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+"></td>"
+                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='report"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+" name='checkreport'></td>"
             +"<td>"
             +data.data[i]['reportid']+"</td><td>"+data.data[i]['systemname']+"</td><td>"+data.data[i]['reportname']
             +"</td><td>"+data.data[i]['createdate']+"</td></tr>";
@@ -560,7 +560,7 @@
             systemname:s,
         },function(data){
             for(var i in data.data){
-                 var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+"></td>"
+                var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='report"+data.data[i]['reportid']+"' value="+data.data[i]['reportid']+" name='checkreport'></td>"
             +"<td>"
             +data.data[i]['reportid']+"</td><td>"+data.data[i]['systemname']+"</td><td>"+data.data[i]['reportname']
             +"</td><td>"+data.data[i]['createdate']+"</td></tr>";
@@ -591,6 +591,29 @@
         alert('下载成功')
         }
 //        alert(filename)
+    });
+
+
+    $("button[name='deletereport']").click(function(){
+        var check = '';
+        $("input[name='checkreport']:checked").each(function(){
+            check +=($(this).attr('value'));
+            check += ";";
+
+
+        }
+//        $("#selectcase").click();
+        );
+
+//         alert(check.slice(0,-1));
+        $.post('/deletereport',{
+            reportid:check.slice(0,-1)
+        },
+        function(data){
+            alert(data);
+            $("#selectcase").click();
+        }
+        );
     });
 
 
