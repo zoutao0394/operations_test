@@ -770,85 +770,85 @@ class taskmanage():
     # 获取待执行的脚本列表，标记任务状态
     def taskscript(self,taskid):
         db = dboperation()
-        taskstatus = """
-            select status from auto_task where taskid=%s
-        """%taskid
-        db.cursor.execute(taskstatus)
-        taskstatus = db.cursor.fetchall()
+        # taskstatus = """
+        #     select status from auto_task where taskid=%s
+        # """%taskid
+        # db.cursor.execute(taskstatus)
+        # taskstatus = db.cursor.fetchall()
         # print(taskid)
-        if taskstatus[0][0]!= 1:
-            group = """
-                select taskgroup from auto_task where taskid=%s
-            """%taskid
-            db.cursor.execute(group)
-            taskgroup = db.cursor.fetchall()
-            if taskgroup[0][0]==1:
 
-                sql = """
-                                        SELECT
-                                    casetitle ,
-                                    caseid
-                                FROM
-                                    auto_testcase 
-                                WHERE
-                                    caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
-                                    """ % taskid  # 获取脚本和用例ID
-                sql1 = """
-                                update auto_taskcase set `status`=0 where taskid= %s
-                        """ % taskid  # 初始化脚本状态
-                sql2 = """
-                                        update auto_task set `status`=1 ,runtime= now() where taskid = %s
-                                """ % taskid  # 初始化任务状态
-                sql0 = """
-                                            update auto_taskreport set status=1 where taskid=%s
-                                        """ % (taskid)  # 变更以前的任务执行报告
+        group = """
+            select taskgroup from auto_task where taskid=%s
+        """%taskid
+        db.cursor.execute(group)
+        taskgroup = db.cursor.fetchall()
+        if taskgroup[0][0]==1:
 
-                db.cursor.execute(sql)
-                value = db.cursor.fetchall()
-                db.cursor.execute(sql0)
-                db.cursor.execute(sql1)
-                db.cursor.execute(sql2)
-                db.connect.commit()
-                scriptlist = []
+            sql = """
+                                    SELECT
+                                casetitle ,
+                                caseid
+                            FROM
+                                auto_testcase 
+                            WHERE
+                                caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
+                                """ % taskid  # 获取脚本和用例ID
+            sql1 = """
+                            update auto_taskcase set `status`=0 where taskid= %s
+                    """ % taskid  # 初始化脚本状态
+            sql2 = """
+                                    update auto_task set `status`=1 ,runtime= now() where taskid = %s
+                            """ % taskid  # 初始化任务状态
+            sql0 = """
+                                        update auto_taskreport set status=1 where taskid=%s
+                                    """ % (taskid)  # 变更以前的任务执行报告
 
-                for i in value:
-                    scriptlist.append(i)
+            db.cursor.execute(sql)
+            value = db.cursor.fetchall()
+            db.cursor.execute(sql0)
+            db.cursor.execute(sql1)
+            db.cursor.execute(sql2)
+            db.connect.commit()
+            scriptlist = []
 
-                db.over()
-                return scriptlist
-            elif taskgroup[0][0]==2:
-                sql = """
-                                                        SELECT
-                                                    casetitle ,
-                                                        caseid
-                                                FROM
-                                                    auto_testcase
-                                                WHERE
-                                                    caseid in (select caseid from auto_taskprocesscase where taskid = %s)
-                                                    """ % taskid  # 获取脚本和用例ID
-                sql1 = """
-                                                update auto_taskprocesscase set `status`=0 where taskid= %s
-                                        """ % taskid  # 初始化脚本状态
-                sql2 = """
-                                                        update auto_task set `status`=1 ,runtime= now() where taskid = %s
-                                                """ % taskid  # 初始化任务状态
-                sql0 = """
-                                                            update auto_taskreport set status=1 where taskid=%s
-                                                        """ % (taskid)  # 变更以前的任务执行报告
+            for i in value:
+                scriptlist.append(i)
 
-                db.cursor.execute(sql)
-                value = db.cursor.fetchall()
-                db.cursor.execute(sql0)
-                db.cursor.execute(sql1)
-                db.cursor.execute(sql2)
-                db.connect.commit()
-                scriptlist = []
-
-                for i in value:
-                    scriptlist.append(i)
-
-                db.over()
-                return scriptlist
+            db.over()
+            return scriptlist
+            # elif taskgroup[0][0]==2:
+            #     sql = """
+            #                                             SELECT
+            #                                         casetitle ,
+            #                                             caseid
+            #                                     FROM
+            #                                         auto_testcase
+            #                                     WHERE
+            #                                         caseid in (select caseid from auto_taskprocesscase where taskid = %s)
+            #                                         """ % taskid  # 获取脚本和用例ID
+            #     sql1 = """
+            #                                     update auto_taskprocesscase set `status`=0 where taskid= %s
+            #                             """ % taskid  # 初始化脚本状态
+            #     sql2 = """
+            #                                             update auto_task set `status`=1 ,runtime= now() where taskid = %s
+            #                                     """ % taskid  # 初始化任务状态
+            #     sql0 = """
+            #                                                 update auto_taskreport set status=1 where taskid=%s
+            #                                             """ % (taskid)  # 变更以前的任务执行报告
+            #
+            #     db.cursor.execute(sql)
+            #     value = db.cursor.fetchall()
+            #     db.cursor.execute(sql0)
+            #     db.cursor.execute(sql1)
+            #     db.cursor.execute(sql2)
+            #     db.connect.commit()
+            #     scriptlist = []
+            #
+            #     for i in value:
+            #         scriptlist.append(i)
+            #
+            #     db.over()
+            #     return scriptlist
 
         else:
             db.over()
