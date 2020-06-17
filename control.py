@@ -770,19 +770,14 @@ class taskmanage():
     # 获取待执行的脚本列表，标记任务状态
     def taskscript(self,taskid):
         db = dboperation()
-        # taskstatus = """
-        #     select status from auto_task where taskid=%s
-        # """%taskid
-        # db.cursor.execute(taskstatus)
-        # taskstatus = db.cursor.fetchall()
-        # print(taskid)
-
-        group = """
-            select taskgroup from auto_task where taskid=%s
+        taskstatus = """
+            select status from auto_task where taskid=%s
         """%taskid
-        db.cursor.execute(group)
-        taskgroup = db.cursor.fetchall()
-        if taskgroup[0][0]==1:
+        db.cursor.execute(taskstatus)
+        taskstatus = db.cursor.fetchall()
+        # print(taskid)
+        if taskstatus[0][0]!= 1:
+
 
             sql = """
                                     SELECT
