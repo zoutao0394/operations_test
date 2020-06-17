@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="控件检测-登录用户有权限加载数据" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="控件检测-非登录情况下拒绝访问" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -405,7 +405,7 @@ WHERE
               <stringProp name="variableNames">capacityhost,capacityport</stringProp>
             </JDBCSampler>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="true">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登陆" enabled="false">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="LoginNo" elementType="HTTPArgument">
@@ -625,7 +625,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -714,7 +714,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -823,7 +823,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -912,7 +912,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1021,7 +1021,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1110,7 +1110,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1219,7 +1219,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1308,7 +1308,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1417,7 +1417,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1506,7 +1506,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1615,7 +1615,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1704,7 +1704,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1813,7 +1813,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -1902,7 +1902,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2011,7 +2011,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2100,7 +2100,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2209,7 +2209,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2298,7 +2298,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2407,7 +2407,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1474026380">&quot;WarehouseID&quot;:${warehouseID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -2496,7 +2496,7 @@ WHERE
                 <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
                   <collectionProp name="Asserion.test_strings">
-                    <stringProp name="-1345562788">&quot;MemberID&quot;:${memberID_1},</stringProp>
+                    <stringProp name="-769739626">对不起，因过长时间没有操作，导致操作失败，请重新登录！</stringProp>
                   </collectionProp>
                   <stringProp name="Assertion.custom_message"></stringProp>
                   <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>

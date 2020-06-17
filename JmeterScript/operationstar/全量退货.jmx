@@ -476,7 +476,7 @@ WHERE
               <hashTree/>
             </hashTree>
           </hashTree>
-          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="生成退货单" enabled="true">
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="生成退货单" enabled="false">
             <boolProp name="LoopController.continue_forever">true</boolProp>
             <stringProp name="LoopController.loops">1</stringProp>
           </LoopController>
@@ -1036,7 +1036,7 @@ WHERE
                   <elementProp name="pageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">pageSize</stringProp>
-                    <stringProp name="Argument.value">100</stringProp>
+                    <stringProp name="Argument.value">20</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1050,7 +1050,7 @@ WHERE
                   <elementProp name="CreateDate" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">true</boolProp>
                     <stringProp name="Argument.name">CreateDate</stringProp>
-                    <stringProp name="Argument.value">${time} 00:00:00 ~ ${time} 23:59:59</stringProp>
+                    <stringProp name="Argument.value">2020-06-01 00:00:00 ~ ${time} 23:59:59</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1127,7 +1127,7 @@ WHERE
                   <elementProp name="PageSize" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">PageSize</stringProp>
-                    <stringProp name="Argument.value">100</stringProp>
+                    <stringProp name="Argument.value">20</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1300,7 +1300,7 @@ WHERE
                   <elementProp name="StartTime" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">true</boolProp>
                     <stringProp name="Argument.name">StartTime</stringProp>
-                    <stringProp name="Argument.value"> ${time} 00:00:00 </stringProp>
+                    <stringProp name="Argument.value"> 2020-05-01 00:00:00 </stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -1314,7 +1314,7 @@ WHERE
                   <elementProp name="CreateDate" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">true</boolProp>
                     <stringProp name="Argument.name">CreateDate</stringProp>
-                    <stringProp name="Argument.value">${time} 00:00:00 ~ ${time} 23:59:59</stringProp>
+                    <stringProp name="Argument.value">2020-05-01 00:00:00 ~ ${time} 23:59:59</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>

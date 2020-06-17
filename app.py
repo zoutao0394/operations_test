@@ -11,23 +11,6 @@ import time
 
 app = Flask(__name__)
 
-# root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "report")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -231,10 +214,15 @@ def taskcasedetail():
 def createtask():
     task = request.form.to_dict()
     a = control.taskmanage()
-    print(task)
-    b = a.createtask(task['taskname'],task['startmode'],task['caseids'])
-    # b = a.showcase()
-    return b
+    if task['taskgroup']=='1':
+        print(task)
+        b = a.createtask(task['taskname'],task['startmode'],task['taskgroup'],caseids=task['caseids'])
+        # b = a.showcase()
+        return b
+    elif task['taskgroup']=='2':
+        print(task)
+        b = a.createtask(task['taskname'], task['startmode'], task['taskgroup'],groupname=task['groupname'])
+        return b
 
 
 @app.route('/taskcase',methods=['POST'])

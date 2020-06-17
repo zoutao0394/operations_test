@@ -291,7 +291,8 @@
     $.get('/showtask',function(data){
         console.log(data);
 //        $("#taskdetail").html("");
-        for(var i in data.data){
+        if(data != null){
+            for(var i in data.data){
                  var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['taskid']+"' value="+data.data[i]['taskid']+"></td>"
             +"<td>"
             +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td>"+data.data[i]['name']
@@ -302,6 +303,9 @@
 
 
         };
+
+        }
+
 
     });
 
@@ -367,7 +371,13 @@
     $("button[name='createtask']").click(function(){
         var taskname = $("#tasktittle").val();
         var startmode = $("#startmode").val();
-        var list = $("input[name='selectcase']");
+        var taskgroup = $("#taskgroup").val();
+        var groupname = $("#groupname").val();
+
+       console.log(groupname);
+
+       if(taskgroup==1){
+                    var list = $("input[name='selectcase']");
         var caseid = [];
         console.log(caseid);
         for(var i in list){
@@ -378,12 +388,13 @@
 
 
         };
-        console.log(caseid);
+//        console.log(caseid);
         if(caseid.length>0){
             $.post('/createtask',{
                 taskname:taskname,
                 startmode:startmode,
-                caseids:JSON.stringify(caseid)
+                caseids:JSON.stringify(caseid),
+                taskgroup:taskgroup
             },function(data){
                 alert(data);
                 $("#createtask").modal("hide");
@@ -410,11 +421,52 @@
         else{
             alert('请选择用例');
         };
+       }
+       else if(taskgroup==2){
+//            console.log(groupname);
+            if(groupname != ''){
+//                console.log(groupname);
+                $.post('/createtask',{
+                taskname:taskname,
+                startmode:startmode,
+                groupname:groupname,
+                taskgroup:taskgroup
+            },function(data){
+                alert(data);
+                $("#createtask").modal("hide");
+                $.get('/showtask',function(data){
+                $("#taskdetail").html("");
+        for(var i in data.data){
+                       var t = "<tr onclick='checkTr(this);'><td><input onclick='checkInput(this);' type='checkbox' id='task"+data.data[i]['taskid']+"' value="+data.data[i]['taskid']+"></td>"
+            +"<td>"
+            +data.data[i]['taskname']+"</td><td>"+data.data[i]['startmode']+"</td><td>"+data.data[i]['name']
+            +"</td><td>"+data.data[i]['runtime']+"</td><td></td></tr>";
+
+
+            $("#taskdetail").append(t);
+             $("#taskcasedetail").html("");
+
+
+
+        };
+
+    });
+       });
+            }else{alert('请输入流程')};
+       }
+       else{
+            alert('功能暂未开发');
+       };
+
+
 
 
 
 
         });
+
+
+
 
 
     $(document).on('click',"button[name='taskdetail']",function(){

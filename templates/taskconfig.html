@@ -78,9 +78,18 @@
         </div>
                 <br>
                         <div class="input-group">
-            <span class="input-group-addon">输入时间:</span>
+            <span class="input-group-addon">组建方式:</span>
             <!--<input type="text" class="form-control" id="startmode" placeholder="执行方式">-->
-            <input type="text" class="form-control" id="runtime" placeholder="定时循环输入秒数；指定时间输入具体时间（20：18）">
+            <select name="startmode" id="taskgroup" class="form-control">
+                <option value="1">按用例创建</option>
+                <option value="2">按流程创建</option>
+                <option value="3">自定义创建</option>
+            </select>
+        </div>
+                <br>
+                    <div class="input-group">
+            <span class="input-group-addon">流程名称:</span>
+            <input type="text" class="form-control" id="groupname" placeholder="组建方式选择按流程组建生效，多个流程使用‘；’隔开。">
         </div>
                   <br>
                   <br>

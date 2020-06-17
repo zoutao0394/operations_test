@@ -506,6 +506,23 @@ FROM
                 sql1 = 'update auto_testcase set `status` = 1 where casetitle="%s"'%filename[0]
                 sql2 = 'insert into auto_casefile(caseid,filename,path) value(%s,"%s","%s")' % (case[0][1],file,path)
 
+                gettaskid = """
+                        select taskid from auto_taskprocess where process = (select process from auto_testcase where caseid = %s)
+                    and systemname = (select `system` from auto_testcase where caseid= %s)
+                """%(case[0][1],case[0][1])
+                db.cursor.execute(gettaskid)
+
+                taskids = db.cursor.fetchall()
+
+                for taskid in taskids:
+                    insert = """
+                        insert into auto_taskcase(taskid,caseid,status) values(%s,%s,0)
+                    """%(taskid[0],case[0][1])
+                    print(insert)
+                    db.cursor.execute(insert)
+                    db.connect.commit()
+
+
                 # db = dboperation()
                 db.cursor.execute(sql1)
                 db.cursor.execute(sql2)
@@ -547,7 +564,7 @@ class taskmanage():
 
 
     # 创建测试接口自动化测试任务
-    def createtask(self,taskname,startmode,caseids=[]):
+    def createtask(self,taskname,startmode,taskgroup,caseids=[],groupname=''):
         en = taskname.split('-')
         if 'UAT'in en[0]:
             environmentid = 2
@@ -559,33 +576,104 @@ class taskmanage():
             environmentid = 1
             configid = 1
 
-        caseids = json.loads(caseids)
-        if caseids==[]:
-            return  '请关联测试用例'
-        else:
-            sql1 = "select count(1) from auto_task where taskname='%s' and startmode='%s'" % (taskname, startmode)
+        systemname = en[1]
+        if systemname not in ['WMS','OMS','ERP','TMS','IMES']:
+            return '任务名不合法：格式 环境-系统-任务名'
+
+        if taskgroup == '1':
+            caseids = json.loads(caseids)
+            if caseids == []:
+                return '请关联测试用例'
+            else:
+                sql1 = "select count(1) from auto_task where taskname='%s' and startmode='%s'" % (taskname, startmode)
+                db = dboperation()
+                db.cursor.execute(sql1)
+                data = db.cursor.fetchall()
+
+                if data[0][0] == 0:
+                    sql2 = "insert into auto_task(taskid,taskname,startmode,status,createdate,createby,environmentid,configid,taskgroup) values(0,'%s','%s',0,now(),1,%s,%s,1)" % (
+                    taskname, startmode, environmentid, configid)
+                    # print(sql2)
+
+                    db.cursor.execute(sql2)
+                    db.connect.commit()
+                    # time.sleep(0.1)
+                    for i in caseids:
+                        # print(taskname)
+                        sql3 = "insert into auto_taskcase(taskid,caseid,status) value((select taskid from auto_task where taskname = '%s'),%s,0)" % (
+                        taskname, i)
+                        # print(sql3)
+                        db.cursor.execute(sql3)
+                        db.connect.commit()
+                    db.over()
+                    return '创建成功'
+                else:
+                    db.over()
+                    return '任务已存在'
+
+        elif taskgroup == '2':
+            groupname = groupname.split(';')
+
             db = dboperation()
+            for i in groupname:
+                sql = 'select count(1) from auto_testcase where process="%s"'%i
+                db.cursor.execute(sql)
+                c = db.cursor.fetchall()
+                if c[0][0] == 0:
+                    db.over()
+                    return '没有%s流程'%i
+
+            sql1 = "select count(1) from auto_task where taskname='%s' and startmode='%s'" % (taskname, startmode)
+            # db = dboperation()
             db.cursor.execute(sql1)
             data = db.cursor.fetchall()
 
             if data[0][0] == 0:
-                sql2 = "insert into auto_task(taskid,taskname,startmode,status,createdate,createby,environmentid,configid) values(0,'%s','%s',0,now(),1,%s,%s)" % (taskname, startmode,environmentid,configid)
+                sql2 = "insert into auto_task(taskid,taskname,startmode,status,createdate,createby,environmentid,configid,taskgroup) values(0,'%s','%s',0,now(),1,%s,%s,2)" % (
+                    taskname, startmode, environmentid, configid)
                 # print(sql2)
 
                 db.cursor.execute(sql2)
                 db.connect.commit()
                 # time.sleep(0.1)
-                for i in caseids:
-                    # print(taskname)
-                    sql3 = "insert into auto_taskcase(taskid,caseid,status) value((select taskid from auto_task where taskname = '%s'),%s,0)" %(taskname, i)
-                    # print(sql3)
+                for process in groupname:
+                    print(process)
+                    sql3 = "insert into auto_taskprocess(taskid,process,systemname) value((select taskid from auto_task where taskname = '%s'),'%s','%s')" % (
+                        taskname,process,systemname)
+                    print(sql3)
                     db.cursor.execute(sql3)
                     db.connect.commit()
+
+                    getcaseid = """
+                        select caseid from auto_testcase where `system` = '%s' and process = '%s' and type='1' and status='1'
+                    """%(systemname,process)
+                    print(getcaseid)
+                    db.cursor.execute(getcaseid)
+                    caseid = db.cursor.fetchall()
+                    for case in caseid:
+                        createprocess = """
+                            insert into auto_taskcase(taskid,caseid,status) values((select taskid from auto_task where taskname = '%s'),%s,0)
+                        """%(taskname,case[0])
+                        print(createprocess)
+                        db.cursor.execute(createprocess)
+                        db.connect.commit()
+
                 db.over()
                 return '创建成功'
             else:
                 db.over()
                 return '任务已存在'
+
+
+
+
+
+
+
+
+        else:
+            return '功能开发中'
+
 
 
 
@@ -689,41 +777,83 @@ class taskmanage():
         taskstatus = db.cursor.fetchall()
         # print(taskid)
         if taskstatus[0][0]!= 1:
-            sql = """
-                                    SELECT
-                            	casetitle ,
-                            	caseid
-                            FROM
-                            	auto_testcase 
-                            WHERE
-                            	caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
-                                """ % taskid  # 获取脚本和用例ID
-            sql1 = """
-                            update auto_taskcase set `status`=0 where taskid= %s
-                    """ % taskid  # 初始化脚本状态
-            sql2 = """
-                                    update auto_task set `status`=1 ,runtime= now() where taskid = %s
-                            """ % taskid  # 初始化任务状态
-            sql0 = """
-                                        update auto_taskreport set status=1 where taskid=%s
-                                    """ % (taskid)  # 变更以前的任务执行报告
+            group = """
+                select taskgroup from auto_task where taskid=%s
+            """%taskid
+            db.cursor.execute(group)
+            taskgroup = db.cursor.fetchall()
+            if taskgroup[0][0]==1:
 
-            db.cursor.execute(sql)
-            value = db.cursor.fetchall()
-            db.cursor.execute(sql0)
-            db.cursor.execute(sql1)
-            db.cursor.execute(sql2)
-            db.connect.commit()
-            scriptlist = []
+                sql = """
+                                        SELECT
+                                    casetitle ,
+                                    caseid
+                                FROM
+                                    auto_testcase 
+                                WHERE
+                                    caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
+                                    """ % taskid  # 获取脚本和用例ID
+                sql1 = """
+                                update auto_taskcase set `status`=0 where taskid= %s
+                        """ % taskid  # 初始化脚本状态
+                sql2 = """
+                                        update auto_task set `status`=1 ,runtime= now() where taskid = %s
+                                """ % taskid  # 初始化任务状态
+                sql0 = """
+                                            update auto_taskreport set status=1 where taskid=%s
+                                        """ % (taskid)  # 变更以前的任务执行报告
 
-            for i in value:
-                scriptlist.append(i)
+                db.cursor.execute(sql)
+                value = db.cursor.fetchall()
+                db.cursor.execute(sql0)
+                db.cursor.execute(sql1)
+                db.cursor.execute(sql2)
+                db.connect.commit()
+                scriptlist = []
 
-            db.over()
-            return scriptlist
+                for i in value:
+                    scriptlist.append(i)
+
+                db.over()
+                return scriptlist
+            elif taskgroup[0][0]==2:
+                sql = """
+                                                        SELECT
+                                                    casetitle ,
+                                                        caseid
+                                                FROM
+                                                    auto_testcase
+                                                WHERE
+                                                    caseid in (select caseid from auto_taskprocesscase where taskid = %s)
+                                                    """ % taskid  # 获取脚本和用例ID
+                sql1 = """
+                                                update auto_taskprocesscase set `status`=0 where taskid= %s
+                                        """ % taskid  # 初始化脚本状态
+                sql2 = """
+                                                        update auto_task set `status`=1 ,runtime= now() where taskid = %s
+                                                """ % taskid  # 初始化任务状态
+                sql0 = """
+                                                            update auto_taskreport set status=1 where taskid=%s
+                                                        """ % (taskid)  # 变更以前的任务执行报告
+
+                db.cursor.execute(sql)
+                value = db.cursor.fetchall()
+                db.cursor.execute(sql0)
+                db.cursor.execute(sql1)
+                db.cursor.execute(sql2)
+                db.connect.commit()
+                scriptlist = []
+
+                for i in value:
+                    scriptlist.append(i)
+
+                db.over()
+                return scriptlist
+
         else:
             db.over()
             return '当前任务执行中'
+
 
     def getconfig(self,taskid):
         sql = "select environmentid,configid from auto_task where taskid=%s"%taskid
@@ -1029,7 +1159,7 @@ class report():
 
 
 if __name__ == '__main__':
-    a = report()
-    b = a.reportpath(1252)
+    a = casemanage()
+    b = a.caseintegrate("测试-按流程配置测试任务测试1002.jmx")
     # b = a.show(a.reportlist)
     print(b)
