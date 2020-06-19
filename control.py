@@ -324,13 +324,29 @@ class casemanage():
                 self.createby = kwargs["data"]['createby']
                 # self.detail = kwargs["data"]['detail']
                 self.process = kwargs["data"]['process']
-                # print(type(self.type))
+
                 sql = "insert into auto_testcase(caseid,`system`,type,casetitle,process,createby,createdate,`status`) values(0,'%s','%s','%s','%s','%s',now(),0)" % (
                 self.system, self.type, self.casetitle, self.process, self.createby)
                 # print(sql)
                 db = dboperation()
                 db.cursor.execute(sql)
                 db.connect.commit()
+                if self.type == '1':
+                    stconfig = kwargs["data"]['stconfig']
+                    uatconfig = kwargs["data"]['uatconfig']
+                    prdconfig = kwargs["data"]['prdconfig']
+                    config = [stconfig,uatconfig,prdconfig]
+                    n = 1
+                    for c in config:
+                        # if int(c) >= 0:
+                        caseconfig = """
+                            insert into auto_caseconfig(caseid,configid,environmentid) values((select caseid from auto_testcase where `system`='%s' and casetitle = '%s' and type = '%s'),%s,%s)
+                        """%(self.system,self.casetitle,self.type,c,n)
+
+                        db.cursor.execute(caseconfig)
+                        db.connect.commit()
+
+                        n += 1
                 db.over()
                 return '创建成功'
             except BaseException:
@@ -635,24 +651,24 @@ class taskmanage():
                 db.connect.commit()
                 # time.sleep(0.1)
                 for process in groupname:
-                    print(process)
+                    # print(process)
                     sql3 = "insert into auto_taskprocess(taskid,process,systemname) value((select taskid from auto_task where taskname = '%s'),'%s','%s')" % (
                         taskname,process,systemname)
-                    print(sql3)
+                    # print(sql3)
                     db.cursor.execute(sql3)
                     db.connect.commit()
 
                     getcaseid = """
                         select caseid from auto_testcase where `system` = '%s' and process = '%s' and type='1' and status='1'
                     """%(systemname,process)
-                    print(getcaseid)
+                    # print(getcaseid)
                     db.cursor.execute(getcaseid)
                     caseid = db.cursor.fetchall()
                     for case in caseid:
                         createprocess = """
                             insert into auto_taskcase(taskid,caseid,status) values((select taskid from auto_task where taskname = '%s'),%s,0)
                         """%(taskname,case[0])
-                        print(createprocess)
+                        # print(createprocess)
                         db.cursor.execute(createprocess)
                         db.connect.commit()
 
@@ -778,13 +794,19 @@ class taskmanage():
 
 
             sql = """
-                                    SELECT
-                                casetitle ,
-                                caseid
-                            FROM
-                                auto_testcase 
-                            WHERE
-                                caseid IN ( SELECT caseid FROM auto_taskcase WHERE taskid = %s )
+                                  SELECT
+                                        t1.casetitle,
+                                        t1.caseid,
+                                        t2.configid,
+                                        t2.environmentid 
+                                    FROM
+                                        auto_testcase t1
+                                        JOIN auto_caseconfig t2 ON t1.caseid = t2.caseid
+                                        JOIN auto_taskcase t3 ON t3.caseid = t2.caseid
+                                        JOIN auto_task t4 ON t3.taskid = t4.taskid 
+                                    WHERE
+                                        t4.environmentid = t2.environmentid 
+                                        AND t4.taskid = %s;
                                 """ % taskid  # 获取脚本和用例ID
             sql1 = """
                             update auto_taskcase set `status`=0 where taskid= %s
@@ -809,39 +831,7 @@ class taskmanage():
 
             db.over()
             return scriptlist
-            # elif taskgroup[0][0]==2:
-            #     sql = """
-            #                                             SELECT
-            #                                         casetitle ,
-            #                                             caseid
-            #                                     FROM
-            #                                         auto_testcase
-            #                                     WHERE
-            #                                         caseid in (select caseid from auto_taskprocesscase where taskid = %s)
-            #                                         """ % taskid  # 获取脚本和用例ID
-            #     sql1 = """
-            #                                     update auto_taskprocesscase set `status`=0 where taskid= %s
-            #                             """ % taskid  # 初始化脚本状态
-            #     sql2 = """
-            #                                             update auto_task set `status`=1 ,runtime= now() where taskid = %s
-            #                                     """ % taskid  # 初始化任务状态
-            #     sql0 = """
-            #                                                 update auto_taskreport set status=1 where taskid=%s
-            #                                             """ % (taskid)  # 变更以前的任务执行报告
-            #
-            #     db.cursor.execute(sql)
-            #     value = db.cursor.fetchall()
-            #     db.cursor.execute(sql0)
-            #     db.cursor.execute(sql1)
-            #     db.cursor.execute(sql2)
-            #     db.connect.commit()
-            #     scriptlist = []
-            #
-            #     for i in value:
-            #         scriptlist.append(i)
-            #
-            #     db.over()
-            #     return scriptlist
+
 
         else:
             db.over()
@@ -868,7 +858,7 @@ class taskmanage():
             try:
                 if len(scriptlist) >= 1:
                     db = dboperation()
-                    config = self.getconfig(taskid)
+                    # config = self.getconfig(taskid)
 
                     # print(scriptlist, taskid)
                     startcount ="""
@@ -876,6 +866,8 @@ class taskmanage():
                     """%taskid
                     # print(startcount)
                     for script in scriptlist:
+                        if script[2] == 0:
+                            continue
                         db.cursor.execute(startcount)
                         count = db.cursor.fetchall()
 
@@ -890,7 +882,7 @@ class taskmanage():
                         filename = t + script[0]
                         subprocess.Popen(
                             'jmeter -Jtaskid=%s -Jcaseid=%s -Jenvironmentid=%s -Jconfig=%s -n -t ./JmeterScript/testcase/%s.jmx -l ./static/report/%s.jtl' % (
-                            taskid, script[1], config[0], config[1], script[0], filename),
+                            taskid, script[1], script[3], script[2], script[0], filename),
                             shell=True)
                         # time.sleep(1)
 
@@ -1152,7 +1144,7 @@ class report():
 
 
 if __name__ == '__main__':
-    a = configmanage()
-    b = a.showwarehouse()
+    a = taskmanage()
+    b = a.taskscript(88)
     # b = a.show(a.reportlist)
     print(b)

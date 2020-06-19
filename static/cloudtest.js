@@ -105,30 +105,85 @@
     $("select[name='selectcasetype']").load('/selectcasetype');
 
     $("button[name='createcase']").click(function(){
-        var s = $("#system1").val();
-        var t = $("#casetype1").val();
-        var ct = $("#casetitle").val();
-        var cd = $("#detail").val();
-        var p = $("#process").val();
 
-//        alert(system+type+casetitle+casedetail);
-        $.post('/createcase',{
-            system:s,
-            type:t,
-            casetitle:ct,
-            detail:cd,
+        var type = $("#casetype1").val();
+
+        console.log(type);
+        if(type==1){
+            var n = 0;
+            $(".form-control").each(function(){ // 批量验证表单非空
+            //            console.log($(this).val().trim());
+            if($(this).val().trim() == ''||$(this).val().trim().length<=0){
+            alert("自动化测试的用例要填写完整！");
+            $(this).focus();
+            n += 1;
+            return false;
+            }
+            });
+
+            if(n==0){
+                        var system = $("#system1").val();
+            var casetitle = $("#casetitle").val();
+            var detail = $("#detail").val();
+            var process = $("#process").val();
+            var stconfig = $("#stconfig").val();
+            var uatconfig = $("#uatconfig").val();
+            var prdconfig = $("#prdconfig").val();
+
+            $.post('/createcase',{
+            system:system,
+            type:type,
+            casetitle:casetitle,
+            detail:detail,
             createby:1,
-            process:p
-        },function(data){
+            process:process,
+            stconfig:stconfig,
+            uatconfig:uatconfig,
+            prdconfig:prdconfig
+            },function(data){
             alert(data)
             $("#createcase").modal('hide');
             $('#casetitle').val("");
             $('#detail').val("");
             $("#process").val("");
-//            $("#casedetail").load('/showcase');
+            //            $("#casedetail").load('/showcase');
             $("#selectcase").click();
 
-        });
+            });
+
+            };
+
+        }else{
+                var system = $("#system1").val();
+                var casetitle = $("#casetitle").val();
+                var detail = $("#detail").val();
+                var process = $("#process").val();
+//                var stconfig = $("#stconfig").val();
+//                var uatconfig = $("#uatconfig").val();
+//                var prdconfig = $("#prdconfig").val();
+                $.post('/createcase',{
+                system:system,
+                type:type,
+                casetitle:casetitle,
+                detail:detail,
+                createby:1,
+                process:process,
+//                stconfig:stconfig,
+//                uatconfig:uatconfig,
+//                prdconfig:prdconfig
+            },function(data){
+                alert(data)
+                $("#createcase").modal('hide');
+                $('#casetitle').val("");
+                $('#detail').val("");
+                $("#process").val("");
+    //            $("#casedetail").load('/showcase');
+                $("#selectcase").click();
+
+            });
+            };
+
+
     });
 
     $("button[name='deletecase']").click(function(){
@@ -691,6 +746,7 @@ var FileInput = function () {
 }
     return oFile;
 };
+
 
 
 
