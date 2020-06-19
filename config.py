@@ -31,7 +31,7 @@ con = pymysql.connect(
 #     database='cmaster'
 #
 # )
-
+#
 # prdmaster = pymysql.connect(
 #     host='192.168.4.100',
 #     port=33066,
@@ -40,15 +40,15 @@ con = pymysql.connect(
 #     database='fc_master'
 #
 # )
-
-
-# route = ['分拣复核','包装称重','单SKU确认','团购确认','二次分拨','人工称重','F封箱质检','团购复核称重','B2B分拨']
+#
+#
+# route = ['分拣复核','包装称重','单SKU确认','团购确认','二次分拨','人工称重','F封箱质检','团购复核称重','B2B分拨','手工称重']
 #
 # dblist = [testmaster,uatmaster,prdmaster]
 # warehouseid = ['26519','23361','26769']
 #
 # systemname = ['WMS','PDA','BASIC','OMS','CMP','ERP','TMSV2','IMES','TOMS','IMES_STG']
-
+#
 # def geturl(dblist):
 #     delete = "delete from auto_pageurl"
 #     c = con.cursor()
@@ -71,10 +71,10 @@ con = pymysql.connect(
 #
 #
 #             for i in b:
-#                 url = i[0]+'?systemCode=wms&moduleTitle='+i[1]
+#                 url = i[0]+'?systemCode=%s&moduleTitle='%sys+i[1]
 #                 print(url)
 #                 if i[1] in route:
-#                     url = i[0] + '?systemCode=wms&moduleTitle=' + i[1]+'&WarehouseID=%s'%warehouseid[environmentid-1]
+#                     url = i[0] + '?systemCode=%s&moduleTitle='%sys + i[1]+'&WarehouseID=%s'%warehouseid[environmentid-1]
 #                 sql1 = "insert into auto_pageurl(url,environmentid,assert,systemname) values('%s',%s,'%s','%s')"%(url,environmentid,i[1],sys)
 #
 #                 c.execute(sql1)
@@ -84,8 +84,8 @@ con = pymysql.connect(
 #         # con.close()
 #         # testmaster.close()
 #
-#
-#
+
+
 # if __name__ == "__main__":
 #     geturl(dblist)
 

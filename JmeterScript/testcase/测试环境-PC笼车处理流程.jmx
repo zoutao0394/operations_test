@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="WMS订单生产-笼车纸质分拣生产流程" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -3853,8 +3853,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                             </elementProp>
                           </collectionProp>
                         </elementProp>
-                        <stringProp name="HTTPSampler.domain"></stringProp>
-                        <stringProp name="HTTPSampler.port"></stringProp>
+                        <stringProp name="HTTPSampler.domain">${opwhost_1}</stringProp>
+                        <stringProp name="HTTPSampler.port">${opwport_1}</stringProp>
                         <stringProp name="HTTPSampler.protocol">http</stringProp>
                         <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                         <stringProp name="HTTPSampler.path">/Order/OrderDispose/Query</stringProp>
@@ -3950,8 +3950,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                             </elementProp>
                           </collectionProp>
                         </elementProp>
-                        <stringProp name="HTTPSampler.domain"></stringProp>
-                        <stringProp name="HTTPSampler.port"></stringProp>
+                        <stringProp name="HTTPSampler.domain">${opwhost_1}</stringProp>
+                        <stringProp name="HTTPSampler.port">${opwport_1}</stringProp>
                         <stringProp name="HTTPSampler.protocol">http</stringProp>
                         <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
                         <stringProp name="HTTPSampler.path">/Order/OrderCheck/GetPackageBoxList</stringProp>
@@ -4190,8 +4190,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                             </elementProp>
                           </collectionProp>
                         </elementProp>
-                        <stringProp name="HTTPSampler.domain"></stringProp>
-                        <stringProp name="HTTPSampler.port"></stringProp>
+                        <stringProp name="HTTPSampler.domain">${opwhost_1}</stringProp>
+                        <stringProp name="HTTPSampler.port">${opwport_1}</stringProp>
                         <stringProp name="HTTPSampler.protocol">http</stringProp>
                         <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                         <stringProp name="HTTPSampler.path">/Order/OrderDispose/OrderConfirm</stringProp>
@@ -4366,8 +4366,8 @@ vars.put(&quot;orderids&quot;,keywordStr);
                             </elementProp>
                           </collectionProp>
                         </elementProp>
-                        <stringProp name="HTTPSampler.domain"></stringProp>
-                        <stringProp name="HTTPSampler.port"></stringProp>
+                        <stringProp name="HTTPSampler.domain">${opwhost_1}</stringProp>
+                        <stringProp name="HTTPSampler.port">${opwport_1}</stringProp>
                         <stringProp name="HTTPSampler.protocol">http</stringProp>
                         <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
                         <stringProp name="HTTPSampler.path">/Order/OrderDispose/OutConfirm</stringProp>

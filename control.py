@@ -277,8 +277,6 @@ class configmanage():
         	auto_warehouemember t
         	JOIN auto_control t1 ON t.id = t1.warehousememberid
         	JOIN auto_user t2 ON t1.userid = t2.userid 
-        WHERE
-        	t2.`user` = 'zoutao';
             """
 
         db = dboperation()
@@ -294,7 +292,7 @@ class configmanage():
             # print(environmentname[0][0])
             i = list(i)
             i[5] = environmentname[0][0]
-            i[6] = 'zoutao'
+            # i[6] = 'zoutao'
             value.append(i)
 
         db.over()
@@ -1154,7 +1152,7 @@ class report():
 
 
 if __name__ == '__main__':
-    a = casemanage()
-    b = a.caseintegrate("测试-按流程配置测试任务测试1002.jmx")
+    a = configmanage()
+    b = a.showwarehouse()
     # b = a.show(a.reportlist)
     print(b)

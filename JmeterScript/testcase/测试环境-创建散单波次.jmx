@@ -12,7 +12,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="WMS订单生产-创建散单波次" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -629,7 +629,7 @@ WHERE
                       </elementProp>
                       <elementProp name="list[0][BatchOrderCount]" elementType="HTTPArgument">
                         <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                        <stringProp name="Argument.value">10</stringProp>
+                        <stringProp name="Argument.value">2</stringProp>
                         <stringProp name="Argument.metadata">=</stringProp>
                         <boolProp name="HTTPArgument.use_equals">true</boolProp>
                         <stringProp name="Argument.name">list[0][BatchOrderCount]</stringProp>
@@ -854,7 +854,7 @@ WHERE
                     <collectionProp name="Arguments.arguments">
                       <elementProp name="" elementType="HTTPArgument">
                         <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.value">{&quot;sortName&quot;:&quot;OrderId&quot;,&quot;sortOrder&quot;:&quot;asc&quot;,&quot;pageSize&quot;:20,&quot;pageNumber&quot;:1,&quot;CreateTime&quot;:&quot;${time2} 00:00:00 ~ ${time2} 23:59:59&quot;,&quot;WareHouseName&quot;:[&quot;${warehousename_1}~${membername_1}&quot;,&quot;${warehousename_1}&quot;],&quot;MemberNo&quot;:&quot;${memberno_1}&quot;,&quot;MemberID&quot;:&quot;${memberID_1}&quot;,&quot;WarehouseID&quot;:&quot;${warehouseID_1}&quot;,&quot;NetPointID&quot;:&quot;&quot;,&quot;ShopName&quot;:&quot;请选择&quot;,&quot;OrderNo&quot;:&quot;&quot;,&quot;Remark&quot;:&quot;&quot;,&quot;IsThermalPrintNetPoint&quot;:&quot;true&quot;,&quot;GroupNum&quot;:&quot;10&quot;,&quot;GoodsBarCode&quot;:&quot;&quot;,&quot;PackageSize&quot;:&quot;&quot;,&quot;MinSKU&quot;:&quot;&quot;,&quot;MaxSKU&quot;:&quot;&quot;,&quot;MinGoodsQuantity&quot;:&quot;&quot;,&quot;MaxGoodsQuantity&quot;:&quot;&quot;,&quot;Area&quot;:&quot;&quot;,&quot;OutTime&quot;:&quot;&quot;,&quot;PayTime&quot;:&quot;&quot;,&quot;ErpOrderID&quot;:&quot;&quot;,&quot;Destination&quot;:&quot;&quot;,&quot;CityID&quot;:[&quot;&quot;,&quot;&quot;,&quot;&quot;],&quot;DestinationExclude&quot;:&quot;&quot;,&quot;SSQ&quot;:&quot;&quot;,&quot;IsTaobao&quot;:false,&quot;IsNoGroup&quot;:false,&quot;NetPointIdExclude&quot;:&quot;&quot;,&quot;ShopNames&quot;:&quot;&quot;,&quot;ProvinceID&quot;:0,&quot;NotCityID&quot;:0,&quot;AreaID&quot;:0}</stringProp>
+                        <stringProp name="Argument.value">{&quot;sortName&quot;:&quot;OrderId&quot;,&quot;sortOrder&quot;:&quot;asc&quot;,&quot;pageSize&quot;:2,&quot;pageNumber&quot;:1,&quot;CreateTime&quot;:&quot;${time2} 00:00:00 ~ ${time2} 23:59:59&quot;,&quot;WareHouseName&quot;:[&quot;${warehousename_1}~${membername_1}&quot;,&quot;${warehousename_1}&quot;],&quot;MemberNo&quot;:&quot;${memberno_1}&quot;,&quot;MemberID&quot;:&quot;${memberID_1}&quot;,&quot;WarehouseID&quot;:&quot;${warehouseID_1}&quot;,&quot;NetPointID&quot;:&quot;&quot;,&quot;ShopName&quot;:&quot;请选择&quot;,&quot;OrderNo&quot;:&quot;&quot;,&quot;Remark&quot;:&quot;&quot;,&quot;IsThermalPrintNetPoint&quot;:&quot;true&quot;,&quot;GroupNum&quot;:&quot;10&quot;,&quot;GoodsBarCode&quot;:&quot;&quot;,&quot;PackageSize&quot;:&quot;&quot;,&quot;MinSKU&quot;:&quot;&quot;,&quot;MaxSKU&quot;:&quot;&quot;,&quot;MinGoodsQuantity&quot;:&quot;&quot;,&quot;MaxGoodsQuantity&quot;:&quot;&quot;,&quot;Area&quot;:&quot;&quot;,&quot;OutTime&quot;:&quot;&quot;,&quot;PayTime&quot;:&quot;&quot;,&quot;ErpOrderID&quot;:&quot;&quot;,&quot;Destination&quot;:&quot;&quot;,&quot;CityID&quot;:[&quot;&quot;,&quot;&quot;,&quot;&quot;],&quot;DestinationExclude&quot;:&quot;&quot;,&quot;SSQ&quot;:&quot;&quot;,&quot;IsTaobao&quot;:false,&quot;IsNoGroup&quot;:false,&quot;NetPointIdExclude&quot;:&quot;&quot;,&quot;ShopNames&quot;:&quot;&quot;,&quot;ProvinceID&quot;:0,&quot;NotCityID&quot;:0,&quot;AreaID&quot;:0}</stringProp>
                         <stringProp name="Argument.metadata">=</stringProp>
                       </elementProp>
                     </collectionProp>
@@ -935,98 +935,105 @@ WHERE
                   </ResponseAssertion>
                   <hashTree/>
                 </hashTree>
-                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建散单波次" enabled="true">
-                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
-                    <collectionProp name="Arguments.arguments">
-                      <elementProp name="orderIds[]" elementType="HTTPArgument">
-                        <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                        <stringProp name="Argument.name">orderIds[]</stringProp>
-                        <stringProp name="Argument.value">${OrderId_1}</stringProp>
-                        <stringProp name="Argument.metadata">=</stringProp>
-                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                      </elementProp>
-                      <elementProp name="WarehouseID" elementType="HTTPArgument">
-                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.name">WarehouseID</stringProp>
-                        <stringProp name="Argument.value">${warehouseID_1}</stringProp>
-                        <stringProp name="Argument.metadata">=</stringProp>
-                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                      </elementProp>
-                      <elementProp name="MemberID" elementType="HTTPArgument">
-                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                        <stringProp name="Argument.name">MemberID</stringProp>
-                        <stringProp name="Argument.value">${memberID_1}</stringProp>
-                        <stringProp name="Argument.metadata">=</stringProp>
-                        <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                      </elementProp>
-                    </collectionProp>
-                  </elementProp>
-                  <stringProp name="HTTPSampler.domain"></stringProp>
-                  <stringProp name="HTTPSampler.port"></stringProp>
-                  <stringProp name="HTTPSampler.protocol">http</stringProp>
-                  <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
-                  <stringProp name="HTTPSampler.path">/Order/SeperateBuying/SaveBatchOrder</stringProp>
-                  <stringProp name="HTTPSampler.method">POST</stringProp>
-                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
-                </HTTPSamplerProxy>
+                <ForeachController guiclass="ForeachControlPanel" testclass="ForeachController" testname="ForEach控制器" enabled="true">
+                  <stringProp name="ForeachController.inputVal">OrderId</stringProp>
+                  <stringProp name="ForeachController.returnVal">OrderId</stringProp>
+                  <boolProp name="ForeachController.useSeparator">true</boolProp>
+                </ForeachController>
                 <hashTree>
-                  <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
-                    <collectionProp name="HeaderManager.headers">
-                      <elementProp name="Referer" elementType="Header">
-                        <stringProp name="Header.name">Referer</stringProp>
-                        <stringProp name="Header.value">http://172.16.20.6:8068/Order/SeperateBuying/SeperateBuying?systemCode=wms</stringProp>
-                      </elementProp>
-                      <elementProp name="Accept-Language" elementType="Header">
-                        <stringProp name="Header.name">Accept-Language</stringProp>
-                        <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
-                      </elementProp>
-                      <elementProp name="Origin" elementType="Header">
-                        <stringProp name="Header.name">Origin</stringProp>
-                        <stringProp name="Header.value">http://172.16.20.6:8068</stringProp>
-                      </elementProp>
-                      <elementProp name="Accept" elementType="Header">
-                        <stringProp name="Header.name">Accept</stringProp>
-                        <stringProp name="Header.value">*/*</stringProp>
-                      </elementProp>
-                      <elementProp name="X-Requested-With" elementType="Header">
-                        <stringProp name="Header.name">X-Requested-With</stringProp>
-                        <stringProp name="Header.value">XMLHttpRequest</stringProp>
-                      </elementProp>
-                      <elementProp name="Content-Type" elementType="Header">
-                        <stringProp name="Header.name">Content-Type</stringProp>
-                        <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
-                      </elementProp>
-                      <elementProp name="Accept-Encoding" elementType="Header">
-                        <stringProp name="Header.name">Accept-Encoding</stringProp>
-                        <stringProp name="Header.value">gzip, deflate</stringProp>
-                      </elementProp>
-                      <elementProp name="User-Agent" elementType="Header">
-                        <stringProp name="Header.name">User-Agent</stringProp>
-                        <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36</stringProp>
-                      </elementProp>
-                      <elementProp name="the_request_service" elementType="Header">
-                        <stringProp name="Header.name">the_request_service</stringProp>
-                        <stringProp name="Header.value">wms</stringProp>
-                      </elementProp>
-                    </collectionProp>
-                  </HeaderManager>
-                  <hashTree/>
-                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
-                    <collectionProp name="Asserion.test_strings">
-                      <stringProp name="3569038">true</stringProp>
-                    </collectionProp>
-                    <stringProp name="Assertion.custom_message"></stringProp>
-                    <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
-                    <boolProp name="Assertion.assume_success">false</boolProp>
-                    <intProp name="Assertion.test_type">16</intProp>
-                  </ResponseAssertion>
-                  <hashTree/>
+                  <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="创建散单波次" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                      <collectionProp name="Arguments.arguments">
+                        <elementProp name="orderIds[]" elementType="HTTPArgument">
+                          <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                          <stringProp name="Argument.name">orderIds[]</stringProp>
+                          <stringProp name="Argument.value">${OrderId}</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                          <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                        <elementProp name="WarehouseID" elementType="HTTPArgument">
+                          <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                          <stringProp name="Argument.name">WarehouseID</stringProp>
+                          <stringProp name="Argument.value">${warehouseID_1}</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                          <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                        <elementProp name="MemberID" elementType="HTTPArgument">
+                          <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                          <stringProp name="Argument.name">MemberID</stringProp>
+                          <stringProp name="Argument.value">${memberID_1}</stringProp>
+                          <stringProp name="Argument.metadata">=</stringProp>
+                          <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                        </elementProp>
+                      </collectionProp>
+                    </elementProp>
+                    <stringProp name="HTTPSampler.domain"></stringProp>
+                    <stringProp name="HTTPSampler.port"></stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                    <stringProp name="HTTPSampler.path">/Order/SeperateBuying/SaveBatchOrder</stringProp>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                    <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                    <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  </HTTPSamplerProxy>
+                  <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+                      <collectionProp name="HeaderManager.headers">
+                        <elementProp name="Referer" elementType="Header">
+                          <stringProp name="Header.name">Referer</stringProp>
+                          <stringProp name="Header.value">http://172.16.20.6:8068/Order/SeperateBuying/SeperateBuying?systemCode=wms</stringProp>
+                        </elementProp>
+                        <elementProp name="Accept-Language" elementType="Header">
+                          <stringProp name="Header.name">Accept-Language</stringProp>
+                          <stringProp name="Header.value">zh-CN,zh;q=0.9</stringProp>
+                        </elementProp>
+                        <elementProp name="Origin" elementType="Header">
+                          <stringProp name="Header.name">Origin</stringProp>
+                          <stringProp name="Header.value">http://172.16.20.6:8068</stringProp>
+                        </elementProp>
+                        <elementProp name="Accept" elementType="Header">
+                          <stringProp name="Header.name">Accept</stringProp>
+                          <stringProp name="Header.value">*/*</stringProp>
+                        </elementProp>
+                        <elementProp name="X-Requested-With" elementType="Header">
+                          <stringProp name="Header.name">X-Requested-With</stringProp>
+                          <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                        </elementProp>
+                        <elementProp name="Content-Type" elementType="Header">
+                          <stringProp name="Header.name">Content-Type</stringProp>
+                          <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
+                        </elementProp>
+                        <elementProp name="Accept-Encoding" elementType="Header">
+                          <stringProp name="Header.name">Accept-Encoding</stringProp>
+                          <stringProp name="Header.value">gzip, deflate</stringProp>
+                        </elementProp>
+                        <elementProp name="User-Agent" elementType="Header">
+                          <stringProp name="Header.name">User-Agent</stringProp>
+                          <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36</stringProp>
+                        </elementProp>
+                        <elementProp name="the_request_service" elementType="Header">
+                          <stringProp name="Header.name">the_request_service</stringProp>
+                          <stringProp name="Header.value">wms</stringProp>
+                        </elementProp>
+                      </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                      <collectionProp name="Asserion.test_strings">
+                        <stringProp name="3569038">true</stringProp>
+                      </collectionProp>
+                      <stringProp name="Assertion.custom_message"></stringProp>
+                      <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                      <boolProp name="Assertion.assume_success">false</boolProp>
+                      <intProp name="Assertion.test_type">16</intProp>
+                    </ResponseAssertion>
+                    <hashTree/>
+                  </hashTree>
                 </hashTree>
               </hashTree>
             </hashTree>
